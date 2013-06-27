@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ManyWho Documentation</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+
+    <link href="http://twitter.github.io/bootstrap/assets/css/docs.css" rel="stylesheet">
+    <link href="http://twitter.github.io/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="span3 bs-docs-sidebar">
+          <ul class="nav nav-list bs-docs-sidenav affix">
+            <li><a href="#gettingFlowInfo"><i class="icon-chevron-right"></i> Getting Flow Info</a></li>
+            <li><a href="#initializing"><i class="icon-chevron-right"></i> Initializing</a></li>
+            <li><a href="#executing"><i class="icon-chevron-right"></i> Executing</a></li>
+            <li><a href="#joining"><i class="icon-chevron-right"></i> Joining</a></li>
+            <li><a href="#responding"><i class="icon-chevron-right"></i> Responding</a></li>
+            <li><a href="#objects"><i class="icon-chevron-right"></i> JSON Reference</a></li>
+          </ul>
+          Don't like our API? We want to know how we can do better!
+        </div>
+        <div class="span9">
+
+          <section id="gettingFlowInfo">
+            <div class="page-header">
+              <h1>Getting Flow Info <small>Find out what flows are available to run</small></h1>
+            </div>
+
+            <h2>Intro</h2>
+            <p>Before you can run a flow on the platform, you need to have the flow identifier and flow version identifier for the flow you wish to run.  We recommend,
+            that you get the version information at runtime rather than hard coding it into your apps.  You should therefore either store the name of the flow (which is
+            very loose coupling as names are subject to change if the author decides to do this) or the flow identifier only.  This means you are always getting the latest
+            activated version of the flow.  If you hard code the version number, you will always get the same version of that flow - which means you'll never consume any
+            updates as changes are made over time.</p>
+  
+            <h3>Flow Runtime Sequence</h3>
+            <p>When loading and running a flow, the sequence of calls is typically the following:</p>
+            <ol>
+              <li>Get the flow version identifier (and flow identifier for "name" references)</li>
+              <li>Initialize the flow, passing in any initialization values and annotations</li>
+              <li>Execute the flow and consume the response
+                <ol>
+                  <li>If the response requires user interaction, write the page layout to the screen for the user (indicated by an invoke type of "FORWARD")</li>
+                  <li>If the response is simply a status message for a background process, write the wait info to the screen (indicated by an invoke type of "WAIT")</li>
+                  <li>In either case, the calling application should poll our "ping" API to check for any changes to the flow state (e.g. a background process has completed or another user has changed the view state or executed another step)</li>
+                </ol>
+              </li>
+            </ol>
+
+            <hr class="bs-docs-separator">
+
+            <h2>Getting All Available Flows</h2>
+            <p>You can get the list of flows that are available to run using the following:</p>
+            <table class="table table-bordered">
+              <tr class="success">
+                <td><strong>URL</strong></td>
+                <td><strong>HTTP Verb</strong></td>
+                <td><strong>JSON Request</strong></td>
+                <td><strong>JSON Response</strong></td>
+              </tr>
+              <tr>
+                <td>api/run/1/flow</td>
+                <td>GET</td>
+                <td>N/A</td>
+                <td>Array of <a href="#flowresponseobject">Flow Response Objects</a></td>
+              </tr>
+            </table>
+            
+            <p>You must also provide the runtime with the following header value:</p>
+            <table class="table table-bordered">
+              <tr class="info">
+                <td><strong>Name</strong></td>
+                <td><strong>Value</strong></td>
+              </tr>
+              <tr>
+                <td>ManyWhoTenant</td>
+                <td><i>&lt;The Unique Identifier For Your Tenant&gt;</i></td>
+              </tr>
+            </table>
+            
+            <div class="bs-docs-example">
+              GET https://flow.manywho.com/api/run/1/flow
+            </div>
+            <pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pun">[</span></li><li class="L1"><span class="pln">  </span><span class="pun">{</span></li><li class="L2"><span class="pln">    </span><span class="atv">"dateCreated"</span><span class="pun">:</span><span class="atv">"2013-06-19T16:44:06.847"</span><span class="pun">,</span></li><li class="L3"><span class="pln">    </span><span class="atv">"dateModified"</span><span class="pun">:</span><span class="atv">"2013-06-19T16:53:23.767"</span><span class="pun">,</span></li><li class="L4"><span class="pln">    </span><span class="atv">"userCreated"</span><span class="pun">:</span><span class="atv">"0c100d10-cc8c-43d7-abd6-669565a33c19"</span><span class="pun">,</span></li><li class="L5"><span class="pln">    </span><span class="atv">"userModified"</span><span class="pun">:</span><span class="atv">"0c100d10-cc8c-43d7-abd6-669565a33c19"</span><span class="pun">,</span></li><li class="L6"><span class="pln">    </span><span class="atv">"userOwner"</span><span class="pun">:</span><span class="atv">"0c100d10-cc8c-43d7-abd6-669565a33c19"</span><span class="pun">,</span></li><li class="L7"><span class="pln">    </span><span class="atv">"editingSessionId"</span><span class="pun">:</span><span class="atv">null</span><span class="pun">,</span></li><li class="L8"><span class="pln">    </span><span class="atv">"editingSessionTokenId"</span><span class="pun">:</span><span class="atv">null</span><span class="pun">,</span></li><li class="L9"><span class="pln">    </span><span class="atv">"id"</span><span class="pun">:{</span></li><li class="L10"><span class="pln">      </span><span class="atv">"id"</span><span class="pun">:</span><span class="atv">"104acb42-c01f-419f-b4bf-fccf867d166c"</span><span class="pun">,</span></li><li class="L11"><span class="pln">      </span><span class="atv">"versionId"</span><span class="pun">:</span><span class="atv">"4cdd19ee-eeff-4f42-bd74-3ce85c2a60dd"</span></li><li class="L12"><span class="pln">    </span><span class="pun">},</span></li><li class="L13"><span class="pln">    </span><span class="atv">"developerName"</span><span class="pun">:</span><span class="atv">"ManyWhoRegistration"</span><span class="pun">,</span></li><li class="L14"><span class="pln">    </span><span class="atv">"developerSummary"</span><span class="pun">:</span><span class="atv">"This is the registration flow for new accounts."</span><span class="pun">,</span></li><li class="L15"><span class="pln">    </span><span class="atv">"isActive"</span><span class="pun">:</span><span class="atv">true</span><span class="pun">,</span></li><li class="L16"><span class="pln">    </span><span class="atv">"isDefault"</span><span class="pun">:</span><span class="atv">true</span><span class="pun">,</span></li><li class="L17"><span class="pln">    </span><span class="atv">"startMapElementId"</span><span class="pun">:</span><span class="atv">"a1648b9a-ec75-4ae1-ab24-c76879e8d551"</span><span class="pun">,</span></li><li class="L18"><span class="pln">    </span><span class="atv">"authorization"</span><span class="pun">:</span><span class="atv">null</span></li><li class="L19"><span class="pln">  </span><span class="pun">}</span></li><li class="L20"><span class="pun">]</span></li></ol></pre>
+
+            <h2>Get A Flow By Unique Identifier</h2>
+            <p>You can get the complete information for a specific flow using the following command.  We recommend using flow identifiers when linking to a flow as it will
+            ensure a change in name will not lose the link to your app.  In addition, names are not required to be unique.</p>
+            <table class="table table-bordered">
+              <tr class="success">
+                <td><strong>URL</strong></td>
+                <td><strong>HTTP Verb</strong></td>
+                <td><strong>JSON Request</strong></td>
+                <td><strong>JSON Response</strong></td>
+              </tr>
+              <tr>
+                <td>api/run/1/flow/{flowId}</td>
+                <td>GET</td>
+                <td>N/A</td>
+                <td><a href="#flowresponseobject">Flow Response Object</a></td>
+              </tr>
+            </table>
+
+            <p>Where the parameters are as follows:</p>
+            <table class="table table-bordered">
+              <tr>
+                <td><strong>Property</strong></td>
+                <td><strong>Type</strong></td>
+                <td><strong>Description</strong></td>
+              </tr>
+              <tr>
+                <td>flowId</td>
+                <td>String: GUID</td>
+                <td>The unique identifier for the flow you wish to get.</td>
+              </tr>
+            </table>
+
+            <p>You must also provide the runtime with the following header value:</p>
+            <table class="table table-bordered">
+              <tr class="info">
+                <td><strong>Name</strong></td>
+                <td><strong>Value</strong></td>
+              </tr>
+              <tr>
+                <td>ManyWhoTenant</td>
+                <td><i>&lt;The Unique Identifier For Your Tenant&gt;</i></td>
+              </tr>
+            </table>
+
+            <div class="bs-docs-example">
+              GET https://flow.manywho.com/api/run/1/flow/104acb42-c01f-419f-b4bf-fccf867d166c
+            </div>
+            <pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pun">{</span></li><li class="L1"><span class="pln">  </span><span class="atv">"dateCreated"</span><span class="pun">:</span><span class="atv">"2013-06-19T16:44:06.847"</span><span class="pun">,</span></li><li class="L2"><span class="pln">  </span><span class="atv">"dateModified"</span><span class="pun">:</span><span class="atv">"2013-06-19T16:53:23.767"</span><span class="pun">,</span></li><li class="L3"><span class="pln">  </span><span class="atv">"userCreated"</span><span class="pun">:</span><span class="atv">"0c100d10-cc8c-43d7-abd6-669565a33c19"</span><span class="pun">,</span></li><li class="L4"><span class="pln">  </span><span class="atv">"userModified"</span><span class="pun">:</span><span class="atv">"0c100d10-cc8c-43d7-abd6-669565a33c19"</span><span class="pun">,</span></li><li class="L5"><span class="pln">  </span><span class="atv">"userOwner"</span><span class="pun">:</span><span class="atv">"0c100d10-cc8c-43d7-abd6-669565a33c19"</span><span class="pun">,</span></li><li class="L6"><span class="pln">  </span><span class="atv">"editingSessionId"</span><span class="pun">:</span><span class="atv">null</span><span class="pun">,</span></li><li class="L7"><span class="pln">  </span><span class="atv">"editingSessionTokenId"</span><span class="pun">:</span><span class="atv">null</span><span class="pun">,</span></li><li class="L8"><span class="pln">  </span><span class="atv">"id"</span><span class="pun">:{</span></li><li class="L9"><span class="pln">    </span><span class="atv">"id"</span><span class="pun">:</span><span class="atv">"104acb42-c01f-419f-b4bf-fccf867d166c"</span><span class="pun">,</span></li><li class="L10"><span class="pln">    </span><span class="atv">"versionId"</span><span class="pun">:</span><span class="atv">"4cdd19ee-eeff-4f42-bd74-3ce85c2a60dd"</span></li><li class="L11"><span class="pln">  </span><span class="pun">},</span></li><li class="L12"><span class="pln">  </span><span class="atv">"developerName"</span><span class="pun">:</span><span class="atv">"ManyWhoRegistration"</span><span class="pun">,</span></li><li class="L13"><span class="pln">  </span><span class="atv">"developerSummary"</span><span class="pun">:</span><span class="atv">"This is the registration flow for new accounts."</span><span class="pun">,</span></li><li class="L14"><span class="pln">  </span><span class="atv">"isActive"</span><span class="pun">:</span><span class="atv">true</span><span class="pun">,</span></li><li class="L15"><span class="pln">  </span><span class="atv">"isDefault"</span><span class="pun">:</span><span class="atv">true</span><span class="pun">,</span></li><li class="L16"><span class="pln">  </span><span class="atv">"startMapElementId"</span><span class="pun">:</span><span class="atv">"a1648b9a-ec75-4ae1-ab24-c76879e8d551"</span><span class="pun">,</span></li><li class="L17"><span class="pln">  </span><span class="atv">"authorization"</span><span class="pun">:</span><span class="atv">null</span></li><li class="L18"><span class="pln"></span><span class="pun">}</span></li></ol></pre>
+
+            <h2>Get A Flow By Name</h2>
+            <p>You can get the complete information for a specific flow using the following command.  Linking to a flow by name can be useful if you wish to use friendly
+            urls or you want to loosely bind your flows inside the app.  At ManyWho, we reference the flows used by the drawing tool by name.  We do this because we
+            do not know the flow identifier ahead of time (we generate the flows when your tenant is created) and we have also adopted a clear and unique naming convention
+            for each flow.</p>
+            <table class="table table-bordered">
+              <tr class="success">
+                <td><strong>URL</strong></td>
+                <td><strong>HTTP Verb</strong></td>
+                <td><strong>JSON Request</strong></td>
+                <td><strong>JSON Response</strong></td>
+              </tr>
+              <tr>
+                <td>api/run/1/flow/name/{flowName}</td>
+                <td>GET</td>
+                <td>N/A</td>
+                <td><a href="#flowresponseobject">Flow Response Object</a></td>
+              </tr>
+            </table>
+
+            <p>Where the parameters are as follows:</p>
+            <table class="table table-bordered">
+              <tr>
+                <td><strong>Property</strong></td>
+                <td><strong>Type</strong></td>
+                <td><strong>Description</strong></td>
+              </tr>
+              <tr>
+                <td>flowName</td>
+                <td>String</td>
+                <td>The developer name for the flow as provided in the developerName property in the <a href="flowresponseobject">Flow Response Object</a>.</td>
+              </tr>
+            </table>
+
+            <p>You must also provide the runtime with the following header value:</p>
+            <table class="table table-bordered">
+              <tr class="info">
+                <td><strong>Name</strong></td>
+                <td><strong>Value</strong></td>
+              </tr>
+              <tr>
+                <td>ManyWhoTenant</td>
+                <td><i>&lt;The Unique Identifier For Your Tenant&gt;</i></td>
+              </tr>
+            </table>
+
+            <div class="bs-docs-example">
+              GET https://flow.manywho.com/api/run/1/flow/name/ManyWhoRegistration
+            </div>
+            <pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pun">{</span></li><li class="L1"><span class="pln">  </span><span class="atv">"dateCreated"</span><span class="pun">:</span><span class="atv">"2013-06-19T16:44:06.847"</span><span class="pun">,</span></li><li class="L2"><span class="pln">  </span><span class="atv">"dateModified"</span><span class="pun">:</span><span class="atv">"2013-06-19T16:53:23.767"</span><span class="pun">,</span></li><li class="L3"><span class="pln">  </span><span class="atv">"userCreated"</span><span class="pun">:</span><span class="atv">"0c100d10-cc8c-43d7-abd6-669565a33c19"</span><span class="pun">,</span></li><li class="L4"><span class="pln">  </span><span class="atv">"userModified"</span><span class="pun">:</span><span class="atv">"0c100d10-cc8c-43d7-abd6-669565a33c19"</span><span class="pun">,</span></li><li class="L5"><span class="pln">  </span><span class="atv">"userOwner"</span><span class="pun">:</span><span class="atv">"0c100d10-cc8c-43d7-abd6-669565a33c19"</span><span class="pun">,</span></li><li class="L6"><span class="pln">  </span><span class="atv">"editingSessionId"</span><span class="pun">:</span><span class="atv">null</span><span class="pun">,</span></li><li class="L7"><span class="pln">  </span><span class="atv">"editingSessionTokenId"</span><span class="pun">:</span><span class="atv">null</span><span class="pun">,</span></li><li class="L8"><span class="pln">  </span><span class="atv">"id"</span><span class="pun">:{</span></li><li class="L9"><span class="pln">    </span><span class="atv">"id"</span><span class="pun">:</span><span class="atv">"104acb42-c01f-419f-b4bf-fccf867d166c"</span><span class="pun">,</span></li><li class="L10"><span class="pln">    </span><span class="atv">"versionId"</span><span class="pun">:</span><span class="atv">"4cdd19ee-eeff-4f42-bd74-3ce85c2a60dd"</span></li><li class="L11"><span class="pln">  </span><span class="pun">},</span></li><li class="L12"><span class="pln">  </span><span class="atv">"developerName"</span><span class="pun">:</span><span class="atv">"ManyWhoRegistration"</span><span class="pun">,</span></li><li class="L13"><span class="pln">  </span><span class="atv">"developerSummary"</span><span class="pun">:</span><span class="atv">"This is the registration flow for new accounts."</span><span class="pun">,</span></li><li class="L14"><span class="pln">  </span><span class="atv">"isActive"</span><span class="pun">:</span><span class="atv">true</span><span class="pun">,</span></li><li class="L15"><span class="pln">  </span><span class="atv">"isDefault"</span><span class="pun">:</span><span class="atv">true</span><span class="pun">,</span></li><li class="L16"><span class="pln">  </span><span class="atv">"startMapElementId"</span><span class="pun">:</span><span class="atv">"a1648b9a-ec75-4ae1-ab24-c76879e8d551"</span><span class="pun">,</span></li><li class="L17"><span class="pln">  </span><span class="atv">"authorization"</span><span class="pun">:</span><span class="atv">null</span></li><li class="L18"><span class="pln"></span><span class="pun">}</span></li></ol></pre>
+
+            <hr class="bs-docs-separator">
+
+            <h2>Initializing</h2>
+            <p>Once you have the full Flow Identifier object, you can initialize your flow, ready to start executing!  Initialization allows you to do a few things:</p>
+            <ol>
+              <li><strong>Create inputs</strong>: Inputs are related to Values in a flow.  If the author of the flow has created Values that have an access setting of "Input" or "Input/Output",
+              you can pass information into those values at initialization.  These might be things like the Id of an Account record in salesforce.com that the flow relates to, or
+              the phone number of the current caller.</li>
+              <li><strong>Create annotations</strong>: An annotation is a piece of data you want to attach to your flow, but is not actually passed in as an input.  Often developers
+              want to store additional information in the flow state that helps with integration or more complex configuration.  Think of annotations as session state
+              that is read/write for the entire duration of the flow execution.</li>
+              <li><strong>Set the execution mode</strong>: The "mode" allows you to run the flow in a couple of different debug configurations. This allows you to step through the flow
+              as a user would see it, but also step through the flow element by element (even logical elements).  It's very powerful for debugging - honestly - it's
+              fantastic when flows get a little more complicated!</li>
+            </ol>
+            <table class="table table-bordered">
+              <tr class="success">
+                <td><strong>URL</strong></td>
+                <td><strong>HTTP Verb</strong></td>
+                <td><strong>JSON Request</strong></td>
+                <td><strong>JSON Response</strong></td>
+              </tr>
+              <tr>
+                <td>api/run/1</td>
+                <td>POST</td>
+                <td><a href="#engineinitializationrequestobject">Engine Initialization Request Object</a></td>
+                <td><a href="#engineinitializationresponseobject">Engine Initialization Response Object</a></td>
+              </tr>
+            </table>
+
+            <div class="bs-docs-example">
+              POST https://flow.manywho.com/api/run/1
+            </div>
+            <pre class="prettyprint linenums">
+              <ol class="linenums">
+                <li class="L0"><span class="pun">{</span></li>
+                <li class="L1"><span class="pln">  </span><span class="atv">"flowId"</span><span class="pun">:{</span></li>
+                <li class="L2"><span class="pln">    </span><span class="atv">"id"</span><span class="pun">:</span><span class="atv">"104acb42-c01f-419f-b4bf-fccf867d166c"</span><span class="pun">,</span></li>
+                <li class="L3"><span class="pln">    </span><span class="atv">"versionId"</span><span class="pun">:</span><span class="atv">"4cdd19ee-eeff-4f42-bd74-3ce85c2a60dd"</span></li>
+                <li class="L4"><span class="pln">  </span><span class="pun">},</span></li>
+                <li class="L5"><span class="pln">  </span><span class="atv">"annotations"</span><span class="pun">:</span><span class="atv">null</span><span class="pun">,</span></li>
+                <li class="L2"><span class="pln">  </span><span class="atv">"inputs"</span><span class="pun">:[</span></li>
+                <li class="L2"><span class="pln">    </span><span class="pun">{</span></li>
+                <li class="L5"><span class="pln">      </span><span class="atv">"id"</span><span class="pun">:</span><span class="atv">null</span><span class="pun">,</span></li>
+                <li class="L5"><span class="pln">      </span><span class="atv">"typeElementId"</span><span class="pun">:</span><span class="atv">null</span><span class="pun">,</span></li>
+                <li class="L5"><span class="pln">      </span><span class="atv">"typeElementEntryId"</span><span class="pun">:</span><span class="atv">null</span><span class="pun">,</span></li>
+                <li class="L5"><span class="pln">      </span><span class="atv">"developerName"</span><span class="pun">:</span><span class="atv">"Account Id"</span><span class="pun">,</span></li>
+                <li class="L5"><span class="pln">      </span><span class="atv">"typeElementDeveloperName"</span><span class="pun">:</span><span class="atv">null</span><span class="pun">,</span></li>
+                <li class="L5"><span class="pln">      </span><span class="atv">"typeElementEntryDeveloperName"</span><span class="pun">:</span><span class="atv">null</span><span class="pun">,</span></li>
+                <li class="L5"><span class="pln">      </span><span class="atv">"contentValue"</span><span class="pun">:</span><span class="atv">"001E000000cnERa"</span><span class="pun">,</span></li>
+                <li class="L5"><span class="pln">      </span><span class="atv">"contentType"</span><span class="pun">:</span><span class="atv">"CONTENT_STRING"</span><span class="pun">,</span></li>
+                <li class="L5"><span class="pln">      </span><span class="atv">"objectData"</span><span class="pun">:</span><span class="atv">null</span><span class="pun">,</span></li>
+                <li class="L2"><span class="pln">    </span><span class="pun">},</span></li>
+                <li class="L2"><span class="pln">    </span><span class="pun">{</span></li>
+                <li class="L5"><span class="pln">      </span><span class="atv">"id"</span><span class="pun">:</span><span class="atv">null</span><span class="pun">,</span></li>
+                <li class="L5"><span class="pln">      </span><span class="atv">"typeElementId"</span><span class="pun">:</span><span class="atv">null</span><span class="pun">,</span></li>
+                <li class="L5"><span class="pln">      </span><span class="atv">"typeElementEntryId"</span><span class="pun">:</span><span class="atv">null</span><span class="pun">,</span></li>
+                <li class="L5"><span class="pln">      </span><span class="atv">"developerName"</span><span class="pun">:</span><span class="atv">"My Customer"</span><span class="pun">,</span></li>
+                <li class="L5"><span class="pln">      </span><span class="atv">"typeElementDeveloperName"</span><span class="pun">:</span><span class="atv">"Contact"</span><span class="pun">,</span></li>
+                <li class="L5"><span class="pln">      </span><span class="atv">"typeElementEntryDeveloperName"</span><span class="pun">:</span><span class="atv">"Phone"</span><span class="pun">,</span></li>
+                <li class="L5"><span class="pln">      </span><span class="atv">"contentValue"</span><span class="pun">:</span><span class="atv">"(415) 990 5958"</span><span class="pun">,</span></li>
+                <li class="L5"><span class="pln">      </span><span class="atv">"contentType"</span><span class="pun">:</span><span class="atv">"CONTENT_STRING"</span><span class="pun">,</span></li>
+                <li class="L5"><span class="pln">      </span><span class="atv">"objectData"</span><span class="pun">:</span><span class="atv">null</span><span class="pun">,</span></li>
+                <li class="L2"><span class="pln">    </span><span class="pun">}</span></li>
+                <li class="L4"><span class="pln">  </span><span class="pun">],</span></li>
+                <li class="L3"><span class="pln">  </span><span class="atv">"mode"</span><span class="pun">:</span><span class="atv">null</span></li>
+                <li class="L18"><span class="pln"></span><span class="pun">}</span></li>
+              </ol>
+            </pre>
+
+
+            <pre class="prettyprint linenums">
+              <ol class="linenums">
+                <li class="L0"><span class="pun">{</span></li>
+                <li class="L1"><span class="pln">  </span><span class="atv">"dateCreated"</span><span class="pun">:</span><span class="atv">"2013-06-19T16:44:06.847"</span><span class="pun">,</span></li>
+                <li class="L2"><span class="pln">  </span><span class="atv">"dateModified"</span><span class="pun">:</span><span class="atv">"2013-06-19T16:53:23.767"</span><span class="pun">,</span></li>
+                <li class="L3"><span class="pln">  </span><span class="atv">"userCreated"</span><span class="pun">:</span><span class="atv">"0c100d10-cc8c-43d7-abd6-669565a33c19"</span><span class="pun">,</span></li>
+                <li class="L4"><span class="pln">  </span><span class="atv">"userModified"</span><span class="pun">:</span><span class="atv">"0c100d10-cc8c-43d7-abd6-669565a33c19"</span><span class="pun">,</span></li>
+                <li class="L5"><span class="pln">  </span><span class="atv">"userOwner"</span><span class="pun">:</span><span class="atv">"0c100d10-cc8c-43d7-abd6-669565a33c19"</span><span class="pun">,</span></li>
+                <li class="L6"><span class="pln">  </span><span class="atv">"editingSessionId"</span><span class="pun">:</span><span class="atv">null</span><span class="pun">,</span></li>
+                <li class="L7"><span class="pln">  </span><span class="atv">"editingSessionTokenId"</span><span class="pun">:</span><span class="atv">null</span><span class="pun">,</span></li>
+                <li class="L8"><span class="pln">  </span><span class="atv">"id"</span><span class="pun">:{</span></li><li class="L9"><span class="pln">    </span><span class="atv">"id"</span><span class="pun">:</span><span class="atv">"104acb42-c01f-419f-b4bf-fccf867d166c"</span><span class="pun">,</span></li>
+                <li class="L10"><span class="pln">    </span><span class="atv">"versionId"</span><span class="pun">:</span><span class="atv">"4cdd19ee-eeff-4f42-bd74-3ce85c2a60dd"</span></li>
+                <li class="L11"><span class="pln">  </span><span class="pun">},</span></li>
+                <li class="L12"><span class="pln">  </span><span class="atv">"developerName"</span><span class="pun">:</span><span class="atv">"ManyWhoRegistration"</span><span class="pun">,</span></li>
+                <li class="L13"><span class="pln">  </span><span class="atv">"developerSummary"</span><span class="pun">:</span><span class="atv">"This is the registration flow for new accounts."</span><span class="pun">,</span></li>
+                <li class="L14"><span class="pln">  </span><span class="atv">"isActive"</span><span class="pun">:</span><span class="atv">true</span><span class="pun">,</span></li>
+                <li class="L15"><span class="pln">  </span><span class="atv">"isDefault"</span><span class="pun">:</span><span class="atv">true</span><span class="pun">,</span></li>
+                <li class="L16"><span class="pln">  </span><span class="atv">"startMapElementId"</span><span class="pun">:</span><span class="atv">"a1648b9a-ec75-4ae1-ab24-c76879e8d551"</span><span class="pun">,</span></li>
+                <li class="L17"><span class="pln">  </span><span class="atv">"authorization"</span><span class="pun">:</span><span class="atv">null</span></li>
+                <li class="L18"><span class="pln"></span><span class="pun">}</span></li>
+              </ol>
+            </pre>
+
+
+            <hr class="bs-docs-separator">
+          </section>
+          <section id="objects">
+            <h2 id="flowresponseobject">Flow Response Object</h2>
+            <p>The flow response object properties are as follows:</p>
+            <table class="table table-bordered">
+              <tr>
+                <td><strong>Property</strong></td>
+                <td><strong>Type</strong></td>
+                <td><strong>Description</strong></td>
+              </tr>
+              <tr>
+                <td>dateCreated</td>
+                <td>String: Date/Time in JavaScript 1.8.5/ECMAScript 5th Edition format</td>
+                <td>The date the flow was first created.</td>
+              </tr>
+              <tr>
+                <td>dateModified</td>
+                <td>String: Date/Time in JavaScript 1.8.5/ECMAScript 5th Edition format</td>
+                <td>The date the last modificiation was made to the flow.</td>
+              </tr>
+              <tr>
+                <td>userCreated</td>
+                <td>String: GUID</td>
+                <td>The unique identifier for the user who created the flow.</td>
+              </tr>
+              <tr>
+                <td>userModified</td>
+                <td>String: GUID</td>
+                <td>The unique identifier for the user who last modified the flow.</td>
+              </tr>
+              <tr>
+                <td>userOwner</td>
+                <td>String: GUID</td>
+                <td>The unique identifier for the user who owns this flow.</td>
+              </tr>
+              <tr>
+                <td>editingSessionId</td>
+                <td>String: GUID</td>
+                <td>This property is returned, but is always 'null' for run operations.</td>
+              </tr>
+              <tr>
+                <td>editingSessionTokenId</td>
+                <td>String: GUID</td>
+                <td>This property is returned, but is always 'null' for run operations.</td>
+              </tr>
+              <tr>
+                <td>id</td>
+                <td>Object: <a href="#flowidobject">Flow Identifier Object</a></td>
+                <td>The complete unique identifier needed to initialize and run the flow.</td>
+              </tr>
+              <tr>
+                <td>developerName</td>
+                <td>String</td>
+                <td>The developer name for the flow.  If you are referencing flows by name, this is the name you should use in your referencing.</td>
+              </tr>
+              <tr>
+                <td>developerSummary</td>
+                <td>String</td>
+                <td>The developer summary the author provided to give more information about the flow.</td>
+              </tr>
+              <tr>
+                <td>isActive</td>
+                <td>Boolean</td>
+                <td>Indicates if this flow version is the active version. In the case of run operations, this will always be true.</td>
+              </tr>
+              <tr>
+                <td>isDefault</td>
+                <td>Boolean</td>
+                <td>Indicates if this flow version is the default version. In the case of run operations, this will always be true.</td>
+              </tr>
+              <tr>
+                <td>startMapElementId</td>
+                <td>String: GUID</td>
+                <td>The unique identifier for the first element in the flow.</td>
+              </tr>
+              <tr>
+                <td>authorization</td>
+                <td>Object: Authorization</td>
+                <td>The Authorization object for this flow.</td>
+              </tr>
+            </table>
+
+            <h2 id="flowidobject">Flow Identifier Object</h2>
+            <p>The flow identifier object properties are as follows:</p>
+            <table class="table table-bordered">
+              <tr>
+                <td><strong>Property</strong></td>
+                <td><strong>Type</strong></td>
+                <td><strong>Description</strong></td>
+              </tr>
+              <tr>
+                <td>id</td>
+                <td>String: GUID</td>
+                <td>The unique identifier for the flow.  This identifier does not change for the lifetime of the flow and is generated when the flow is first created.</td>
+              </tr>
+              <tr>
+                <td>versionId</td>
+                <td>String: GUID</td>
+                <td>The unique identifier for the specific version of a flow.  This identifier changes any time a change is made to the flow - in structure or content.</td>
+              </tr>
+            </table>
+
+            <h2 id="enginevalueobject">Engine Value Object</h2>
+            <p>The engine value object properties are as follows:</p>
+            <table class="table table-bordered">
+              <tr>
+                <td><strong>Property</strong></td>
+                <td><strong>Type</strong></td>
+                <td><strong>Description</strong></td>
+              </tr>
+              <tr>
+                <td>id</td>
+                <td>String: GUID</td>
+                <td>(Optional) The unique identifier for the value in the flow being assigned. Using the id to reference the value ensures that your player is guaranteed to be assigning the correct value.  If you reference a value by developerName, it is possible for the author to break integration points simply by changing the name of the value.  You must provide an 'id' or a 'developerName'.</td>
+              </tr>
+              <tr>
+                <td>typeElementId</td>
+                <td>String: GUID</td>
+                <td>(Optional) The unique identifier for the object type of the value in the flow being assigned.  Using the typeElementId ensures that your player is guaranteed to be referencing the correct object type.  If you use the typeElementDeveloperName property, a change in the type name can break the integration.  We ask that you specify the type as we may in future support type casting and we therefore want to know the type you're passing in so we can validate it is correct before mapping to the super type.</td>
+              </tr>
+              <tr>
+                <td>typeElementEntryId</td>
+                <td>String: GUID</td>
+                <td>The unique identifier for the object property of the value in the flow being assigned.  Typed objects all have properties or "Type Element Entries" as they're called through the API.  Using the typeElementEntryId allows you to assign a property in an object value as opposed to the whole value.  As with the other identifier references, using the typeElementEntryId ensures that your player is guaranteed to be assigning the correct value.  Using the typeElementEntryDeveloperName makes it possible to break the integration if the author changes the developerName of a property in the type.</td>
+              </tr>
+              <tr>
+                <td>typeElementDeveloperName</td>
+                <td>String</td>
+                <td>(Optional) The developer name for the object type of the value in the flow being assigned.  See the typeElementId for more information.</td>
+              </tr>
+              <tr>
+                <td>typeElementEntryDeveloperName</td>
+                <td>String</td>
+                <td>The developer name for the object property of the value in the flow being assigned.  See the typeElementEntryId for more information.</td>
+              </tr>
+              <tr>
+                <td>contentValue</td>
+                <td>String</td>
+                <td>The actual content value being assigned to the value in the flow.  This property should be used for all "primitive", non-typed values in your flow.  For example, if you are referencing a value called "First Name", this would be the value you actually want to assign to it: e.g. "Steve".</td>
+              </tr>
+              <tr>
+                <td>contentType</td>
+                <td>String: <a href="#contenttypeenum">ContentType</a></td>
+                <td>The content type of the value you are passing into the flow.  The content types are specified by the ContentType enumeration.</td>
+              </tr>
+              <tr>
+                <td>id</td>
+                <td>Object: <a href="#flowidobject">Object Data Object</a></td>
+                <td>The actual object data being assigne to the value in the flow.  If you are assigning a typed object, you should use this property to assign the value.  The object data is provided as a list of objects regardless of whether you're assigning an object or a list.  However, for objects you should only ever have one object in your array.</td>
+              </tr>
+            </table>
+        
+            <h2 id="contenttypeenum">ContentType Enumeration</h2>
+            <p>The ContentType enum contains the following values:</p>
+            <table class="table table-bordered">
+              <tr>
+                <td><strong>Value</strong></td>
+                <td><strong>Typed</strong></td>
+                <td><strong>Description</strong></td>
+              </tr>
+              <tr>
+                <td>ContentString</td>
+                <td>No</td>
+                <td>A Java java.lang.String or C# System.String value.</td>
+              </tr>
+              <tr>
+                <td>ContentNumber</td>
+                <td>No</td>
+                <td>A Java java.lang.Double or C# System.Double value.</td>
+              </tr>
+              <tr>
+                <td>ContentBoolean</td>
+                <td>No</td>
+                <td>A Java java.lang.Boolean or C# System.Boolean value.</td>
+              </tr>
+              <tr>
+                <td>ContentPassword</td>
+                <td>No</td>
+                <td>A Java java.lang.String or C# System.String value.  If you indicate a value is a password, we use additional value encryption on storage.</td>
+              </tr>
+              <tr>
+                <td>ContentDateTime</td>
+                <td>No</td>
+                <td>A Java java.lang.DataTime or C# System.DateTime.  Using the REST API, the value should be provided in JavaScript 1.8.5/ECMAScript 5th Edition format.</td>
+              </tr>
+              <tr>
+                <td>ContentContent</td>
+                <td>No</td>
+                <td>A Java java.lang.String or C# System.String value.  If you indicate a value is "Content", we typically expect that the content holds HTML formatted String content.  The engine will also parse the contents of this String with any value references.</td>
+              </tr>
+              <tr>
+                <td>ContentObject</td>
+                <td>Yes</td>
+                <td>The value is Object Data based on the ManyWho format.  This allows you to pass complex data into ManyWho for processing, including child objects and lists.  Any Object Data being passed into the system also needs to have a Type as defined by your Type Elements.</td>
+              </tr>
+              <tr>
+                <td>ContentList</td>
+                <td>Yes</td>
+                <td>The value is a list of Object Data based on the ManyWho format.  This allows you to pass lists of complex data into ManyWho for processing (of the same Type), including child objects and lists.  Any Object Data being passed into the system also needs to have a Type as defined by your Type Elements.</td>
+              </tr>
+            </table>
+          </section>
+        </div>
+      </div>
+    </div>  
+  </body>
+</html>
