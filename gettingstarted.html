@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ManyWho Documentation</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+
+    <link href="http://twitter.github.io/bootstrap/assets/css/docs.css" rel="stylesheet">
+    <link href="http://twitter.github.io/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+          $('#docsSidebar').scrollspy();
+        });
+	
+    </script>
+  </head>
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="./index.html">Bootstrap</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="">
+                <a href="http://manywho.com">Website Home</a>
+              </li>
+              <li class="">
+                <a href="./index.html">Doc Home</a>
+              </li>
+              <li class="">
+                <a href="./gettingstarted.html">Getting Started</a>
+              </li>
+              <li class="">
+                <a href="./draw.html">Draw</a>
+              </li>
+              <li class="">
+                <a href="./run.html">Run</a>
+              </li>
+              <li class="">
+                <a href="./monitor.html">Monitor</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="span3 bs-docs-sidebar">
+          <ul id="docsSidebar" class="nav nav-list bs-docs-sidenav affix">
+            <li><a href="#accountCreation"><i class="icon-chevron-right"></i> Getting Your Account</a></li>
+            <li><a href="#salesforceSetup"><i class="icon-chevron-right"></i> Setting Up Salesforce</a></li>
+            <li><a href="#accountSetup"><i class="icon-chevron-right"></i> Configuring Your Account</a></li>
+            <li><a href="#buildFirstFlow"><i class="icon-chevron-right"></i> Creating Your First Flow</a></li>
+          </ul>
+        </div>
+        <div class="span9">
+
+          <section>
+            <div class="marketing">
+              <h1>Getting Started</h1>
+              <div class="row-fluid">
+                <div class="span12"><img class="marketing-img" alt="Getting Started" src="http://manywho.com/wp-content/themes/ManyWho_Website_Bootstrap4/images/drag_and_drop.png"></div>
+              </div>
+            </div>
+          </section>
+          
+          <section id="accountCreation">
+
+            <h1>Getting Your Account <small>Helpful hints on getting signed up</small></h1>
+
+            <hr class="bs-docs-separator">
+
+            <h2>Intro</h2>
+            <p>The ManyWho platform is available as a public beta for free.  This means you can create an account, integrate it with salesforce.com and build flows. We
+            will not destroy your account as we move into GA, so feel free to have a play, send us feedback (contact@manywho.com) and learn.  We're eager to learn from
+            our early adopters.</p>
+            <p>To sign up for an account, you can go to our homepage at <a href="http://manywho.com" target="_blank">http://manywho.com</a>.  Just click on the big red
+            "Sign Up" in the middle of the page. You'll then be prompted to provide us with some basic information.  No credit cards or confidential information needed.</p>
+
+            <div class="alert">
+              <strong>Note!</strong> As you go through the registration flow (and it is a flow; built on our platform!), the browser will ask to get your location.  You
+              should select the option in your browser to "Always Allow" so it will stop annoying you. We're not tracking your location for any evil reason, it's just the
+              default behavior of our software. Flows can have location based permissions.
+            </div>
+
+            <div class="alert alert-error">
+              <strong>Also Note!</strong> The email you use to sign up will determine your account.  So, if you sign up using a GMail address, you will be in the same
+              account (or tenant) as every other GMail user! Not a problem for us, but as we enable the sharing features, you'll find you've got a few more friends helping
+              you than you might have expected!
+            </div>
+
+            <p>Once you're through the flow registration, you'll see a few emails in your inbox with instructions and links to get started.  Once you've received the email
+            confirming your account has been created, all you need to do is go to <a href="http://flow.manywho.com" target="_blank">http://flow.manywho.com</a> to select
+            the tooling you'd like to use: either the point-and-click designer or the developer tooling - and then login.</p>
+
+          </section>
+          
+          <section id="salesforceSetup">
+
+            <h1>Setting Up Salesforce <small>Get a free account so you can play safe</small></h1>
+
+            <hr class="bs-docs-separator">
+
+            <p>As of the public beta, customers will need to create a salesforce account to enable the social features of the product. We will be launching Yammer and
+            Jive integration in the near future - and also our own basic identity management system for those not wanting the collaboration capabilities. Getting an
+            account with salesforce.com is easy, and it's free for testing and developing.</p>
+
+            <p>The steps are as follows:</p>
+
+            <h3>Create a salesforce.com account</h3>
+            <ol>
+              <li>Go to <a href="http://developer.force.com" target="_blank">http://developer.force.com</a></li>
+              <li>Click on the 'Free Developer Edition' link in the 'Start Building Today!' box at the top left of the page</li>
+              <li>Complete the registration form to get your free salesforce.com account.  In the form, make sure you use a real email address, but for the username, you
+              might want to change the end of your email to '.demo'.  For example steve.wood@manywho.demo rather than .com.  If you already have an existing salesforce.com
+              account, you will not be able to us the same username!</li>
+              <li>Find your 'Salesforce login confirmation' email in your inbox and click on the link to set your password</li>
+              <li>Complete the password setup page and submit.</li>
+              <li>You should then be taken to the home page of your salesforce.com account.  Nice work!  You've got an account you can play with in salesforce.com.</li>
+            </ol>
+
+            <div class="alert alert-error">
+              <strong>WRITE IT DOWN!</strong> Take a note of the website address being used by your account in salesforce.  You should see something like
+              'https://na15.salesforce.com/'.  Make a note of the first part that starts with 'na' or 'eu', etc.  In this example, it's 'na15'.  We'll need this
+              information when setting up the Salesforce plugin in ManyWho.
+            </div>
+
+            <h3>Reset your security token</h3>
+            <ol>
+              <li>In the top right menu of your salesforce.com account, click on your name and select 'My Settings'</li>
+              <li>In the navigation bar on the left side, click on 'Personal'</li>
+              <li>In the displayed sub menu, click 'Reset My Security Token'</li>
+              <li>On the screen for 'Reset My Security Token' click on the 'Reset Security Token' button.</li>
+              <li>You will get your security token sent to you by email.  Keep an eye out for that as we will also need that information to set up the Salesforce plugin.</li>
+            </ol>
+
+            <h3>Create a Custom Object for ManyWho</h3>
+            <ol>
+              <li>In the top right menu of your salesforce.com account, click on 'Setup'</li>
+              <li>In the navigation bar on the left side, under the 'Build' section, click on 'Create'</li>
+              <li>In the displayed sub menu, click 'New Custom Object'</li>
+              <li>On the screen for 'New Custom Object', complete the following (make sure this information is entered exactly as shown):
+                <ul>
+                  <li>Label: ManyWhoFlow</li>
+                  <li>Plural Label: ManyWhoFlows</li>
+                </ul>
+              </li>
+              <li>Leave all of the other settings alone and click 'Save'</li>
+            </ol>
+
+            <h3>Add feed tracking to the ManyWhoFlow Custom Object</h3>
+            <ol>
+              <li>Under the 'Build' section, click on 'Customize'</li>
+              <li>In the displayed sub menu, scroll down and click on 'Chatter'</li>
+              <li>In the displayed sub menu, click on 'Feed Tracking'</li>
+              <li>On the 'Feed Tracking' screen, select 'ManyWhoFlow' in this list of objects (on the left beside the main setup menu)</li>
+              <li>Tick the box for 'Enable Feed Tracking' at the top of the page area and click 'Save'</li>
+            </ol>
+
+            <h3>Create a new Profile for ManyWho</h3>
+            <ol>
+              <li>Under the 'Administer' section, click on 'Manage Users'</li>
+              <li>In the displayed sub menu, click on 'Profiles'</li>
+              <li>On the 'Profiles' screen, click on 'New Profile'</li>
+              <li>On the 'New Profile' screen, complete the following:
+                <ul>
+                  <li>Existing Profile: Force.com - App Subscription User</li>
+                  <li>Profile Name: ManyWho User</li>
+                </ul>
+              </li>
+              <li>Click on the 'Next' button</li>
+              <li>Click on the 'Edit' button and scroll down to the 'Custom Object Permissions' section</li>
+              <li>Tick all the boxes for 'Read', 'Create', 'Edit' and 'Delete' for your newly created ManyWhoFlow Object</li>
+              <li>Click on the 'Save' button</li>
+            </ol>
+
+            <h3>Create another user to collaborate with!</h3>
+            <p>To show the coolness of ManyWho, you need another user account so you have someone to collaborate with. For now, let's just make that other user YOU, for
+            the purposes of trying out the software.  We'll leave of jokes aside about how you're talking to yourself...</p>
+            <ol>
+              <li>Under the 'Administer' section, click on 'Manage Users'</li>
+              <li>In the displayed sub menu, click on 'Users'</li>
+              <li>On the 'Users' screen, click on 'New User'</li>
+              <li>On the 'New User' screen, complete the following:
+                <ul>
+                    <li>Make up a first name and last name</li>
+                    <li>For the 'Email', use your own email address (we are pretending it's someone else afterall)</li>
+                    <li>For the 'Username', pick something similar to the username you selected, but obviously not the same.  Make sure you write that down.</li>
+                    <li>For the 'User License', select 'Force.com - App Subscription'</li>
+                    <li>For the 'Profile', select 'ManyWho User' (which we created earlier)</li>
+                </ul>
+              </li>
+              <li>Click on 'Save'</li>
+              <li>Find your 'Salesforce login confirmation' email in your inbox and click on the link to set your password</li>
+              <li>Complete the password setup page and submit.</li>
+              <li>You should then be taken to the home page of your salesforce.com account.  Nice work!  You've got another user account you can play with in salesforce.com.</li>
+            </ol>
+
+            <h3>Make logging into salesforce.com easier</h3>
+            <p>We can set up salesforce.com so ManyWho users can login to their salesforce account without needing to use a complicated security token.</p>
+            <ol>
+              <li>Under the 'Administer' section, click on 'Security Controls'</li>
+              <li>In the displayed sub menu, click on 'Network Access'</li>
+              <li>On the 'Network Access' screen, click on 'New'</li>
+              <li>For the Start IP Address and End IP Address enter: 168.61.48.82</li>
+              <li>Click on 'Save'</li>
+            </ol>
+
+            <div class="alert alert-success">
+              <strong>Phew!</strong> That was a fair amount of work.  Luckily, you don't need to do that again! Now that we have a salesforce account, we can leverage
+              this to build apps.  ManyWho currently only supports salesforce integration in the public beta, but will be releasing integrations with Concur, Workday
+              as well as SAP and Microsoft products in the near future.
+            </div>
+
+          <section id="accountSetup">
+
+            <h1>Configuring Your Account <small>Put salesforce.com 'inside'</small></h1>
+
+            <hr class="bs-docs-separator">
+
+            <h3>Sign in to your account</h3>
+            <ol>
+              <li>Login to your account by going to <a href="http://flow.manywho.com" target="_blank">http://flow.manywho.com</a></li>
+              <li>Click on the image of the Flow Designer as we'll assume you're a 'Drag and Drop Rebel'!</li>
+              <li>When prompted, login using the details you provided as part of your ManyWho account registration</li>
+            </ol>
+
+            <p>First thing we need to do is enter our salesforce settings.  We'll need these to set up the salesforce integration.  This is a one-time configuration,
+            as once we have the salesforce service setup, we can use it for all of our flows in future.  If this stage feels quite complicated, don't worry, this is
+            pretty much as bad as it gets!  The individual settings are stored in 'Values' in your account.  These Values are used to tell the salesforce plugin about
+            your salesforce account.</p>
+
+            <h3>Create your salesforce configuration Values</h3>
+            <ol>
+              <li>Click on the 'Values' button in the toolbar at the top of the Flow Designer</li>
+              <li>Click on the 'Create New' button</li>
+              <li>For 'Content Type', select 'String'</li>
+              <li>Click on the 'Next' button</li>
+              <li>For the 'Name' (you can choose any name you like, but this is our suggestion), enter: Salesforce Username</li>
+              <li>In the 'Default String' box, enter the username you provided for your salesforce account registration</li>
+              <li>Tick the box for 'Is Fixed'</li>
+              <li>For 'Access', select 'Private'</li>
+              <li>Click on the 'Save' button</li>
+            </ol>
+            
+            <p>Just take a moment to explain what we did there.  Basically, we're creating a Value for each setting that's needed for the Salesforce plugin. A Value
+            can store all sorts of things; a String, Number, Date, and more.  It can also store objects like Account, Contact, Lead.  In our situation, we're creating
+            a bunch of String values (and one Password value).  We set them as 'Fixed' to indicate that the value cannot be changed by a flow or by an external system.
+            We also set the 'Access' to this value as 'Private' so the value is not accessible/visible to users or external systems (unless explicitly provided).</p>
+            <p>We need to create a few more Values, so all you need to do is repeat steps 2 to 8 above, but using the settings in the table below:</p>
+
+            <table class="table table-bordered">
+              <tr class="success">
+                <td><strong>Content Type</strong></td>
+                <td><strong>Name</strong></td>
+                <td><strong>Default String/Password</strong></td>
+                <td><strong>Is Fixed</strong></td>
+                <td><strong>Access</strong></td>
+              </tr>
+              <tr>
+                <td>Password</td>
+                <td>Salesforce Password</td>
+                <td><i>&lt;The password you provided in your salesforce registration&gt;</i></td>
+                <td>Ticked</td>
+                <td>Private</td>
+              </tr>
+              <tr>
+                <td>String</td>
+                <td>Salesforce Security Token</td>
+                <td><i>&lt;The security token you received in your email&gt;</i></td>
+                <td>Ticked</td>
+                <td>Private</td>
+              </tr>
+              <tr>
+                <td>String</td>
+                <td>Salesforce Authentication Url</td>
+                <td>https://login.salesforce.com</td>
+                <td>Ticked</td>
+                <td>Private</td>
+              </tr>
+              <tr>
+                <td>String</td>
+                <td>Salesforce Admin Email</td>
+                <td><i>&lt;Your email address in case of any issues with the plugin&gt;</i></td>
+                <td>Ticked</td>
+                <td>Private</td>
+              </tr>
+              <tr>
+                <td>String</td>
+                <td>Salesforce Chatter Base Url</td>
+                <td><i>&lt;The information you SHOULD HAVE written down from configuring salesforce.  This value will be in the format of https://xxx.salesforce.com (e.g. https://na15.salesforce.com as with our example)&gt;</i></td>
+                <td>Ticked</td>
+                <td>Private</td>
+              </tr>
+            </table>
+
+            <p>Click on the 'Close' button on the Values dialog once all of those are done.  We've now got all of the configuration information we need.  Next step is to
+            install the Salesforce service.</p>
+
+            <h3>Install the salesforce.com plugin</h3>
+            <ol>
+              <li>Click on the 'Services' button in the top menu bar in the Flow Designer</li>
+              <li>Click on 'Create New'</li>
+              <li>For the 'Name', enter 'Salesforce Service' (this is a suggestion, you can actually call it anything you like)</li>
+              <li>For the 'Connection Url', enter: http://flow.manywho.com/plugins/api/salesforce/1</li>
+              <li>For the 'Format', select 'JSON'</li>
+              <li>Click on the 'Next' button</li>
+            </ol>
+
+            <p>You should now see a list of configuration values the service needs to get from you to function correctly.  You should also notice that the names of these
+            configuration values matches up reasonably with the values we created earlier.  With that being the case, now do the following:</p>
+
+            <ol>
+              <li>Click on the 'AuthenticationUrl' configuration value and click on 'Edit Selected'</li>
+              <li>For the value, select your 'Salesforce Authentication Url' value and click on 'Apply'</li>
+            </ol>
+
+            <p>Now you simply need to repeat this process again for each of the values as shown the the table below:</p>
+
+            <table class="table table-bordered">
+              <tr class="success">
+                <td><strong>Configuration Value</strong></td>
+                <td><strong>Your Value</strong></td>
+              </tr>
+              <tr>
+                <td>AdminEmail</td>
+                <td>Salesforce Admin Email</td>
+              </tr>
+              <tr>
+                <td>ChatterBaseUrl</td>
+                <td>Salesforce Chatter Base Url</td>
+              </tr>
+              <tr>
+                <td>Username</td>
+                <td>Salesforce Username</td>
+              </tr>
+              <tr>
+                <td>Password</td>
+                <td>Salesforce Password</td>
+              </tr>
+              <tr>
+                <td>SecurityToken</td>
+                <td>Salesforce Security Token</td>
+              </tr>
+            </table>
+            
+            <p>You'll know you're done when you have a Value beside all of the Configuration Values in the list.  With that completed, it's just two more steps:</p>
+            <ol>
+              <li>Click on the 'Install' button.  This process can take a little time, so please be patient!</li>
+              <li>Click on 'Save'</li>
+            </ol>
+
+            <div class="alert alert-success">
+              <strong>Woohoo!</strong> Now, that's enough setup and configuration for a while!  Let's get busy building some flows.  All of the stuff we've just done
+              doesn't need to be done again, the pain is over!
+            </div>
+
+          </section>
+
+          <section id="buildFirstFlow">
+
+            <h1>Creating Your First Flow <small>Now the fun part</small></h1>
+
+            <hr class="bs-docs-separator">
+            
+            <p>Rather than walking you through step-by-step instructions, we figured it would be easier to show you a few videos.  Have a look at our YouTube Channel
+            and have a look at any video that starts with the name 'Flow Tutorial'.</p>
+
+            <p><a href="http://www.youtube.com/user/themanywho" target="_blank">http://www.youtube.com/user/themanywho</a></p>
+          </section>
+
+        </div>
+      </div>
+    </div>  
+
+<!-- Google Code for Remarketing tag -->
+<!-- Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. For instructions on adding this tag and more information on the above requirements, read the setup guide: google.com/ads/remarketingsetup -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 997422716;
+var google_conversion_label = "7aw_CPyY7gQQ_OzN2wM";
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/997422716/?value=0&amp;label=7aw_CPyY7gQQ_OzN2wM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+
+  </body>
+</html>
