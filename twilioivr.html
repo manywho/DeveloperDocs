@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ManyWho Documentation</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+    <link href="bootstrap/css/prettify.css" rel="stylesheet">
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#docsSidebar').scrollspy();
+        });
+
+    </script>
+</head>
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="./index.html">Bootstrap</a>
+
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li class="">
+                        <a href="http://manywho.com">Website Home</a>
+                    </li>
+                    <li class="">
+                        <a href="./index.html">Doc Home</a>
+                    </li>
+                    <li class="">
+                        <a href="./gettingstarted.html">Getting Started</a>
+                    </li>
+                    <li class="">
+                        <a href="./draw.html">Draw</a>
+                    </li>
+                    <li class="">
+                        <a href="./run.html">Run</a>
+                    </li>
+                    <li class="">
+                        <a href="./monitor.html">Monitor</a>
+                    </li>
+                    <li class="">
+                        <a href="./twilioivr.html">Twilio</a>
+                    </li>
+                    <li class="">
+                        <a href="./salesforcecanvas.html">Salesforce</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="span3 bs-docs-sidebar">
+            <ul id="docsSidebar" class="nav nav-list bs-docs-sidenav affix">
+                <li><a href="#salesforce-intro"><i class="icon-chevron-right"></i> Intro</a></li>
+                <li><a href="#prerequisites"><i class="icon-chevron-right"></i> Prerequisites</a></li>
+                <li><a href="#salesforceSetup"><i class="icon-chevron-right"></i> Setting Up Twilio</a></li>
+            </ul>
+        </div>
+        <div class="span9">
+
+            <section id="salesforce-intro">
+                <div class="marketing">
+                    <h1>Salesforce Canvas</h1>
+
+                    <div class="row-fluid">
+                        <div class="span12"><img class="marketing-img" alt="Salesforce Canvas"
+                                                 src="http://manywho.com/wp-content/themes/ManyWho_Website_Bootstrap4/images/twilio-logo.png">
+                        </div>
+                    </div>
+                </div>
+                <p>Twilio is an excellent cloud-based telephony service. The instructions below outline the basic setup
+                    of getting your ManyWho Flow
+                    to act as an IVR script for Twilio. The instructions will go over the basics of getting Twilio and
+                    ManyWho to "talk to each other"
+                    and we'll assume you can get an account with Twilio without our help!</p>
+            </section>
+
+            <section id="prerequisites">
+
+                <h1>Prerequisites
+                    <small>Read this before you begin...</small>
+                </h1>
+
+                <hr class="bs-docs-separator">
+
+                <p>Make sure you have an account with <a href="http://www.twilio.com" target="_blank">Twilio</a>! You
+                    can sign up
+                    for free and the instructions on the site will walk you through the basics of getting your account.
+                </p>
+
+                <p>Perhaps it goes without saying, but we'll say it anyway. These instructions assume you have a Flow
+                    built on ManyWho that you want to use with Twilio! If you haven't built your Flow, please have a
+                    look at our YouTube channel for useful
+                    tutorials and demos to get you going:
+                    <a href="http://youtube.com/user/themanywho">http://youtube.com/user/themanywho</a></p>
+
+                <p>That said, there are a few ground rules you should be aware of when building a flow that will work
+                    with Twilio:</p>
+
+                <ol>
+                    <li>Your Flow should only contain Steps or Pages where the Page Layout can only contain one input
+                        (and that input must be bound to a Number Value)
+                    </li>
+                    <li>Your Flow must be "Public" to the internet (e.g. not require authentication) and also not have
+                        any collaboration stream (as this will confuse things)</li>
+                    <li>All of the Outcomes for your Steps or Pages must have a number for the Name (API reference:
+                        Outcome.developerName). This number will be used
+                        to drive the selection.
+                    </li>
+                    <li>When you add content to your Step, make sure you only use carriage returns (that will convert
+                        into HTML paragraphs). The plugin will convert
+                        the paragraphs into Twilio 'Say' tags automatically.
+                    </li>
+                </ol>
+
+                <p>The code for the Twilio plugin is available as Shared Source, so feel free to take it, adapt it and
+                    improve it. The code is an example of the
+                    power of our platform and will hopefully give you some more ideas of how you can embed ManyWho into
+                    many of the systems and processes inside your
+                    organization.</p>
+
+                <p>Github: <a href="http://github.com/manywho">http://github.com/manywho</a></p>
+
+                <p>We'd love to see any improvements!</p>
+            </section>
+
+            <section id="salesforceSetup">
+
+                <h1>Setting Twilio
+                    <small>Put your app inside Twilio</small>
+                </h1>
+
+                <hr class="bs-docs-separator">
+
+                <p>The steps are as follows:</p>
+
+                <h3>Activate your Flow</h3>
+                <ol>
+                    <li>Go to <a href="https://flow.manywho.com/draw" target="_blank">https://flow.manywho.com/draw</a>
+                    </li>
+                    <li>Login using your Author credentials.</li>
+                    <li>Open the Flow you want to embed in Twilio.</li>
+                    <li>Click on the "Activate" button to activate the flow for release.</li>
+                    <li>In the address bar of the browser, select the hyperlink address and copy it (ctrl-C or
+                        right-click and Copy).
+                    </li>
+                </ol>
+
+                <h3>Create your Twilio app</h3>
+                <ol>
+                    <li>Login to your Twilio account at: <a href="http://www.twilio.com" target="_blank">http://www.twilio.com</a>
+                    </li>
+                    <li>In the top right click on 'Account'.</li>
+                    <li>In the navigation bar at the top of the screen, click on 'Numbers'.</li>
+                    <li>Click on the Number you want to associate with your Flow. If you don't have any numbers, you may
+                        need
+                        to click on the 'Buy a number' button to get one. Once you've done that, restart these steps.
+                    </li>
+                    <li>For the 'Voice Request URL', paste the hyperlink you copied in the 'Activate your Flow' steps
+                        (ctrl-V or right-click and Paste).
+                    </li>
+                    <li>You need to change the link around a bit as follows (concentrate!):
+                        <ol>
+                            <li>The link you pasted will look like this (it may not have the 'tenant-id' parameter as
+                                that is being deprecated):
+                                https://flow.manywho.com/<b
+                                        style="color: #ff0000;">da497693-4d02-45db-bc08-8ea16d2ccbdf</b>/play/default?tenant-id=DA497693-4D02-45DB-BC08-8EA16D2CCBDF&flow-id=<b
+                                        style="color: #00ff00;">F473785B-D2D5-44B3-91DC-E99C691D753F</b>&flow-version-id=488DB228-C59B-40FE-8BA2-16B62F013C37
+                            </li>
+                            <li>Replace the 'https://flow.manywho.com' with
+                                'https://twilio.manywho.com/plugins/api/twilio/1/twiml'.
+                            </li>
+                            <li>Delete everything that follows 'canvas', until you get to the '&flow-id'. Delete the
+                                '&flow-id=' and replace it with a '/' (forward slash).
+                            </li>
+                            <li>Now, cursor to the right until you get to the '&flow-version-id'. Delete the
+                                '&flow-version-id' and everything after it.
+                            </li>
+                            <li>Once you've completed the steps, the URL should look something like this:
+                                https://twilio.manywho.com/plugins/api/twilio/1/twiml/<b style="color: #ff0000;">da497693-4d02-45db-bc08-8ea16d2ccbdf</b>/<b
+                                        style="color: #00ff00;">F473785B-D2D5-44B3-91DC-E99C691D753F</b>
+                            </li>
+                            <li>Or put another way, the URL is broken down like this:
+                                https://twilio.manywho.com/plugins/api/twilio/1/twiml/{tenantId}/{flowId}
+                            </li>
+                        </ol>
+                    </li>
+                    <li>Put the same URL into the 'Messaging Request URL' field.</li>
+                    <li>Click on 'Save Changes' to complete the Twilio configuration.</li>
+                </ol>
+
+                <div class="alert alert-success">
+                    <strong>Woohoo!</strong> Congratulations, you did it. Your flow should now be available in Twilio.
+                    Best thing to do now is call the number to try it out!
+                    Might want to make yourself a nice cup of tea to celebrate also!
+                </div>
+
+            </section>
+
+        </div>
+    </div>
+</div>
+
+<!-- Google Code for Remarketing tag -->
+<!-- Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. For instructions on adding this tag and more information on the above requirements, read the setup guide: google.com/ads/remarketingsetup -->
+<script type="text/javascript">
+    /* <![CDATA[ */
+    var google_conversion_id = 997422716;
+    var google_conversion_label = "7aw_CPyY7gQQ_OzN2wM";
+    var google_custom_params = window.google_tag_params;
+    var google_remarketing_only = true;
+    /* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+    <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt=""
+             src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/997422716/?value=0&amp;label=7aw_CPyY7gQQ_OzN2wM&amp;guid=ON&amp;script=0"/>
+    </div>
+</noscript>
+
+</body>
+</html>

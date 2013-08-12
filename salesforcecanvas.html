@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ManyWho Documentation</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+    <link href="bootstrap/css/prettify.css" rel="stylesheet">
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#docsSidebar').scrollspy();
+        });
+
+    </script>
+</head>
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="./index.html">Bootstrap</a>
+
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li class="">
+                        <a href="http://manywho.com">Website Home</a>
+                    </li>
+                    <li class="">
+                        <a href="./index.html">Doc Home</a>
+                    </li>
+                    <li class="">
+                        <a href="./gettingstarted.html">Getting Started</a>
+                    </li>
+                    <li class="">
+                        <a href="./draw.html">Draw</a>
+                    </li>
+                    <li class="">
+                        <a href="./run.html">Run</a>
+                    </li>
+                    <li class="">
+                        <a href="./monitor.html">Monitor</a>
+                    </li>
+                    <li class="">
+                        <a href="./twilioivr.html">Twilio</a>
+                    </li>
+                    <li class="">
+                        <a href="./salesforcecanvas.html">Salesforce</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="span3 bs-docs-sidebar">
+            <ul id="docsSidebar" class="nav nav-list bs-docs-sidenav affix">
+                <li><a href="#salesforce-intro"><i class="icon-chevron-right"></i> Intro</a></li>
+                <li><a href="#prerequisites"><i class="icon-chevron-right"></i> Prerequisites</a></li>
+                <li><a href="#salesforceSetup"><i class="icon-chevron-right"></i> Setting Up Canvas</a></li>
+            </ul>
+        </div>
+        <div class="span9">
+
+            <section id="salesforce-intro">
+                <div class="marketing">
+                    <h1>Salesforce Canvas</h1>
+
+                    <div class="row-fluid">
+                        <div class="span12"><img class="marketing-img" alt="Salesforce Canvas"
+                                                 src="http://manywho.com/wp-content/themes/ManyWho_Website_Bootstrap4/images/salesforce-logo.jpg">
+                        </div>
+                    </div>
+                </div>
+                <p>Salesforce recently announced "Canvas" that lets Salesforce.com admins embed applications into the
+                    Chatter feed. This is a great
+                    way of putting apps in front of your Salesforce.com users as it's easily accessible as a link
+                    directly launched from the Chatter feed.
+                    The following instructions walk you through the process of setting up a ManyWho Flow as an app
+                    embedded in the canvas.</p>
+            </section>
+
+            <section id="prerequisites">
+
+                <h1>Prerequisites
+                    <small>Read this before you begin...</small>
+                </h1>
+
+                <hr class="bs-docs-separator">
+
+                <p>Before going through these instructions, make sure you've completed our <a
+                        href="gettingstarted.html">getting started</a> guide. There are
+                    some steps in there that need to have been completed for this to work!</p>
+
+                <p>Perhaps it goes without saying, but we'll say it anyway. These instructions assume you have a Flow
+                    built on ManyWho that you want to embed
+                    in the canvas! If you haven't built your Flow, please have a look at our YouTube channel for useful
+                    tutorials and demos to get you going:
+                    <a href="http://youtube.com/user/themanywho">http://youtube.com/user/themanywho</a></p>
+
+            </section>
+
+            <section id="salesforceSetup">
+
+                <h1>Setting Up Canvas
+                    <small>Put your app inside Chatter</small>
+                </h1>
+
+                <hr class="bs-docs-separator">
+
+                <p>The steps are as follows:</p>
+
+                <h3>Activate your Flow</h3>
+                <ol>
+                    <li>Go to <a href="https://flow.manywho.com/draw" target="_blank">https://flow.manywho.com/draw</a>
+                    </li>
+                    <li>Login using your Author credentials.</li>
+                    <li>Open the Flow you want to embed in the Salesforce.com Canvas.</li>
+                    <li>Click on the "Activate" button to activate the flow for release.</li>
+                    <li>In the address bar of the browser, select the hyperlink address and copy it (ctrl-C or
+                        right-click and Copy).
+                    </li>
+                </ol>
+
+                <h3>Create your Canvas app</h3>
+                <ol>
+                    <li>Login to your Salesforce.com account at: <a href="https://login.salesforce.com" target="_blank">https://login.salesforce.com</a>
+                    </li>
+                    <li>In the top right menu of your salesforce.com account, click on 'Setup'</li>
+                    <li>In the navigation bar on the left side, under the 'Build' section, click on 'Create'</li>
+                    <li>In the displayed sub menu, click 'Apps'</li>
+                    <li>On the screen for 'Apps' under the section for 'Connected Apps' click on the 'New' button.</li>
+                    <li>For the 'Connected App Name' use the name of your Flow (though you can actually use any name you
+                        like).
+                    </li>
+                    <li>For the 'Contact Email' use your email address or any common email address you use for admin
+                        notifications.
+                    </li>
+                    <li>Under the 'OAuth Settings' section, tick the box for 'Enable OAuth Settings'.</li>
+                    <li>For the 'Callback URL' enter: https://flow.manywho.com/oauth (this address will not resolve, it
+                        is simply a placeholder)
+                    </li>
+                    <li>For the 'Selected OAuth Scopes' select 'Full access (full)' and click the 'Add' button.</li>
+                    <li>Now, under the 'Supported App Types' section, tick the box for 'Force.com Canvas'.</li>
+                    <li>For the 'Canvas App URL', paste the hyperlink you copied in the 'Activate your Flow' steps
+                        (ctrl-V or right-click and Paste).
+                    </li>
+                    <li>You need to change the link around a bit as follows (concentrate!):
+                        <ol>
+                            <li>The link you pasted will look like this (it may not have the 'tenant-id' parameter as
+                                that is being deprecated):
+                                https://flow.manywho.com/<b
+                                        style="color: #ff0000;">da497693-4d02-45db-bc08-8ea16d2ccbdf</b>/play/default?tenant-id=DA497693-4D02-45DB-BC08-8EA16D2CCBDF&flow-id=<b
+                                        style="color: #00ff00;">F473785B-D2D5-44B3-91DC-E99C691D753F</b>&flow-version-id=488DB228-C59B-40FE-8BA2-16B62F013C37
+                            </li>
+                            <li>Replace the 'https://flow.manywho.com' with
+                                'https://flow.manywho.com/plugins/api/salesforce/1/canvas'.
+                            </li>
+                            <li>Delete everything that follows 'canvas', until you get to the '&flow-id'. Delete the
+                                '&flow-id=' and replace it with a '/' (forward slash).
+                            </li>
+                            <li>Now, cursor to the right until you get to the '&flow-version-id'. Delete the
+                                '&flow-version-id' and everything after it.
+                            </li>
+                            <li>Finally, at the end of the URL, put '/default'</li>
+                            <li>Once you've completed the steps, the URL should look something like this:
+                                https://flow.manywho.com/plugins/api/salesforce/1/canvas/<b style="color: #ff0000;">da497693-4d02-45db-bc08-8ea16d2ccbdf</b>/<b
+                                        style="color: #00ff00;">F473785B-D2D5-44B3-91DC-E99C691D753F</b>/<b>default</b>
+                            </li>
+                            <li>Or put another way, the URL is broken down like this:
+                                https://flow.manywho.com/plugins/api/salesforce/1/canvas/{tenantId}/{flowId}/{playerUri}
+                            </li>
+                        </ol>
+                    </li>
+                    <li>For the 'Locations', select 'Chatter Tab' and click 'Add' (if you like can add 'Visualforce
+                        Page' also for good measure)
+                    </li>
+                    <li>Click on 'Save' to complete the Canvas configuration.</li>
+                </ol>
+
+                <h3>Set up your Canvas App as a Connected App</h3>
+                <ol>
+                    <li>In the navigation bar on the left side, under the 'Administer' section, click on 'Manage Apps'
+                    </li>
+                    <li>In the displayed sub menu, click 'Connected Apps'</li>
+                    <li>On the screen for 'Connected Apps', click on the name of the Canvas app you created in the
+                        previous steps.
+                    </li>
+                    <li>On the screen for your Canvas app, click on 'Edit'</li>
+                    <li>For the 'Permitted Users', change the drop-down selection to 'Admin approved users are
+                        pre-authorized'
+                    </li>
+                    <li>Click 'OK' when prompted with a warning about users being denied access.</li>
+                    <li>Click on 'Save' to complete the Connected App configuration.</li>
+                </ol>
+
+                <h3>Enable your App in the user profile</h3>
+                <ol>
+                    <li>Under the 'Administer' section, click on 'Manage Users'</li>
+                    <li>In the displayed sub menu, click on 'Profiles'</li>
+                    <li>On the 'Profiles' screen, look in the list of Profiles to find your 'ManyWho User' profile and
+                        click on 'Edit'
+                    </li>
+                    <li>Under the 'Connected Apps' section, tick the box beside the name of the app you created in the
+                        previous steps.
+                    </li>
+                    <li>Click on the 'Save' button</li>
+                </ol>
+
+                <div class="alert">
+                    <strong>NOTE</strong> If you want to make the app available to other profiles, simply go to the
+                    profile and repeat
+                    the steps outlined above (3 to 5). If you're doing this from a Developer Edition org, chances are
+                    you need to edit
+                    the Systems Administrator profile to see the app appear in your feed.
+                </div>
+
+                <div class="alert alert-success">
+                    <strong>Woohoo!</strong> Congratulations, you did it. Your flow should now be available in Chatter
+                    to users belonging
+                    to the 'ManyWho User' profile. Make yourself a nice cup of tea to celebrate!
+                </div>
+
+            </section>
+
+        </div>
+    </div>
+</div>
+
+<!-- Google Code for Remarketing tag -->
+<!-- Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. For instructions on adding this tag and more information on the above requirements, read the setup guide: google.com/ads/remarketingsetup -->
+<script type="text/javascript">
+    /* <![CDATA[ */
+    var google_conversion_id = 997422716;
+    var google_conversion_label = "7aw_CPyY7gQQ_OzN2wM";
+    var google_custom_params = window.google_tag_params;
+    var google_remarketing_only = true;
+    /* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+    <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt=""
+             src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/997422716/?value=0&amp;label=7aw_CPyY7gQQ_OzN2wM&amp;guid=ON&amp;script=0"/>
+    </div>
+</noscript>
+
+</body>
+</html>
