@@ -24,6 +24,9 @@
 
         $(document).ready(function () {
             $('#docsSidebar').scrollspy();
+
+            // Navigate to the first section
+            window.location.hash = 'runIntro';
         });
 
     </script>
@@ -75,20 +78,21 @@
 <div class="row">
 <div class="span3 bs-docs-sidebar">
     <ul id="docsSidebar" class="nav nav-list bs-docs-sidenav affix">
-        <li><a href="#run-intro"><i class="icon-chevron-right"></i> Intro</a></li>
+        <li><a href="#runIntro"><i class="icon-chevron-right"></i> Intro</a></li>
         <li><a href="#gettingFlowInfo"><i class="icon-chevron-right"></i> Getting Flow Info</a></li>
         <li><a href="#flowAuthentication"><i class="icon-chevron-right"></i> Authenticating Users</a></li>
         <li><a href="#initializingAFlow"><i class="icon-chevron-right"></i> Initializing A Flow</a></li>
         <li><a href="#executingAFlow"><i class="icon-chevron-right"></i> Executing A Flow</a></li>
         <li><a href="#joiningAFlow"><i class="icon-chevron-right"></i> Joining A Flow</a></li>
         <li><a href="#realtimeFlows"><i class="icon-chevron-right"></i> Realtime Flows</a></li>
+        <li><a href="#debuggingFlows"><i class="icon-chevron-right"></i> Debugging</a></li>
         <li><a href="#flowObjects"><i class="icon-chevron-right"></i> JSON Objects</a></li>
         <li><a href="#flowEnums"><i class="icon-chevron-right"></i> API Enumerations</a></li>
     </ul>
 </div>
 <div class="span9">
 
-<section id="run-intro">
+<section id="runIntro">
     <div class="marketing">
         <h1>Run</h1>
 
@@ -98,17 +102,9 @@
             </div>
         </div>
     </div>
-</section>
-
-<section id="gettingFlowInfo">
-
-<h1>Getting Flow Info
-    <small>Find out what flows are available to run</small>
-</h1>
-
 <hr class="bs-docs-separator">
 
-<h2>Intro</h2>
+<h1>Intro</h1>
 
 <p>Before you can run a flow on the platform, you need to have the flow identifier and flow version identifier for the
     flow you wish to run. We recommend,
@@ -141,6 +137,13 @@
         </ol>
     </li>
 </ol>
+</section>
+
+<section id="gettingFlowInfo">
+
+<h1>Getting Flow Info
+    <small>Find out what flows are available to run</small>
+</h1>
 
 <hr class="bs-docs-separator">
 
@@ -184,8 +187,7 @@
         "userCreated":"0c100d10-cc8c-43d7-abd6-669565a33c19",
         "userModified":"0c100d10-cc8c-43d7-abd6-669565a33c19",
         "userOwner":"0c100d10-cc8c-43d7-abd6-669565a33c19",
-        "editingSessionId":null,
-        "editingSessionTokenId":null,
+        "editingToken":null,
         "id":{
             "id":"104acb42-c01f-419f-b4bf-fccf867d166c",
             "versionId":"4cdd19ee-eeff-4f42-bd74-3ce85c2a60dd"
@@ -256,8 +258,7 @@
     "userCreated":"0c100d10-cc8c-43d7-abd6-669565a33c19",
     "userModified":"0c100d10-cc8c-43d7-abd6-669565a33c19",
     "userOwner":"0c100d10-cc8c-43d7-abd6-669565a33c19",
-    "editingSessionId":null,
-    "editingSessionTokenId":null,
+    "editingToken":null,
     "id":{
         "id":"104acb42-c01f-419f-b4bf-fccf867d166c",
         "versionId":"4cdd19ee-eeff-4f42-bd74-3ce85c2a60dd"
@@ -333,8 +334,7 @@
     "userCreated":"0c100d10-cc8c-43d7-abd6-669565a33c19",
     "userModified":"0c100d10-cc8c-43d7-abd6-669565a33c19",
     "userOwner":"0c100d10-cc8c-43d7-abd6-669565a33c19",
-    "editingSessionId":null,
-    "editingSessionTokenId":null,
+    "editingToken":null,
     "id":{
         "id":"104acb42-c01f-419f-b4bf-fccf867d166c",
         "versionId":"4cdd19ee-eeff-4f42-bd74-3ce85c2a60dd"
@@ -394,7 +394,9 @@
 <pre class="prettyprint">{
     "stateId":"f7d20f72-ec27-4ec8-9761-8c1ec5decea2",
     "stateToken":"31f7b173-4089-41e0-9d78-e55ed8a079c0",
-    "waitMessage":"Hey There! You're not authorized to do this bit, but you can continue to collaborate with us while we do the heavy lifting!",
+    "alertEmail":"admin@manywho.com",
+    "waitMessage":"Waiting on a system to finish doing something...",
+    "notAuthorizedMessage":"Hey There! You're not authorized to do this bit, but you can continue to collaborate with us while we do the heavy lifting!",
     "currentMapElementId":"d16367c1-93cd-4ad2-9b42-d9fd9265f3d0",
     "currentStreamId":"ce40ab49-28d1-4bdd-84f0-7cd41fb27a5d",
     "invokeType":"STATUS",
@@ -405,12 +407,12 @@
     "stateValues":null,
     "outputs":null,
     "statusCode":"401",
-    "runFlowUri":"http://127.0.0.1:81/run/index.htm?tenant-id=515a3ada-e753-463e-967a-d7a107b50fb7&flow-id=7ba7a6a1-d6ba-4806-8cc0-77be8504e86d",
-    "joinFlowUri":"http://127.0.0.1:81/run/index.htm?tenant-id=515a3ada-e753-463e-967a-d7a107b50fb7&join=f7d20f72-ec27-4ec8-9761-8c1ec5decea2",
+    "runFlowUri":"https://flow.manywho.com/515a3ada-e753-463e-967a-d7a107b50fb7/play/default?flow-id=7ba7a6a1-d6ba-4806-8cc0-77be8504e86d",
+    "joinFlowUri":"https://flow.manywho.com/515a3ada-e753-463e-967a-d7a107b50fb7/play/default?join=f7d20f72-ec27-4ec8-9761-8c1ec5decea2",
     "authorizationContext":{
         "directoryName":"ManyWho",
         "directoryId":"00DE0000000XtGrPLC",
-        "loginUrl":"http://127.0.0.1:81/plugins/api/salesforce/1/authentication"
+        "loginUrl":"https://salesforce.manywho.com/plugins/api/salesforce/1/authentication"
     }
 }</pre>
 
@@ -447,10 +449,13 @@
         <strong>POST https://flow.manywho.com/api/run/1/authentication</strong>
     </div>
 <pre class="prettyprint">{
-    "loginUrl":"http://127.0.0.1:81/plugins/api/salesforce/1/authentication",
+    "loginUrl":"https://salesforce.manywho.com/plugins/api/salesforce/1/authentication",
     "username":"steve.wood@manywho.com",
     "password":"not tellin",
-    "stateToken":"ThAnK5Chuc4M0rt1m0r3"
+    "token":"ThAnK5Chuc4M0rt1m0r3",
+    "sessionToken":null,
+    "sessionUrl":null,
+    "instanceUrl":null
 }</pre>
 
 </section>
@@ -516,10 +521,10 @@
         {
             "id":null,
             "typeElementId":null,
-            "typeElementEntryId":null,
+            "typeElementPropertyId":null,
             "developerName":"Account Id",
             "typeElementDeveloperName":null,
-            "typeElementEntryDeveloperName":null,
+            "typeElementPropertyDeveloperName":null,
             "contentValue":"001E000000cnERa",
             "contentType":"CONTENT_STRING",
             "objectData":null
@@ -527,10 +532,10 @@
         {
             "id":null,
             "typeElementId":null,
-            "typeElementEntryId":null,
+            "typeElementPropertyId":null,
             "developerName":"My Customer",
             "typeElementDeveloperName":"Contact",
-            "typeElementEntryDeveloperName":"Phone",
+            "typeElementPropertyDeveloperName":"Phone",
             "contentValue":"(415) 990 5958",
             "contentType":"CONTENT_STRING",
             "objectData":null
@@ -550,7 +555,7 @@
     "authorizationContext":{
         "directoryName":"ManyWho",
         "directoryId":"00DE0000000XtGrPLC"
-        "loginUrl":"http://127.0.0.1:81/plugins/api/salesforce/1/authentication"
+        "loginUrl":"https://salesforce.manywho.com/plugins/api/salesforce/1/authentication"
     }
 }</pre>
 
@@ -635,7 +640,7 @@
         "heading":0,
         "speed":0
     },
-        "mapElementInvokeRequest":{
+    "mapElementInvokeRequest":{
         "selectedOutcomeId":null
     },
     "mode":null
@@ -752,7 +757,9 @@
 {
     "stateId":"f7d20f72-ec27-4ec8-9761-8c1ec5decea2",
     "stateToken":"31f7b173-4089-41e0-9d78-e55ed8a079c0",
-    "waitMessage":"Hey There! You're not authorized to do this bit, but you can continue to collaborate with us while we do the heavy lifting!",
+    "alertEmail":"admin@manywho.com",
+    "waitMessage":"Waiting on a system to finish doing something...",
+    "notAuthorizedMessage":"Hey There! You're not authorized to do this bit, but you can continue to collaborate with us while we do the heavy lifting!",
     "currentMapElementId":"d16367c1-93cd-4ad2-9b42-d9fd9265f3d0",
     "currentStreamId":"ce40ab49-28d1-4bdd-84f0-7cd41fb27a5d",
     "invokeType":"STATUS",
@@ -768,7 +775,7 @@
     "authorizationContext":{
         "directoryName":"ManyWho",
         "directoryId":"00DE0000000XtGrPLC",
-        "loginUrl":"http://127.0.0.1:81/plugins/api/salesforce/1/authentication"
+        "loginUrl":"https://salesforce.manywho.com/plugins/api/salesforce/1/authentication"
     }
 }</pre>
 
@@ -841,7 +848,9 @@
 <pre class="prettyprint">{
     "stateId":"f7d20f72-ec27-4ec8-9761-8c1ec5decea2",
     "stateToken":"31f7b173-4089-41e0-9d78-e55ed8a079c0",
-    "waitMessage":"Hey There! You're not authorized to do this bit, but you can continue to collaborate with us while we do the heavy lifting!",
+    "alertEmail":"admin@manywho.com",
+    "waitMessage":"Waiting on a system to finish doing something...",
+    "notAuthorizedMessage":"Hey There! You're not authorized to do this bit, but you can continue to collaborate with us while we do the heavy lifting!",
     "currentMapElementId":"d16367c1-93cd-4ad2-9b42-d9fd9265f3d0",
     "currentStreamId":"ce40ab49-28d1-4bdd-84f0-7cd41fb27a5d",
     "invokeType":"STATUS",
@@ -857,7 +866,7 @@
     "authorizationContext":{
         "directoryName":"ManyWho",
         "directoryId":"00DE0000000XtGrPLC",
-        "loginUrl":"http://127.0.0.1:81/plugins/api/salesforce/1/authentication"
+        "loginUrl":"http://salesforce.manywho.com/plugins/api/salesforce/1/authentication"
     }
 }</pre>
 
@@ -945,6 +954,24 @@
 
 </section>
 
+<section id="debuggingFlows">
+
+    <h1>Debugging
+        <small>Finding problems and removing frustration :)</small>
+    </h1>
+
+    <hr class="bs-docs-separator">
+
+    <p>As with all things in technology, it often doesn't work the first time. When things don't work, there's nothing more frustrating than not know what's gone wrong. As a result, ManyWho has in-build debugging capabilities to help developers get detailed knowledge of what's happening on the service.</p>
+    <p>When running a flow, you will have noticed that we have a 'mode' property on the request objects. Please have a look at the <a href="#modeenum">mode</a> enumeration for the available modes. The 'debug' modes do a number of things that are really helpful:</p>
+    <ol>
+        <li>Populates the preCommitStateValues so you can see exactly what values are waiting in the engine to be committed. These are the changes that will be applied to the Values in your State once the Map Element and Map Element Outcome have successfully completed and navigated the user to the next Element in the Flow.</li>
+        <li>Populates the stateValues so you can see exactly what values are currently being stored in the engine State.</li>
+    </ol>
+    <p>However, in addition to the features of the debug options, the engine will also perform substantially more validation on the incoming requests to make sure the request is valid. Therefore, if you're building a new player or simply debugging your flows, make sure you flip the mode to one of the 'debug' modes - it will save you a lot of time!</p>
+
+</section>
+
 <section id="flowObjects">
 
 <h1>JSON Objects
@@ -988,12 +1015,7 @@
         <td>The unique identifier for the user who owns this flow.</td>
     </tr>
     <tr>
-        <td>editingSessionId</td>
-        <td>String: GUID</td>
-        <td>This property is returned, but is always 'null' for run operations.</td>
-    </tr>
-    <tr>
-        <td>editingSessionTokenId</td>
+        <td>editingToken</td>
         <td>String: GUID</td>
         <td>This property is returned, but is always 'null' for run operations.</td>
     </tr>
@@ -1273,9 +1295,29 @@
         </td>
     </tr>
     <tr>
+        <td>alertEmail</td>
+        <td>String</td>
+        <td>The email address that should be used to notify of any Flow or player related faults. This email address is typically the email of the author of the Flow.</td>
+    </tr>
+    <tr>
+        <td>waitMessage</td>
+        <td>String</td>
+        <td>The message that should be shown to the user if the engine returns an Invoke Type of 'WAIT'.</td>
+    </tr>
+    <tr>
+        <td>notAuthorizedMessage</td>
+        <td>String</td>
+        <td>The message that should be shown to the user if the engine returns an Invoke Type of 'STATUS'. The engine will automatically handle UI permissions - so this user will not recieve Page metadata.</td>
+    </tr>
+    <tr>
         <td>currentMapElementId</td>
         <td>String: GUID</td>
         <td>The unique identifier for the map element the user is currently executing against.</td>
+    </tr>
+    <tr>
+        <td>currentStreamId</td>
+        <td>String: GUID</td>
+        <td>The unique identifier for the collaboration stream the user is currently using to collaborate with colleagues. If the Flow is not leveraging collaboration streams, this property will be null or blank.</td>
     </tr>
     <tr>
         <td>invokeType</td>
@@ -1988,7 +2030,27 @@
         <td>token</td>
         <td>String</td>
         <td>(Optional) The account token for the directory. For services such as salesforce.com, this is the security
-            token.
+            token.  For OAuth2 integration, this the OAuth refresh token.
+        </td>
+    </tr>
+    <tr>
+        <td>sessionToken</td>
+        <td>String</td>
+        <td>(Optional) The session token for the directory. For services such as salesforce.com, this is the sessionId. For OAuth2
+            integration, this is the OAuth token.
+        </td>
+    </tr>
+    <tr>
+        <td>sessionUrl</td>
+        <td>String</td>
+        <td>(Optional) The session url for the directory.  For services such as salesforce.com, this is the pod instance you are currently logged into.
+        </td>
+    </tr>
+    <tr>
+        <td>instanceUrl</td>
+        <td>String</td>
+        <td>(Optional) The particular instance of the directory.  For services such as salesforce.com, this is either "https://login.salesforce.com" (default)
+            or "https://test.salesforce.com".
         </td>
     </tr>
 </table>
@@ -2024,13 +2086,13 @@
         </td>
     </tr>
     <tr>
-        <td>typeElementEntryId</td>
+        <td>typeElementPropertyId</td>
         <td>String: GUID</td>
         <td>The unique identifier for the object property of the value in the flow being assigned. Typed objects all
-            have properties or "Type Element Entries" as they're called through the API. Using the typeElementEntryId
+            have properties. Using the typeElementPropertyId
             allows you to assign a property in an object value as opposed to the whole value. As with the other
-            identifier references, using the typeElementEntryId ensures that your player is guaranteed to be assigning
-            the correct value. Using the typeElementEntryDeveloperName makes it possible to break the integration if the
+            identifier references, using the typeElementPropertyId ensures that your player is guaranteed to be assigning
+            the correct value. Using the typeElementPropertyDeveloperName makes it possible to break the integration if the
             author changes the developerName of a property in the type.
         </td>
     </tr>
@@ -2042,10 +2104,10 @@
         </td>
     </tr>
     <tr>
-        <td>typeElementEntryDeveloperName</td>
+        <td>typeElementPropertyDeveloperName</td>
         <td>String</td>
         <td>The developer name for the object property of the value in the flow being assigned. See the
-            typeElementEntryId for more information.
+            typeElementPropertyId for more information.
         </td>
     </tr>
     <tr>

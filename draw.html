@@ -9,10 +9,16 @@
     <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
 
     <link href="bootstrap/css/docs.css" rel="stylesheet">
-    <link href="bootstrap/css/prettify.css" rel="stylesheet">
+
+    <style type="text/css">
+        pre.prettyprint {
+            border: 1px solid #ddd !important;
+        }
+    </style>
 
     <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 
     <script type="text/javascript">
 
@@ -23,97 +29,2157 @@
     </script>
 </head>
 <body data-spy="scroll" data-target=".bs-docs-sidebar">
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container">
-            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="brand" href="./index.html">Bootstrap</a>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="brand" href="./index.html">Bootstrap</a>
 
-            <div class="nav-collapse collapse">
-                <ul class="nav">
-                    <li class="">
-                        <a href="http://manywho.com">Website Home</a>
-                    </li>
-                    <li class="">
-                        <a href="./index.html">Doc Home</a>
-                    </li>
-                    <li class="">
-                        <a href="./gettingstarted.html">Getting Started</a>
-                    </li>
-                    <li class="">
-                        <a href="./draw.html">Draw</a>
-                    </li>
-                    <li class="">
-                        <a href="./run.html">Run</a>
-                    </li>
-                    <li class="">
-                        <a href="./monitor.html">Monitor</a>
-                    </li>
-                    <li class="">
-                        <a href="./twilioivr.html">Twilio</a>
-                    </li>
-                    <li class="">
-                        <a href="./salesforcecanvas.html">Salesforce</a>
-                    </li>
-                </ul>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li class="">
+                            <a href="http://manywho.com">Website Home</a>
+                        </li>
+                        <li class="">
+                            <a href="./index.html">Doc Home</a>
+                        </li>
+                        <li class="">
+                            <a href="./gettingstarted.html">Getting Started</a>
+                        </li>
+                        <li class="">
+                            <a href="./draw.html">Draw</a>
+                        </li>
+                        <li class="">
+                            <a href="./run.html">Run</a>
+                        </li>
+                        <li class="">
+                            <a href="./monitor.html">Monitor</a>
+                        </li>
+                        <li class="">
+                            <a href="./twilioivr.html">Twilio</a>
+                        </li>
+                        <li class="">
+                            <a href="./salesforcecanvas.html">Salesforce</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="container">
-    <div class="row">
-        <div class="span3 bs-docs-sidebar">
-            <ul id="docsSidebar" class="nav nav-list bs-docs-sidenav affix">
-                <li><a href="#comingSoon"><i class="icon-chevron-right"></i> Coming Soon!</a></li>
-            </ul>
-        </div>
-        <div class="span9">
+    <div class="container">
+        <div class="row">
+            <div class="span3 bs-docs-sidebar">
+                <ul id="docsSidebar" class="nav nav-list bs-docs-sidenav affix">
+                    <li><a href="#drawIntro"><i class="icon-chevron-right"></i>Intro</a></li>
+                    <li><a href="#serviceElements"><i class="icon-chevron-right"></i>Service Elements</a></li>
+                    <li><a href="#flowAuthentication"><i class="icon-chevron-right"></i>Authenticating Users</a></li>
+                    <li><a href="#initializingAFlow"><i class="icon-chevron-right"></i>Initializing A Flow</a></li>
+                    <li><a href="#executingAFlow"><i class="icon-chevron-right"></i>Executing A Flow</a></li>
+                    <li><a href="#joiningAFlow"><i class="icon-chevron-right"></i>Joining A Flow</a></li>
+                    <li><a href="#realtimeFlows"><i class="icon-chevron-right"></i>Realtime Flows</a></li>
+                    <li><a href="#debuggingFlows"><i class="icon-chevron-right"></i>Debugging</a></li>
+                    <li><a href="#flowObjects"><i class="icon-chevron-right"></i>JSON Objects</a></li>
+                    <li><a href="#flowEnums"><i class="icon-chevron-right"></i>API Enumerations</a></li>
+                </ul>
+            </div>
+            <div class="span9">
 
-            <section id="comingSoon">
-                <div class="marketing">
-                    <h1>Draw</h1>
+                <section id="drawIntro">
+                    <div class="marketing">
+                        <h1>Draw</h1>
 
-                    <div class="row-fluid">
-                        <div class="span12"><a href="run.html"><img class="marketing-img" alt="Draw"
-                                                                    src="http://manywho.com/wp-content/themes/ManyWho_Website_Bootstrap4/images/draw.png"></a>
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <a href="draw.html">
+                                    <img class="marketing-img" alt="Draw"
+                                        src="http://manywho.com/wp-content/themes/ManyWho_Website_Bootstrap4/images/draw.png"></a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
 
-            <section id="gettingFlowInfo">
+                    <h1>Intro</h1>
 
-                <h1>Coming Soon</h1>
+                    <p>Something about the draw API.</p>
 
-            </section>
+                    <hr class="bs-docs-separator">
+                </section>
 
+                <section id="serviceElements">
+
+                    <h1>Service Elements
+    <small>Connecting to external systems</small>
+                    </h1>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2>Save</h2>
+
+                    <p>To save (create or update) a Service Element object, you can use the following API:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="success">
+                            <td><strong>URL</strong></td>
+                            <td><strong>HTTP Verb</strong></td>
+                            <td><strong>JSON Request</strong></td>
+                            <td><strong>JSON Response</strong></td>
+                        </tr>
+                        <tr>
+                            <td>api/draw/1/element/service</td>
+                            <td>POST</td>
+                            <td>Object: <a href="#servicelementrequestobject">Service Element Request Object</a></td>
+                            <td>Object: <a href="#servicelementresponseobject">Service Element Response Object</a></td>
+                        </tr>
+                    </table>
+
+                    <p>You must also provide the draw API with the following header value:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Name</strong></td>
+                            <td><strong>Value</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Authorization</td>
+                            <td>The authorization String returned from logging into the api/draw/1/authentication API.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="bs-docs-example">
+                        <strong>POST https://flow.manywho.com/api/draw/1/element/service</strong>
+                    </div>
+<pre class="prettyprint">// Service Element Request example
+{
+    "id": null,
+    "elementType": "SERVICE",
+    "developerName": "My Installed Service",
+    "developerSummary": "The service to connect to my service",
+    "uri": "https://salesforce.manywho.com/plugins/api/salesforce/1",
+    "format": "json",
+    "configurationValues":[
+        {
+            "id": null,
+            "developerName": "SalesforceAuthenticationUrl",
+            "valueElementToReferenceId":{
+                "id": "4cdd19ee-eeff-4f42-bd74-3ce85c2a60dd",
+                "typeElementPropertyId": null,
+                "command": null
+            },
+            "contentValue": null,
+            "contentType": "ContentString"
+        },
+        {
+            "id": null,
+            "developerName": "SalesforceChatterBaseUrl",
+            "valueElementToReferenceId":{
+                "id": "a1648b9a-ec75-4ae1-ab24-c76879e8d551",
+                "typeElementPropertyId": null,
+                "command": null
+            },
+            "contentValue": null,
+            "contentType": "ContentString"
+        }
+    ],
+    "providesLogic":true,
+    "providesViews":true,
+    "providesContent":true,
+    "providesDatabase":true,
+    "providesIdentity":true,
+    "providesSocial":true,
+    "providesLocation":true,
+    "actions":[
+        {
+            "id": null,
+            "uriPart": "task",
+            "developerName": "Create Task",
+            "developerSummary": "Action to create tasks in salesforce",
+            "isViewMessageAction": false,
+            "serviceActionOutcomes": null,
+            "serviceInputs":[
+                "id": null,
+                "developerName": "ActivityDate",
+                "contentType": "ContentString",
+            ],
+            "serviceOutputs":[
+                "id": null,
+                "developerName": "ActivityDate",
+                "contentType": "ContentString",
+            ]
+        }
+    ],
+    "install":{
+        "id": null,
+        "typeElements":[
+            // Array of type element request objects the service would like to install
+        ]
+    },
+    "updateByName":true
+}</pre>
+<pre class="prettyprint">// Service Element Response example
+{
+    "dateCreated":"2013-06-19T16:44:06.847",
+    "dateModified":"2013-06-19T16:53:23.767",
+    "userCreated":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+    "userModified":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+    "userOwner":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+    "id": "73dc14c4-78d4-4c01-b84d-19024b3ea1ce"
+    // Properties the same as the Service Element Request - but with ids all non-null ...
+}</pre>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2>Add To Flow</h2>
+
+                    <p>In order to use a Service Element in your Flow, you must 'add' or 'import' the element to the Flow so our engine can keep track of it as a dependency. To add a reference to a specific Service Element object to your Flow, you can use the following API:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="success">
+                            <td><strong>URL</strong></td>
+                            <td><strong>HTTP Verb</strong></td>
+                            <td><strong>JSON Request</strong></td>
+                            <td><strong>JSON Response</strong></td>
+                        </tr>
+                        <tr>
+                            <td>api/draw/1/element/flow/{flowId}/service/{id}</td>
+                            <td>POST</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                        </tr>
+                    </table>
+
+                    <p>Where the parameters are as follows:</p>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>flowId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Flow you wish to add the Service Element to.</td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Service Element to be added to the Flow.</td>
+                        </tr>
+                    </table>
+
+                    <p>You must also provide the draw API with the following header value:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Name</strong></td>
+                            <td><strong>Value</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Authorization</td>
+                            <td>The authorization String returned from logging into the api/draw/1/authentication API.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="bs-docs-example">
+                        <strong>POST https://flow.manywho.com/api/draw/1/element/flow/7ba7a6a1-d6ba-4806-8cc0-77be8504e86d/service/31f7b173-4089-41e0-9d78-e55ed8a079c0</strong>
+                    </div>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2>Load</h2>
+
+                    <p>To load a specific Service Element object, you can use the following API:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="success">
+                            <td><strong>URL</strong></td>
+                            <td><strong>HTTP Verb</strong></td>
+                            <td><strong>JSON Request</strong></td>
+                            <td><strong>JSON Response</strong></td>
+                        </tr>
+                        <tr>
+                            <td>api/draw/1/element/service/{id}</td>
+                            <td>GET</td>
+                            <td>N/A</td>
+                            <td>Object: <a href="#servicelementresponseobject">Service Element Response Object</a></td>
+                        </tr>
+                    </table>
+
+                    <p>Where the parameters are as follows:</p>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Service Element you wish to load.</td>
+                        </tr>
+                    </table>
+
+                    <p>You must also provide the draw API with the following header value:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Name</strong></td>
+                            <td><strong>Value</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Authorization</td>
+                            <td>The authorization String returned from logging into the api/draw/1/authentication API.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="bs-docs-example">
+                        <strong>GET https://flow.manywho.com/api/draw/1/element/service/31f7b173-4089-41e0-9d78-e55ed8a079c0</strong>
+                    </div>
+<pre class="prettyprint">{
+    "dateCreated":"2013-06-19T16:44:06.847",
+    "dateModified":"2013-06-19T16:53:23.767",
+    "userCreated":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+    "userModified":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+    "userOwner":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+    "id": "73dc14c4-78d4-4c01-b84d-19024b3ea1ce"
+    // Properties the same as the Service Element Request - but with ids all non-null ...
+}</pre>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2>Query</h2>
+
+                    <p>To query for Service Element objects, you can use the following API:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="success">
+                            <td><strong>URL</strong></td>
+                            <td><strong>HTTP Verb</strong></td>
+                            <td><strong>JSON Request</strong></td>
+                            <td><strong>JSON Response</strong></td>
+                        </tr>
+                        <tr>
+                            <td>api/draw/1/element/service?filter={filter}</td>
+                            <td>GET</td>
+                            <td>N/A</td>
+                            <td>Array: <a href="#servicelementresponseobject">Service Element Response Objects</a></td>
+                        </tr>
+                    </table>
+
+                    <p>Where the parameters are as follows:</p>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>filter</td>
+                            <td>String</td>
+                            <td>The filter can currently supports two possible options - search by exact developer name or search by partial developer name. To search for an exact developer name use: filter=developerName eq 'name of your element' To search for by partial developer name use: filter=substringof(developerName,'partial name of your element')  This follows the conventions established in the OData standard, though we do not currently support the $ prefix.</td>
+                        </tr>
+                    </table>
+
+                    <p>You must also provide the draw API with the following header value:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Name</strong></td>
+                            <td><strong>Value</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Authorization</td>
+                            <td>The authorization String returned from logging into the api/draw/1/authentication API.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="bs-docs-example">
+                        <strong>GET https://flow.manywho.com/api/draw/1/element/service?filter=substringof(developerName,'Salesforce')</strong>
+                    </div>
+<pre class="prettyprint">[
+    {
+        "dateCreated":"2013-06-19T16:44:06.847",
+        "dateModified":"2013-06-19T16:53:23.767",
+        "userCreated":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+        "userModified":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+        "userOwner":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+        "id": "73dc14c4-78d4-4c01-b84d-19024b3ea1ce"
+        // Properties the same as the Service Element Request - but with ids all non-null ...
+    }
+]</pre>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2>Delete</h2>
+
+                    <p>To delete a specific Service Element object, you can use the following API:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="success">
+                            <td><strong>URL</strong></td>
+                            <td><strong>HTTP Verb</strong></td>
+                            <td><strong>JSON Request</strong></td>
+                            <td><strong>JSON Response</strong></td>
+                        </tr>
+                        <tr>
+                            <td>api/draw/1/element/service/{id}</td>
+                            <td>DELETE</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                        </tr>
+                    </table>
+
+                    <p>Where the parameters are as follows:</p>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Service Element you wish to delete. This will not delete the element in previous versions - it will only delete the service element from builds of your Flow done from this point forward.</td>
+                        </tr>
+                    </table>
+
+                    <p>You must also provide the draw API with the following header value:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Name</strong></td>
+                            <td><strong>Value</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Authorization</td>
+                            <td>The authorization String returned from logging into the api/draw/1/authentication API.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="bs-docs-example">
+                        <strong>DELETE https://flow.manywho.com/api/draw/1/element/service/31f7b173-4089-41e0-9d78-e55ed8a079c0</strong>
+                    </div>
+
+                    <hr class="bs-docs-separator">
+                </section>
+
+                <section id="flowObjects">
+
+                    <h1>JSON Objects
+    <small>Object structures</small>
+                    </h1>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="servicelementrequestobject">Service Element Request Object</h2>
+
+                    <p>The service element request object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the service element. The id should be null for "insert" requests and a valid identifier for "update" requests. This property is created by the
+            service.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>elementType</td>
+                            <td>String: <a href="#elementtypeenum">ElementType</a></td>
+                            <td>The type of element this metadata represents. For service elements, the only valid value currently is: SERVICE</td>
+                        </tr>
+                        <tr>
+                            <td>developerName</td>
+                            <td>String</td>
+                            <td>The developer name for the service element. This is useful for keeping track of the service element in the modeling tool and API.</td>
+                        </tr>
+                        <tr>
+                            <td>developerSummary</td>
+                            <td>String</td>
+                            <td>(Optional) The developer summary the author provided to give more information about the service element.</td>
+                        </tr>
+                        <tr>
+                            <td>uri</td>
+                            <td>String: Uri</td>
+                            <td>The location of the service implementation for the platform to callout against.</td>
+                        </tr>
+                        <tr>
+                            <td>format</td>
+                            <td>String</td>
+                            <td>The REST messaging format to use to communicate with this service.  Currently the only valid value for this property is: json</td>
+                        </tr>
+                        <tr>
+                            <td>configurationValues</td>
+                            <td>Array: <a href="#servicevaluerequestobject">Service Value Request Objects</a></td>
+                            <td>The list of configuration value mappings the service needs to function. Each entry provides a reference to a Value in the Flow that contains the configuration value needed by the service plugin.</td>
+                        </tr>
+                        <tr>
+                            <td>providesLogic</td>
+                            <td>Boolean</td>
+                            <td>Indicates if the service provides functionality for 'logic'. Logic allows authors to make API calls as part of elements that support messaging: 'Message', 'Page', and 'Remote Page' currently. Messaging is used for asynchronous and synchronous use-cases.</td>
+                        </tr>
+                        <tr>
+                            <td>providesViews</td>
+                            <td>Boolean</td>
+                            <td>Indicates if the service provides functionality for 'views'. A View allows authors to build Flows that include 'Remote Page' elements - e.g. the UI of the page is not actually hosted on the ManyWho platform, but rather the UI is provided by the external service.</td>
+                        </tr>
+                        <tr>
+                            <td>providesContent</td>
+                            <td>Boolean</td>
+                            <td>Indicates if the service provides functionality for 'content'. Content allows the author to reference files and content from the service as dynamic references - meaning that the files and content can be managed outside of ManyWho, but embedded in your Flows.</td>
+                        </tr>
+                        <tr>
+                            <td>providesDatabase</td>
+                            <td>Boolean</td>
+                            <td>Indicates if the service provides functionality for 'database'. Database functionality allows the author to map their Typed Objects and Lists back to this service for storage. The service then acts as the persistence implementation to store and retrieve the data as neede by the Flow.</td>
+                        </tr>
+                        <tr>
+                            <td>providesIdentity</td>
+                            <td>Boolean</td>
+                            <td>Indicates if the service provides functionality for 'identity'. Identity functionality allows the author to manage permissions to their Flows and sections of their Flows (via Swimlanes) using this service as the directory. This also allows users to login to the Flows using the information stored in this service directory.</td>
+                        </tr>
+                        <tr>
+                            <td>providesSocial</td>
+                            <td>Boolean</td>
+                            <td>Indicates if the service provides functionality for 'social'. Social allows the author to add features for feed, file and user collaboration to their Flows using this service as the underlying social network.</td>
+                        </tr>
+                        <tr>
+                            <td>providesLocation</td>
+                            <td>Boolean</td>
+                            <td>Indicates if the service provides functionality for 'location'. ManyWho optionally collects location information about the user when running a Flow. This information can be used to make decisions about permissions and also data filtering - though it is up to the service to implement this functionality.</td>
+                        </tr>
+                        <tr>
+                            <td>actions</td>
+                            <td>Array: <a href="#serviceactionrequestobject">Service Action Request Objects</a></td>
+                            <td>The list of 'logic' operations that are available for the service. If the underlying service 'providesLogic', this is where the 'interface' for those logic operations should be stored. This allows the author to know what inputs and outputs are provided by the actions provided by this service.</td>
+                        </tr>
+                        <tr>
+                            <td>install</td>
+                            <td>Object: <a href="#serviceinstallrequestobject">Service Install Request Objects</a></td>
+                            <td>As part of the service creation, you can provide additional installation metadata that will be created as part of the service. This object defines the metadata that this service wants to create as part of the creation of the service.</td>
+                        </tr>
+                        <tr>
+                            <td>updateByName</td>
+                            <td>Boolean</td>
+                            <td>Indicates if the the platform should attempt to find a service with the same developer name as the one provided and match them up by name as opposed to 'id'. This is useful when creating scripts to create flows - as you can use the developerName property as the reference as opposed to needing to know the ids of all created elements.</td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="servicevaluerequestobject">Service Value Request Object</h2>
+
+                    <p>The service value request object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the service value. This property is created by the service.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>developerName</td>
+                            <td>String</td>
+                            <td>The developer name for the service value. This needs to match up with the developerName of the configuration value sent back from the service description.</td>
+                        </tr>
+                        <tr>
+                            <td>valueElementToReferenceId</td>
+                            <td>Object: <a href="#valueelementid">Value Element Id</a></td>
+                            <td>The compound identifier and command for the reference Value to be used to provide the actual value for the configuration value. The Value must be the same
+            ContentType and TypeElement definition (if an Object or List) as that provided by the service description.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>contentValue</td>
+                            <td>String</td>
+                            <td>The hard-coded value for the configuration value. This property is not yet supported and may be part of future versions of the ManyWho platform.</td>
+                        </tr>
+                        <tr>
+                            <td>contentType</td>
+                            <td>String: <a href="#contenttypeenum">ContentType</a></td>
+                            <td>They type of content the component holds.</td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="serviceactionrequestobject">Service Action Request Object</h2>
+
+                    <p>The service action request object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the service action. This property is created by the service.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>uriPart</td>
+                            <td>String</td>
+                            <td>The uri part that will be used in addition to the base uri provided for the service. This needs to match up with the uriPart of the actions sent back from the service description.</td>
+                        </tr>
+                        <tr>
+                            <td>developerName</td>
+                            <td>String</td>
+                            <td>The developer name for the service action. This does not need to match with the service description as the matching to action is done based on uri part above.</td>
+                        </tr>
+                        <tr>
+                            <td>developerName</td>
+                            <td>String</td>
+                            <td>The developer name for the service action. This does not need to match with the service description as the matching to action is done based on uri part above.</td>
+                        </tr>
+                        <tr>
+                            <td>developerSummary</td>
+                            <td>String</td>
+                            <td>(Optional) The developer summary the author provided to give more information about the service action.</td>
+                        </tr>
+                        <tr>
+                            <td>isViewMessageAction</td>
+                            <td>Boolean</td>
+                            <td>This property is not yet supported. Indicates if this particular service action will return a View as opposed to being a system-to-system API reference. If this is a View message action, then it can be used in 'Remote Page' map elements.</td>
+                        </tr>
+                        <tr>
+                            <td>serviceActionOutcomes</td>
+                            <td>Array: Service Action Outcome</td>
+                            <td>This property is not yet supported. Provides the outcomes that the View exposes for the Author to use as outcomes in their Flow.</td>
+                        </tr>
+                        <tr>
+                            <td>serviceInputs</td>
+                            <td>Array: <a href="#servicevaluerequestobject">Service Value Request Objects</a></td>
+                            <td>The list of input values that are available for this particular action. The only supported properties on the service value request object are: id, developerName and contentType as the Value references are defined by the actions in each 'Message' map element.</td>
+                        </tr>
+                        <tr>
+                            <td>serviceOutputs</td>
+                            <td>Array: <a href="#servicevaluerequestobject">Service Value Request Objects</a></td>
+                            <td>The list of output values that are available for this particular action. The only supported properties on the service value request object are: id, developerName and contentType as the Value references are defined by the actions in each 'Message' map element.</td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="serviceinstallrequestobject">Service Install Request Object</h2>
+
+                    <p>The service install request object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the service action. This property is created by the service.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>typeElements</td>
+                            <td>Array: <a href="typeelementrequestobject">Type Element Request Object</a></td>
+                            <td>The list of types can will be installed as part of this service creation. Once the service element saves, the install object is no longer used as it will create all the Type elements as part of the single save operation.</td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="valueelementidobject">Value Element Id Object</h2>
+
+                    <p>The value element id object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Value to be referenced with this identifier.</td>
+                        </tr>
+                        <tr>
+                            <td>typeElementPropertyId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for a Property in the Value to be referenced with this identifier. This only applies for Values of type ContentObject.</td>
+                        </tr>
+                        <tr>
+                            <td>command</td>
+                            <td>String</td>
+                            <td>The command to execute as part of the Value reference. For certain objects, the command exposes additional properties that can be referenced.</td>
+                        </tr>
+                    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>dateCreated</td>
+                            <td>String: Date/Time in JavaScript 1.8.5/ECMAScript 5th Edition format</td>
+                            <td>The date the flow was first created.</td>
+                        </tr>
+                        <tr>
+                            <td>dateModified</td>
+                            <td>String: Date/Time in JavaScript 1.8.5/ECMAScript 5th Edition format</td>
+                            <td>The date the last modificiation was made to the flow.</td>
+                        </tr>
+                        <tr>
+                            <td>userCreated</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the user who created the flow.</td>
+                        </tr>
+                        <tr>
+                            <td>userModified</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the user who last modified the flow.</td>
+                        </tr>
+                        <tr>
+                            <td>userOwner</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the user who owns this flow.</td>
+                        </tr>
+                        <tr>
+                            <td>editingToken</td>
+                            <td>String: GUID</td>
+                            <td>This property is returned, but is always 'null' for run operations.</td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>Object: <a href="#flowidobject">Flow Identifier Object</a></td>
+                            <td>The complete unique identifier needed to initialize and run the flow.</td>
+                        </tr>
+                        <tr>
+                            <td>developerName</td>
+                            <td>String</td>
+                            <td>The developer name for the flow. If you are referencing flows by name, this is the name you should use in
+            your referencing.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>developerSummary</td>
+                            <td>String</td>
+                            <td>The developer summary the author provided to give more information about the flow.</td>
+                        </tr>
+                        <tr>
+                            <td>isActive</td>
+                            <td>Boolean</td>
+                            <td>Indicates if this flow version is the active version. In the case of run operations, this will always be
+            true.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>isDefault</td>
+                            <td>Boolean</td>
+                            <td>Indicates if this flow version is the default version. In the case of run operations, this will always be
+            true.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>startMapElementId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the first element in the flow.</td>
+                        </tr>
+                        <tr>
+                            <td>authorization</td>
+                            <td>Object: Authorization</td>
+                            <td>The Authorization object for this flow.</td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="engineinitializationrequestobject">Engine Initialization Request Object</h2>
+
+                    <p>The engine initialization request object properties are as follows:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>flowId</td>
+                            <td>Object: <a href="#flowidobject">Flow Identifier Object</a></td>
+                            <td>The complete unique identifier for the flow you want to initialize.</td>
+                        </tr>
+                        <tr>
+                            <td>annotations</td>
+                            <td>Map</td>
+                            <td>(Optional) Key value pairs you wish to annotate to the flow. Annotations take the form of
+            {"mykey":"myvalue"}. Any annotations added to the state will be persisted for the duration of the flow.
+            Annotations are passed to the executing player and also through to plugin services. Annotations can be
+            changed at any time through the execution of the flow.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>inputs</td>
+                            <td>Array: <a href="#enginevalueobject">Engine Value Objects</a></td>
+                            <td>(Optional) An array of engine value objects that will be used to assign values in the flow at
+            initialization.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>mode</td>
+                            <td>String: Url<a href="#modeenum">PlayerUrl</a></td>
+                            <td>(Optional) The location of the player that should be used for sharing and notifications when first running
+            the flow. The service will automatically append the "flow-id" parameter to this url so the player knows
+            which flow it is playing.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>mode</td>
+                            <td>String: Url<a href="#modeenum">JoinPlayerUrl</a></td>
+                            <td>(Optional) The location of the player that should be used for sharing and notifications when joining a
+            running flow. The service will automatically append the "join" parameter to this url so the player knows
+            which flow and state it is playing (the "join" parameter is the state identifier).
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>mode</td>
+                            <td>String: <a href="#modeenum">Mode</a></td>
+                            <td>(Optional) The mode you wish to run the flow in. The mode is mainly useful for debugging purposes as you can
+            step through the flow and also view state information to check everything is working as expected.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="engineinitializationresponseobject">Engine Initialization Response Object</h2>
+
+                    <p>The engine initialization response object properties are as follows:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>stateId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the initialized flow state. The state identifier is needed throughout the
+            execution of the flow as it is the pointer that points the engine to the correct running instance of a flow.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>stateToken</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the token response from the state. The state token identifier changes with every
+            cycle of request/response. The token is needed as it tells the engine how in-sync your request is with the
+            current service side state.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>currentMapElementId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the map element the user is currently executing against. When initializing the
+            flow, this will be the start element for the flow if the user has authenticated correctly, otherwise, this
+            will be null.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>currentStreamId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the collaboration stream associated with this flow. This identifier allows you to
+            make calls against the "social" APIs to get the posts and comments associated with the flow. The stream
+            identifier can change as you progress through the flow.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>statusCode</td>
+                            <td>String</td>
+                            <td>The values mimic standard REST codes, but as a String. A "200" indicates the user is authenticated to
+            execute the flow. A "401" indicates the user needs to login based on the authorization context information
+            provided in the response.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>authorizationContext</td>
+                            <td>Object: <a href="#authorizationcontextobject">Authorization Context Object</a></td>
+                            <td>The authorization context for the initialization. This object will tell you how to login to the correct
+            system to begin executing the flow.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="engineinvokerequestobject">Engine Invoke Request Object</h2>
+
+                    <p>The engine invoke request object properties are as follows:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>stateId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the initialized flow state. The state identifier is needed throughout the
+            execution of the flow as it is the pointer that points the engine to the correct running instance of a flow.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>stateToken</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the token response from the state. The state token identifier changes with every
+            cycle of request/response. The token is needed as it tells the engine how in-sync your request is with the
+            current service side state.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>currentMapElementId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the map element the user is currently executing against.</td>
+                        </tr>
+                        <tr>
+                            <td>invokeType</td>
+                            <td>String: <a href="#invoketypeenum">InvokeType</a></td>
+                            <td>The way you want to invoke the engine as part of this request. The user may be navigating forward, or you
+            may be wanting to perform a sync operation to update the UI due to another user making a change.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>annotations</td>
+                            <td>Map</td>
+                            <td>(Optional) Key value pairs you wish to annotate to the flow. Annotations take the form of
+            {"mykey":"myvalue"}. Any annotations added to the state will be persisted for the duration of the flow.
+            Annotations are passed to the executing player and also through to plugin services. Annotations can be
+            changed at any time through the execution of the flow.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>geoLocation</td>
+                            <td>Object: <a href="#geolocationobject">Geo Location Object</a></td>
+                            <td>(Optional) An object representing the current location information of the calling user.</td>
+                        </tr>
+                        <tr>
+                            <td>mapElementInvokeRequest</td>
+                            <td>Object: <a href="#mapelementinvokerequestobject">Map Element Invoke Request Object</a></td>
+                            <td>The map element invoke request holds the data that was collected from the user. This can be inputs from a
+            form or simply the selected outcome (e.g. the button they clicked to move forward).
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>mode</td>
+                            <td>String: <a href="#modeenum">Mode</a></td>
+                            <td>(Optional) The mode you wish to run the flow in. The mode is mainly useful for debugging purposes as you can
+            step through the flow and also view state information to check everything is working as expected.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="mapelementinvokerequestobject">Map Element Invoke Request Object</h2>
+
+                    <p>
+                        The map element invoke request object properties are as follows (these are the properties we're exposing currently
+    and the documentation will be expanded shortly):
+                    </p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>selectedOutcomeId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the outcome the user is taking action on. The outcomes are provided in the <a
+                                href="#mapelementinvokeresponseobject">Map Element Invoke Response Object</a> as part of the
+            outcomeResponses property.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="engineinvokeresponseobject">Engine Invoke Response Object</h2>
+
+                    <p>The engine invoke response object properties are as follows:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>stateId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the initialized flow state. The state identifier is needed throughout the
+            execution of the flow as it is the pointer that points the engine to the correct running instance of a flow.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>stateToken</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the token response from the state. The state token identifier changes with every
+            cycle of request/response. The token is needed as it tells the engine how in-sync your request is with the
+            current service side state.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>alertEmail</td>
+                            <td>String</td>
+                            <td>The email address that should be used to notify of any Flow or player related faults. This email address is typically the email of the author of the Flow.</td>
+                        </tr>
+                        <tr>
+                            <td>waitMessage</td>
+                            <td>String</td>
+                            <td>The message that should be shown to the user if the engine returns an Invoke Type of 'WAIT'.</td>
+                        </tr>
+                        <tr>
+                            <td>notAuthorizedMessage</td>
+                            <td>String</td>
+                            <td>The message that should be shown to the user if the engine returns an Invoke Type of 'STATUS'. The engine will automatically handle UI permissions - so this user will not recieve Page metadata.</td>
+                        </tr>
+                        <tr>
+                            <td>currentMapElementId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the map element the user is currently executing against.</td>
+                        </tr>
+                        <tr>
+                            <td>currentStreamId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the collaboration stream the user is currently using to collaborate with colleagues. If the Flow is not leveraging collaboration streams, this property will be null or blank.</td>
+                        </tr>
+                        <tr>
+                            <td>invokeType</td>
+                            <td>String: <a href="#invoketypeenum">InvokeType</a></td>
+                            <td>The way the engine responded to your initial invoke request.</td>
+                        </tr>
+                        <tr>
+                            <td>annotations</td>
+                            <td>Map</td>
+                            <td>(Optional) Key value pairs you wish to annotate to the flow. Annotations take the form of
+            {"mykey":"myvalue"}. Any annotations added to the state will be persisted for the duration of the flow.
+            Annotations are passed to the executing player and also through to plugin services. Annotations can be
+            changed at any time through the execution of the flow.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>mapElementInvokeResponses</td>
+                            <td>Array: <a href="#mapelementinvokeresponseobject">Map Element Invoke Response Objects</a></td>
+                            <td>The list of map element invoke responses generated by the executed element or elements in the flow.
+            Currently the array contains only the one object, which is the object that is the current element being
+            executed in the flow.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>stateLog</td>
+                            <td>N/A</td>
+                            <td>This property is not currently supported. In future versions, this will contain the execution history of the
+            flow.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>preCommitStateValues</td>
+                            <td>Array: <a href="#enginevalueobject">Engine Value Objects</a></td>
+                            <td>The list of engine values that are currently in a pre-commit state. This is only populated when the engine
+            is being run in "DEBUG" or "DEBUG_STEPTHROUGH" mode. Values are only committed to the state after the
+            element has completed execution successfully (usually as a result of the user invoking the engine "FORWARD"
+            and the page validating correctly).
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>stateValues</td>
+                            <td>Array: <a href="#enginevalueobject">Engine Value Objects</a></td>
+                            <td>The list of engine values that are currently committed in the state. This is only populated when the engine
+            is being run in "DEBUG" or "DEBUG_STEPTHROUGH" mode.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>outputs</td>
+                            <td>Array: <a href="#enginevalueobject">Engine Value Objects</a></td>
+                            <td>The list of engine values for all values in the flow that are set as OUTPUT or INPUT/OUTPUT. This property
+            is only populated when the engine responds with an invokeType of "DONE".
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>statusCode</td>
+                            <td>String</td>
+                            <td>The values mimic standard REST codes, but as a String. A "200" indicates the user is authenticated to
+            execute the flow. A "401" indicates the user needs to login based on the authorization context information
+            provided in the response.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>runFlowUri</td>
+                            <td>String: Url</td>
+                            <td>The Url that should be used to run a new instance of this flow with this player. For cross-platform
+            situations, the run Url should redirect to the appropriate player for the calling device.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>joinFlowUri</td>
+                            <td>String: Url</td>
+                            <td>The Url that should be used to join this instance of this this flow with this player. For cross-platform
+            situations, the join Url should redirect to the appropriate player for the calling device.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>authorizationContext</td>
+                            <td>Object: <a href="#authorizationcontextobject">Authorization Context Object</a></td>
+                            <td>The authorization context for the initialization. This object will tell you how to login to the correct
+            system to begin executing the flow.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="mapelementinvokeresponseobject">Map Element Invoke Response Object</h2>
+
+                    <p>The map element invoke response object properties are as follows:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>mapElementId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the map element this response pertains to.</td>
+                        </tr>
+                        <tr>
+                            <td>pageResponse</td>
+                            <td>Object: <a href="#pageresponseobject">Page Response Object</a></td>
+                            <td>The meta data object for the page. This object should be used to generate the UI that will be presented to
+            the user. If the map element invoke response contains a pageResponse object, then the engine is expecting
+            the user to take action to progress the state of the flow.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="pageresponseobject">Page Response Object</h2>
+
+                    <p>The page response object properties are as follows:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>label</td>
+                            <td>String</td>
+                            <td>(Optional) The label for the page. This is often used as a title for the page.</td>
+                        </tr>
+                        <tr>
+                            <td>pageContainerResponses</td>
+                            <td>Array: <a href="#pagecontainerresponseobject">Page Container Response Object</a></td>
+                            <td>(Optional) The scaffolding for the page UI containers. The page containers are nested objects that give the
+            complete heirarchy of containers that make up the layour of the UI. The engine will only return this array
+            of objects for a "JOIN" or "FORWARD" invokeType. For all other types, we assume the player has the UI layout
+            and therefore is only needing metadata and content/data updates. The engine will always provide the complete
+            page scaffolding and then rely on the data responses to hide, display, disable, etc.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>pageComponentResponses</td>
+                            <td>Array: <a href="#pagecomponentresponseobject">Page Component Response Object</a></td>
+                            <td>(Optional) The UI component base structures. The data contained in this object will not change based on
+            events. As with the page container response objects, this data is only provided when the engine is called
+            with an invokeType of "JOIN" or "FORWARD".
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>pageContainerDataResponses</td>
+                            <td>Array: <a href="#pagecontainerdataresponseobject">Page Container Data Response Object</a></td>
+                            <td>(Optional) The meta data for the page containers. The metadata tells the player if the container is visible,
+            enabled, etc. This information is subject to change based on events performed by the UI and this array of
+            objects will always be returned by the engine regardless of invokeType (assuming the user is authenticated
+            and the element has UI).
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>pageComponentDataResponses</td>
+                            <td>Array: <a href="#pagecomponentdataresponseobject">Page Component Data Response Object</a></td>
+                            <td>(Optional) The meta data and data for the page components. The metadata tells the player if the component is
+            visible, enabled, etc, and also tells the player the content of the component. This information is subject
+            to change based on events performed by the UI and this array of objects will always be returned by the
+            engine regardless of invokeType (assuming the user is authenticated and the element has UI).
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>order</td>
+                            <td>Integer</td>
+                            <td>(Optional) The order in which this page element should appear. The order will always be zero for the page
+            element as it is the root container.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>outcomeResponses</td>
+                            <td>Array: <a href="#outcomeresponseobject">Outcome Response Object</a></td>
+                            <td>(Optional) The outcome response objects are the actions that can be performed by the user to navigate the
+            flow from element to element. Outcome responses can be bound to page components to add additional context to
+            the action (e.g. the button should appear beside a field input, above a table of records, etc)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>rootFaults</td>
+                            <td>Map</td>
+                            <td>(Optional) Key value pairs taking the form of {"errorCode":"errorMessage"}. The root faults are populated if
+            a fault has occurred that is not attributed to a specific value on the page. A root fault is often due to an
+            element in the flow experiencing a fault and the author of the flow has determined that the user should be
+            navigated to this page to rectify the problem. If an error is attributed to a value in the state, it will be
+            bound to the page component as a validation error message.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="pagecontainerresponseobject">Page Container Response Object</h2>
+
+                    <p>The page container response object properties are as follows:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the page component. All page components have a property of pageContainerId that
+            will match with this identifier to indicate that the component should be a child of this container.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>containerType</td>
+                            <td>String: <a href="#containertypeenum">ContainerType</a></td>
+                            <td>The container type tells the player the kind of container that needs to be rendered. This is usually to
+            indicate if the container has particular layour properties such as vertical, horizontal or inline flow - or
+            that the container is a group of tabs. The container type is not restricted to the enumeration provided here
+            - however - all of the standard players provided by ManyWho are able to render the container types in the
+            enum. If you wish to add more container types, be aware that you will need to update the player to support
+            these.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>developerName</td>
+                            <td>String</td>
+                            <td>The name the author has given for this container.</td>
+                        </tr>
+                        <tr>
+                            <td>label</td>
+                            <td>(Optional) String</td>
+                            <td>The label for the container. This is often used as a title for the section of the page represented by this
+            container.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>pageContainerResponses</td>
+                            <td>Array: <a href="#pagecontainerresponseobject">Page Container Response Object</a></td>
+                            <td>(Optional) The child scaffolding for this page container.</td>
+                        </tr>
+                        <tr>
+                            <td>order</td>
+                            <td>Integer</td>
+                            <td>The order in which this container should appear on the page with respect to other page containers at the
+            same level in the page container hierarchy.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="pagecomponentresponseobject">Page Component Response Object</h2>
+
+                    <p>The page component response object properties are as follows:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>pageContainerDeveloperName</td>
+                            <td>String</td>
+                            <td>The developer name for the page container this component should be placed into. When rendering a UI, it's
+            best to reference the pageContainerId as this developer name is not guaranteed to be unique.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>pageContainerId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the page container this component should be placed into. When rendering a UI, this
+            is the best reference to use as the developer names are not guaranteed to be unique.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifer for this page component.</td>
+                        </tr>
+                        <tr>
+                            <td>developerName</td>
+                            <td>String</td>
+                            <td>The name the author has given for this component.</td>
+                        </tr>
+                        <tr>
+                            <td>componentType</td>
+                            <td>String: <a href="#componenttypeenum">ComponentType</a></td>
+                            <td>The type of component that should be used. The platform currently supports the standard components such as
+            "INPUT", "SELECT", etc as would be familiar with HTML UI. If you want to provide additional UI componentry,
+            we recommend using "tags" to inform the player that you want to adapt the component based on the data in the
+            tag. For example, you may want to change a particular number input to a "slider" or you might bind this page
+            component to a widget - again, based on the data in the tag.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>contentType</td>
+                            <td>String: <a href="#contenttypeenum">ContentType</a></td>
+                            <td>They type of content the component holds.</td>
+                        </tr>
+                        <tr>
+                            <td>label</td>
+                            <td>(Optional) String</td>
+                            <td>The label for the component. This is often the label for a form field.</td>
+                        </tr>
+                        <tr>
+                            <td>columns</td>
+                            <td>(Optional) Array: Page Component Column Objects</td>
+                            <td>The columns associated with this page component. This property is only used for "TABLE"/"SELECT" components
+            and details out the columns that should be displayed to the user. This property is not currently fully
+            documented until we release the page composition tool.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>size</td>
+                            <td>(Optional) Integer</td>
+                            <td>The size of the component. For "INPUT" components, this is typically the number of characters wide to
+            display the input box.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>maxSize</td>
+                            <td>(Optional) Integer</td>
+                            <td>The maximum size of characters the component can hold. For "INPUT" and "TEXTAREA" components, this is the
+            amount of content these inputs can hold.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>height</td>
+                            <td>(Optional) Integer</td>
+                            <td>The height of the component. For "TEXTAREA" components, this is typically the number of characters high to
+            display the text box. For "IMAGE" components, this is the height in pixels of the image.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>width</td>
+                            <td>(Optional) Integer</td>
+                            <td>The width of the component. For "TEXTAREA" components, this is typically the number of characters wide to
+            display the text box. For "IMAGE" components, this is the width in pixels of the image.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>hintValue</td>
+                            <td>(Optional) String</td>
+                            <td>The information that should be shown to the user to help them understand what they need to enter. For
+            "INPUT" components, this if often the text you see in the input box (e.g. Enter Name) that disappears once
+            you enter something into the input.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>helpInfo</td>
+                            <td>(Optional) String</td>
+                            <td>The help information to assist the user in completing this page component. The help information is often
+            something the user sees if they click on a "help" button beside the component or hover over a "help" icon.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>order</td>
+                            <td>Integer</td>
+                            <td>The order in which this component should be placed with respect to other components in the same page
+            container.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>isMultiSelect</td>
+                            <td>(Optional) Boolean</td>
+                            <td>This property indicates if the component supports selection of more than one value. This is only applicable
+            for "TABLE"/"SELECT" components.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>hasEvents</td>
+                            <td>Boolean</td>
+                            <td>Indicates if changes to this component should result in a "SYNC" invoke type with the service. If the
+            component has events, it's likely that the page state needs to change based on business rules. If the
+            component does not have events, there is no need to update the service of changes made to the value of the
+            component.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="pagecomponentdataresponseobject">Page Component Data Response Object</h2>
+
+                    <p>The page component data response object properties are as follows:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>pageComponentId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the page component that this data pertains to.</td>
+                        </tr>
+                        <tr>
+                            <td>isEnabled</td>
+                            <td>Boolean</td>
+                            <td>Indicates if the page component should be enabled.</td>
+                        </tr>
+                        <tr>
+                            <td>isEditable</td>
+                            <td>Boolean</td>
+                            <td>Indicates if the page component should be editable.</td>
+                        </tr>
+                        <tr>
+                            <td>isRequired</td>
+                            <td>Boolean</td>
+                            <td>Indicates if the page component should be required.</td>
+                        </tr>
+                        <tr>
+                            <td>isVisible</td>
+                            <td>Boolean</td>
+                            <td>Indicates if the page component should be visible.</td>
+                        </tr>
+                        <tr>
+                            <td>objectData</td>
+                            <td>Array: Object Data Object</td>
+                            <td>(Optional) The up-to-date object data for the component. For page components that use asynchronous object
+            data requests, this list contains the selected objects. If not, the object data is flagged with "isSelected"
+            for all objects in the list that should be rendered to the user as selected. This object will be further
+            documented when we release the page composition tool.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>objectDataRequest</td>
+                            <td>Object: Object Data Request Object</td>
+                            <td>(Optional) The request object that should be dispatched to the data service to get the list of data that
+            needs to be populated in the component. The object data request is provided so the player can determine when
+            the request for the data should be dispatched (e.g. only when enabled). In addition, the player can modify
+            this request object to include search terms and paging to ensure the user is getting the necessary data.
+            This object will be further documented when we release the page composition tool.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>contentValue</td>
+                            <td>String</td>
+                            <td>(Optional) The value of the page component. For "INPUT" and "TEXTAREA" components, this is typically the
+            value the user entered.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>content</td>
+                            <td>String: HTML5</td>
+                            <td>(Optional) Any formatted content that may be associated with this component. For "PRESENTATION" components,
+            this is the content that should be displayed on the page.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>isValid</td>
+                            <td>Boolean</td>
+                            <td>Indicates if the value provided in the field is valid. The validation is only performed when the user
+            selects an outcome. Validation is not done on values as the result of an invokeType of "SYNC".
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>validationMessage</td>
+                            <td>String</td>
+                            <td>(Optional) Any message from the system that explains why the value is not valid. This message can result
+            from a straight page component validation or as the result of the value not being accepted by a subsequent
+            element in the flow (in which case the author of the flow indicated the user should be taken back to this
+            screen to correct the issue).
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>tags</td>
+                            <td>Array: Page Tag Object</td>
+                            <td>(Optional) The page tag provides additional metadata that the author of the flow has defined for this
+            component. Tags are a very powerful way of providing additional information to player developers to ensure
+            the app is providing exactly the user experience you expect. This object will be further documented when we
+            release the page composition tool.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="pagecontainerdataresponseobject">Page Container Data Response Object</h2>
+
+                    <p>The page container data response object properties are as follows:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>pageContainerId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the page container that this data pertains to.</td>
+                        </tr>
+                        <tr>
+                            <td>isEnabled</td>
+                            <td>Boolean</td>
+                            <td>Indicates if the page container should be enabled. If the page container is disabled, the default behavior
+            is that all child components and containers are also disabled.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>isEditable</td>
+                            <td>Boolean</td>
+                            <td>Indicates if the page container should be editable. If the page container is not editable, the default
+            behavior is that all child components and containers are also not editable.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>isVisible</td>
+                            <td>Boolean</td>
+                            <td>Indicates if the page container should be visible. If the page container is not visible, the default
+            behavior is that all child components and containers are also not visible.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>tags</td>
+                            <td>Array: Page Tag Object</td>
+                            <td>(Optional) The page tag provides additional metadata that the author of the flow has defined for this
+            container. Tags are a very powerful way of providing additional information to player developers to ensure
+            the app is providing exactly the user experience you expect. This object will be further documented when we
+            release the page composition tool.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="outcomeresponseobject">Outcome Response Object</h2>
+
+                    <p>The outcome response object properties are as follows:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for outcome response.</td>
+                        </tr>
+                        <tr>
+                            <td>developerName</td>
+                            <td>String</td>
+                            <td>The name the author of the flow has given to this outcome.</td>
+                        </tr>
+                        <tr>
+                            <td>label</td>
+                            <td>String</td>
+                            <td>The label that should be used for the outcome. This is usually the label for the button on the page
+            represented by this outcome.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>pageActionBinding</td>
+                            <td>String: <a href="pageactionbindingenum">PageActionBinding</a></td>
+                            <td>The type of action this outcome represents. This value gives the player additional information that can be
+            helpful when presenting the outcome to the user. For example, some outcomes do not save the page information
+            back to the service (e.g. similar to a "Cancel" button) and the player developer may wish to show these
+            outcomes in a different style.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>formElementBindingId</td>
+                            <td>String: GUID</td>
+                            <td>The page component or container that this outcome should be associated with. This is usually used to place
+            the outcome button action within the bound container or close to the associated component.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>order</td>
+                            <td>Integer</td>
+                            <td>The order this outcome should appear in relation to other outcomes. For outcomes bound to page containers or
+            components, it should be in relation to other outcomes also bound to that same page element.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="geolocationobject">Geo Location Object</h2>
+
+                    <p>The geo location object properties are as follows:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>latitude</td>
+                            <td>Double</td>
+                            <td>The latitude coordinate of the users location on the planet.</td>
+                        </tr>
+                        <tr>
+                            <td>longitude</td>
+                            <td>Double</td>
+                            <td>The longitude coordinate of the users location on the planet.</td>
+                        </tr>
+                        <tr>
+                            <td>accuracy</td>
+                            <td>Double</td>
+                            <td>The accuracy of the location data that has been collected.</td>
+                        </tr>
+                        <tr>
+                            <td>altitude</td>
+                            <td>Double</td>
+                            <td>The altitude of the user above mean sea level.</td>
+                        </tr>
+                        <tr>
+                            <td>altitudeAccuracy</td>
+                            <td>Double</td>
+                            <td>The accuracy of the altitude data that has been collected.</td>
+                        </tr>
+                        <tr>
+                            <td>heading</td>
+                            <td>Double</td>
+                            <td>The heading of the user as degrees clockwise from North.</td>
+                        </tr>
+                        <tr>
+                            <td>speed</td>
+                            <td>Double</td>
+                            <td>The speed of the user in meters per second.</td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="flowidobject">Flow Identifier Object</h2>
+
+                    <p>The flow identifier object properties are as follows:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the flow. This identifier does not change for the lifetime of the flow and is
+            generated when the flow is first created.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>versionId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the specific version of a flow. This identifier changes any time a change is made
+            to the flow - in structure or content.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="authorizationcontextobject">Authorization Context Object</h2>
+
+                    <p>The authorization context object properties are as follows:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>directoryName</td>
+                            <td>String</td>
+                            <td>The name of the directory the user needs to login to. This can be helpful in dialogs so the user knows what
+            system they need to provide credentials for.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>directoryId</td>
+                            <td>String</td>
+                            <td>The unique identifier for the directory. Again, this can be helpful in dialogs. In this case, for developers
+            as the directory identifier may allow you to gather additional information about what needs to be collected
+            from the user.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>loginUrl</td>
+                            <td>String</td>
+                            <td>The Url that should be used as part of any authentication request to the runtime.</td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="authenticationrequestobject">Authentication Request Object</h2>
+
+                    <p>The authentication request object properties are as follows:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>loginUrl</td>
+                            <td>String: Url</td>
+                            <td>The REST end-point Url for the plugin providing the identity. This acts as the identifier for the plugin
+            being used for authentication.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>username</td>
+                            <td>String</td>
+                            <td>The username for your account in the directory.</td>
+                        </tr>
+                        <tr>
+                            <td>password</td>
+                            <td>String</td>
+                            <td>The password for your account in the directory</td>
+                        </tr>
+                        <tr>
+                            <td>token</td>
+                            <td>String</td>
+                            <td>(Optional) The account token for the directory. For services such as salesforce.com, this is the security
+            token.  For OAuth2 integration, this the OAuth refresh token.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>sessionToken</td>
+                            <td>String</td>
+                            <td>(Optional) The session token for the directory. For services such as salesforce.com, this is the sessionId. For OAuth2
+            integration, this is the OAuth token.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>sessionUrl</td>
+                            <td>String</td>
+                            <td>(Optional) The session url for the directory.  For services such as salesforce.com, this is the pod instance you are currently logged into.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>instanceUrl</td>
+                            <td>String</td>
+                            <td>(Optional) The particular instance of the directory.  For services such as salesforce.com, this is either "https://login.salesforce.com" (default)
+            or "https://test.salesforce.com".
+                            </td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="enginevalueobject">Engine Value Object</h2>
+
+                    <p>The engine value object properties are as follows:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>(Optional) The unique identifier for the value in the flow being assigned. Using the id to reference the
+            value ensures that your player is guaranteed to be assigning the correct value. If you reference a value by
+            developerName, it is possible for the author to break integration points simply by changing the name of the
+            value. You must provide an 'id' or a 'developerName'.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>typeElementId</td>
+                            <td>String: GUID</td>
+                            <td>(Optional) The unique identifier for the object type of the value in the flow being assigned. Using the
+            typeElementId ensures that your player is guaranteed to be referencing the correct object type. If you use
+            the typeElementDeveloperName property, a change in the type name can break the integration. We ask that you
+            specify the type as we may in future support type casting and we therefore want to know the type you're
+            passing in so we can validate it is correct before mapping to the super type.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>typeElementPropertyId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the object property of the value in the flow being assigned. Typed objects all
+            have properties. Using the typeElementPropertyId
+            allows you to assign a property in an object value as opposed to the whole value. As with the other
+            identifier references, using the typeElementPropertyId ensures that your player is guaranteed to be assigning
+            the correct value. Using the typeElementPropertyDeveloperName makes it possible to break the integration if the
+            author changes the developerName of a property in the type.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>typeElementDeveloperName</td>
+                            <td>String</td>
+                            <td>(Optional) The developer name for the object type of the value in the flow being assigned. See the
+            typeElementId for more information.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>typeElementPropertyDeveloperName</td>
+                            <td>String</td>
+                            <td>The developer name for the object property of the value in the flow being assigned. See the
+            typeElementPropertyId for more information.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>contentValue</td>
+                            <td>String</td>
+                            <td>The actual content value being assigned to the value in the flow. This property should be used for all
+            "primitive", non-typed values in your flow. For example, if you are referencing a value called "First Name",
+            this would be the value you actually want to assign to it: e.g. "Steve".
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>contentType</td>
+                            <td>String: <a href="#contenttypeenum">ContentType</a></td>
+                            <td>The content type of the value you are passing into the flow. The content types are specified by the
+            ContentType enumeration.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>Object: <a href="#flowidobject">Object Data Object</a></td>
+                            <td>The actual object data being assigne to the value in the flow. If you are assigning a typed object, you
+            should use this property to assign the value. The object data is provided as a list of objects regardless of
+            whether you're assigning an object or a list. However, for objects you should only ever have one object in
+            your array.
+                            </td>
+                        </tr>
+                    </table>
+
+                </section>
+
+                <section id="flowEnums">
+
+                    <h1>API Enumerations
+    <small>Helpful values</small>
+                    </h1>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="invoketypeenum">InvokeType Enumeration</h2>
+
+                    <p>The InvokeType enum contains the following values:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Value</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>FORWARD</td>
+                            <td>Tells the engine that you wish to move forward. This doesn't necessarily mean the engine will move forward
+            if the request fails on page validation OR the author of the flow has put rules against the element that
+            have not evaluated to 'true'.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>DONE</td>
+                            <td>This invoke type is returned by the engine if the flow has completed.</td>
+                        </tr>
+                        <tr>
+                            <td>WAIT</td>
+                            <td>Tells the engine and the caller that the engine is waiting or the external plugin is waiting. As part of the
+            plugin framework a "WAIT" request allows you to send status messages to the user without progressing the
+            flow. When calling the engine from a plugin, if the engine responds with a "WAIT", it means the engine is
+            likely waiting on another event or business rule to fire.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>STATUS</td>
+                            <td>Tells the engine that you wish to get a status update on the flow. This will send back up-to-date page
+            metadata and any new status messages.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>SYNC</td>
+                            <td>Tells the engine that you wish to synchronize the data held in the player with that held on the service.
+            This will send back up-to-date page metadata and any new status messages.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>SUCCESS</td>
+                            <td>When making asynchronous requests against the engine, a "SUCCESS" response tells the caller that the request
+            was accepted and the caller therefore does not need to continue to make requests against the engine.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>TOKEN_COMPLETED</td>
+                            <td>When making asynchronous requests against the engine, a "TOKEN_COMPLETED" response tells the caller that the
+            request is no longer needed or valid and the caller therefore does not need to continue to make requests
+            against the engine. This can happen if the user has send messages out to multiple systems and the rules to
+            continue forward in the execution of the flow were satisfied by another system response.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="pageactionbindingenum">PageActionBinding Enumeration</h2>
+
+                    <p>The PageActionBinding enum contains the following values:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Value</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>SAVE</td>
+                            <td>The engine should apply all values collected to the state.</td>
+                        </tr>
+                        <tr>
+                            <td>NO_SAVE</td>
+                            <td>The engine should ignore all values collected and not apply anything to the state except the outcome
+            action.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="containertypeenum">ContainerType Enumeration</h2>
+
+                    <p>The ContainerType enum contains the following values:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Value</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>VERTICAL_FLOW</td>
+                            <td>Child page components and containers should be organized vertically.</td>
+                        </tr>
+                        <tr>
+                            <td>HORIZONTAL_FLOW</td>
+                            <td>Child page components and containers should be organized horizontally.</td>
+                        </tr>
+                        <tr>
+                            <td>INLINE_FLOW</td>
+                            <td>Child page components and containers should be organized inline (meaning they should appear side-by-side and
+            wrap if there's not enough space horizontally.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>GROUP</td>
+                            <td>Child page components and containers should be organized as a group. The default runtime interprets a
+            "GROUP" as tabs.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="componenttypeenum">ComponentType Enumeration</h2>
+
+                    <p>The ComponentType enum contains the following values:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Value</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>CONTENT</td>
+                            <td>The component collects HTML5 formatted content.</td>
+                        </tr>
+                        <tr>
+                            <td>INPUT</td>
+                            <td>The component is a field input collecting anything from dates to passwords to text.</td>
+                        </tr>
+                        <tr>
+                            <td>TEXTAREA</td>
+                            <td>The component supports unformatted, multi-line content.</td>
+                        </tr>
+                        <tr>
+                            <td>SELECT</td>
+                            <td>The component allows the user to select from a list of options provided by the supplied object data or
+            object data request.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>CHECKBOX</td>
+                            <td>The component is a simple Yes/No checkbox.</td>
+                        </tr>
+                        <tr>
+                            <td>TABLE</td>
+                            <td>The component allows the user to select, edit and delete entries in a list of options provided by the
+            supplied object data or object data request.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PRESENTATION</td>
+                            <td>The component presents HTML5 formatted content to the user.</td>
+                        </tr>
+                        <tr>
+                            <td>TAG</td>
+                            <td>The component is unknown and the player should refer to the tag information to determine how to display the
+            provided value or object data.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>IMAGE</td>
+                            <td>The component is an image reference.</td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="contenttypeenum">ContentType Enumeration</h2>
+
+                    <p>The ContentType enum contains the following values:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Value</strong></td>
+                            <td><strong>Typed</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>ContentString</td>
+                            <td>No</td>
+                            <td>A Java java.lang.String or C# System.String value.</td>
+                        </tr>
+                        <tr>
+                            <td>ContentNumber</td>
+                            <td>No</td>
+                            <td>A Java java.lang.Double or C# System.Double value.</td>
+                        </tr>
+                        <tr>
+                            <td>ContentBoolean</td>
+                            <td>No</td>
+                            <td>A Java java.lang.Boolean or C# System.Boolean value.</td>
+                        </tr>
+                        <tr>
+                            <td>ContentPassword</td>
+                            <td>No</td>
+                            <td>A Java java.lang.String or C# System.String value. If you indicate a value is a password, we use additional
+            value encryption on storage.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ContentDateTime</td>
+                            <td>No</td>
+                            <td>A Java java.lang.DataTime or C# System.DateTime. Using the REST API, the value should be provided in
+            JavaScript 1.8.5/ECMAScript 5th Edition format.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ContentContent</td>
+                            <td>No</td>
+                            <td>A Java java.lang.String or C# System.String value. If you indicate a value is "Content", we typically expect
+            that the content holds HTML formatted String content. The engine will also parse the contents of this String
+            with any value references.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ContentObject</td>
+                            <td>Yes</td>
+                            <td>The value is Object Data based on the ManyWho format. This allows you to pass complex data into ManyWho for
+            processing, including child objects and lists. Any Object Data being passed into the system also needs to
+            have a Type as defined by your Type Elements.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ContentList</td>
+                            <td>Yes</td>
+                            <td>The value is a list of Object Data based on the ManyWho format. This allows you to pass lists of complex
+            data into ManyWho for processing (of the same Type), including child objects and lists. Any Object Data
+            being passed into the system also needs to have a Type as defined by your Type Elements.
+                            </td>
+                        </tr>
+                    </table>
+
+                </section>
+
+            </div>
         </div>
     </div>
-</div>
 
-<!-- Google Code for Remarketing tag -->
-<!-- Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. For instructions on adding this tag and more information on the above requirements, read the setup guide: google.com/ads/remarketingsetup -->
-<script type="text/javascript">
-    /* <![CDATA[ */
-    var google_conversion_id = 997422716;
-    var google_conversion_label = "7aw_CPyY7gQQ_OzN2wM";
-    var google_custom_params = window.google_tag_params;
-    var google_remarketing_only = true;
-    /* ]]> */
-</script>
-<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
-</script>
-<noscript>
-    <div style="display:inline;">
-        <img height="1" width="1" style="border-style:none;" alt=""
-             src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/997422716/?value=0&amp;label=7aw_CPyY7gQQ_OzN2wM&amp;guid=ON&amp;script=0"/>
-    </div>
-</noscript>
+    <!-- Google Code for Remarketing tag -->
+    <!-- Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. For instructions on adding this tag and more information on the above requirements, read the setup guide: google.com/ads/remarketingsetup -->
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        var google_conversion_id = 997422716;
+        var google_conversion_label = "7aw_CPyY7gQQ_OzN2wM";
+        var google_custom_params = window.google_tag_params;
+        var google_remarketing_only = true;
+        /* ]]> */
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+    <noscript>
+        <div style="display: inline;">
+            <img height="1" width="1" style="border-style: none;" alt=""
+                src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/997422716/?value=0&amp;label=7aw_CPyY7gQQ_OzN2wM&amp;guid=ON&amp;script=0" />
+        </div>
+    </noscript>
 
 </body>
 </html>

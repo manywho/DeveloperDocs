@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ManyWho Documentation</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+
+    <style type="text/css">
+        pre.prettyprint {
+            border: 1px solid #ddd !important;
+        }
+    </style>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#docsSidebar').scrollspy();
+
+            // Navigate to the first section
+            window.location.hash = 'intro';
+        });
+
+    </script>
+</head>
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="brand" href="./index.html">Bootstrap</a>
+
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li class="">
+                            <a href="http://manywho.com">Website Home</a>
+                        </li>
+                        <li class="">
+                            <a href="./index.html">Doc Home</a>
+                        </li>
+                        <li class="">
+                            <a href="./gettingstarted.html">Getting Started</a>
+                        </li>
+                        <li class="">
+                            <a href="./draw.html">Draw</a>
+                        </li>
+                        <li class="">
+                            <a href="./run.html">Run</a>
+                        </li>
+                        <li class="">
+                            <a href="./monitor.html">Monitor</a>
+                        </li>
+                        <li class="">
+                            <a href="./twilioivr.html">Twilio</a>
+                        </li>
+                        <li class="">
+                            <a href="./salesforcecanvas.html">Salesforce</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="span3 bs-docs-sidebar">
+                <ul id="docsSidebar" class="nav nav-list bs-docs-sidenav affix">
+                    <li><a href="#intro"><i class="icon-chevron-right"></i>Intro</a></li>
+                    <li><a href="#save"><i class="icon-chevron-right"></i>Save</a></li>
+                    <li><a href="#add"><i class="icon-chevron-right"></i>Add To Flow</a></li>
+                    <li><a href="#load"><i class="icon-chevron-right"></i>Load</a></li>
+                    <li><a href="#query"><i class="icon-chevron-right"></i>Query</a></li>
+                    <li><a href="#delete"><i class="icon-chevron-right"></i>Delete</a></li>
+                    <li><a href="#json"><i class="icon-chevron-right"></i>JSON Objects</a></li>
+                    <li><a href="#enums"><i class="icon-chevron-right"></i>API Enumerations</a></li>
+                </ul>
+            </div>
+            <div class="span9">
+
+                <section id="intro">
+                    <div class="marketing">
+                        <h1>Value Elements</h1>
+
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <a href="valueelement.html">
+                                    <img class="marketing-img" alt="Value Element"
+                                        src="http://cdn.manywho.com/extensions/glyphicons/value_element.png" height="85" width="75"></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h1>Intro</h1>
+
+                    <p>Something about the draw API.</p>
+
+                    <hr class="bs-docs-separator">
+
+                </section>
+
+                <section id="save">
+
+                    <h2>Save</h2>
+
+                    <p>To save (create or update) a Value Element object, you can use the following API:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="success">
+                            <td><strong>URL</strong></td>
+                            <td><strong>HTTP Verb</strong></td>
+                            <td><strong>JSON Request</strong></td>
+                            <td><strong>JSON Response</strong></td>
+                        </tr>
+                        <tr>
+                            <td>api/draw/1/element/value</td>
+                            <td>POST</td>
+                            <td>Object: <a href="#valueelementrequestobject">Value Element Request Object</a></td>
+                            <td>Object: <a href="#valueelementresponseobject">Value Element Response Object</a></td>
+                        </tr>
+                    </table>
+
+                    <p>You must also provide the draw API with the following header value:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Name</strong></td>
+                            <td><strong>Value</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Authorization</td>
+                            <td>The authorization String returned from logging into the api/draw/1/authentication API.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="bs-docs-example">
+                        <strong>POST https://flow.manywho.com/api/draw/1/element/value</strong>
+                    </div>
+<pre class="prettyprint">// Value Element Request example
+{
+    "id": null,
+    "elementType": "VALUE",
+    "developerName": "My Customer",
+    "developerSummary": "The value to store the information about my customer",
+    "isFixed": false,
+    "access": "INPUT_OUTPUT",
+    "contentType": "ContentObject",
+    "defaultContentValue": null,
+    "initializationOperations":[
+        {
+            "id": null,
+            "valueElementToApplyId": {
+                "id": null,
+                "typeElementPropertyId": "a1648b9a-ec75-4ae1-ab24-c76879e8d551",
+                "command": null
+            },
+            "valueElementToReferenceId":{
+                "id": "b8948b9a-ec75-l281-ab24-c76879e8d996",
+                "typeElementPropertyId": null,
+                "command": null
+            },
+            "order": 0
+        }
+    ],
+    "typeElementId": "365c14c4-78d4-4c01-b84d-19024b3ea1ce",
+    "updateByName":true
+}</pre>
+<pre class="prettyprint">// Value Element Response example
+{
+    "dateCreated":"2013-06-19T16:44:06.847",
+    "dateModified":"2013-06-19T16:53:23.767",
+    "userCreated":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+    "userModified":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+    "userOwner":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+    "id": "hg7c14c4-2894-4c01-b84d-34724b3elp8q"
+    // Properties the same as the Value Element Request - but with ids all non-null ...
+}</pre>
+
+                    <hr class="bs-docs-separator">
+
+                </section>
+
+                <section id="add">
+
+                    <h2>Add To Flow</h2>
+
+                    <p>In order to use a Value Element in your Flow, you must 'add' or 'import' the element to the Flow so our engine can keep track of it as a dependency. If the Value is associated with a Service Element configuration value, it will automatically be imported into your Flow when the Service Element is added. To add a reference to a specific Value Element object to your Flow, you can use the following API:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="success">
+                            <td><strong>URL</strong></td>
+                            <td><strong>HTTP Verb</strong></td>
+                            <td><strong>JSON Request</strong></td>
+                            <td><strong>JSON Response</strong></td>
+                        </tr>
+                        <tr>
+                            <td>api/draw/1/element/flow/{flowId}/value/{id}</td>
+                            <td>POST</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                        </tr>
+                    </table>
+
+                    <p>Where the parameters are as follows:</p>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>flowId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Flow you wish to add the Value Element to.</td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Value Element to be added to the Flow.</td>
+                        </tr>
+                    </table>
+
+                    <p>You must also provide the draw API with the following header value:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Name</strong></td>
+                            <td><strong>Value</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Authorization</td>
+                            <td>The authorization String returned from logging into the api/draw/1/authentication API.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="bs-docs-example">
+                        <strong>POST https://flow.manywho.com/api/draw/1/element/flow/7ba7a6a1-d6ba-4806-8cc0-77be8504e86d/value/hg7c14c4-2894-4c01-b84d-34724b3elp8q</strong>
+                    </div>
+
+                    <hr class="bs-docs-separator">
+
+                </section>
+
+                <section id="load">
+
+                    <h2>Load</h2>
+
+                    <p>To load a specific Value Element object, you can use the following API:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="success">
+                            <td><strong>URL</strong></td>
+                            <td><strong>HTTP Verb</strong></td>
+                            <td><strong>JSON Request</strong></td>
+                            <td><strong>JSON Response</strong></td>
+                        </tr>
+                        <tr>
+                            <td>api/draw/1/element/value/{id}</td>
+                            <td>GET</td>
+                            <td>N/A</td>
+                            <td>Object: <a href="#valueelementresponseobject">Value Element Response Object</a></td>
+                        </tr>
+                    </table>
+
+                    <p>Where the parameters are as follows:</p>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Value Element you wish to load.</td>
+                        </tr>
+                    </table>
+
+                    <p>You must also provide the draw API with the following header value:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Name</strong></td>
+                            <td><strong>Value</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Authorization</td>
+                            <td>The authorization String returned from logging into the api/draw/1/authentication API.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="bs-docs-example">
+                        <strong>GET https://flow.manywho.com/api/draw/1/element/value/hg7c14c4-2894-4c01-b84d-34724b3elp8q</strong>
+                    </div>
+<pre class="prettyprint">{
+    "dateCreated":"2013-06-19T16:44:06.847",
+    "dateModified":"2013-06-19T16:53:23.767",
+    "userCreated":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+    "userModified":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+    "userOwner":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+    "id": "hg7c14c4-2894-4c01-b84d-34724b3elp8q"
+    // Properties the same as the Value Element Request - but with ids all non-null ...
+}</pre>
+
+                    <hr class="bs-docs-separator">
+
+                </section>
+
+                <section id="query">
+
+                    <h2>Query</h2>
+
+                    <p>To query for Value Element objects, you can use the following API:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="success">
+                            <td><strong>URL</strong></td>
+                            <td><strong>HTTP Verb</strong></td>
+                            <td><strong>JSON Request</strong></td>
+                            <td><strong>JSON Response</strong></td>
+                        </tr>
+                        <tr>
+                            <td>api/draw/1/element/value?filter={filter}</td>
+                            <td>GET</td>
+                            <td>N/A</td>
+                            <td>Array: <a href="#valueelementresponseobject">Value Element Response Objects</a></td>
+                        </tr>
+                    </table>
+
+                    <p>Where the parameters are as follows:</p>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>filter</td>
+                            <td>String</td>
+                            <td>The filter can currently supports two possible options - search by exact developer name or search by partial developer name. To search for an exact developer name use: filter=developerName eq 'name of your element' To search for by partial developer name use: filter=substringof(developerName,'partial name of your element')  This follows the conventions established in the OData standard, though we do not currently support the $ prefix.</td>
+                        </tr>
+                    </table>
+
+                    <p>You must also provide the draw API with the following header value:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Name</strong></td>
+                            <td><strong>Value</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Authorization</td>
+                            <td>The authorization String returned from logging into the api/draw/1/authentication API.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="bs-docs-example">
+                        <strong>GET https://flow.manywho.com/api/draw/1/element/value?filter=substringof(developerName,'My Customer')</strong>
+                    </div>
+<pre class="prettyprint">[
+    {
+        "dateCreated":"2013-06-19T16:44:06.847",
+        "dateModified":"2013-06-19T16:53:23.767",
+        "userCreated":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+        "userModified":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+        "userOwner":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+        "id": "365c14c4-78d4-4c01-b84d-19024b3ea1ce"
+        // Properties the same as the Value Element Request - but with ids all non-null ...
+    }
+]</pre>
+
+                    <hr class="bs-docs-separator">
+
+                </section>
+
+                <section id="delete">
+
+                    <h2>Delete</h2>
+
+                    <p>To delete a specific Type Element object, you can use the following API:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="success">
+                            <td><strong>URL</strong></td>
+                            <td><strong>HTTP Verb</strong></td>
+                            <td><strong>JSON Request</strong></td>
+                            <td><strong>JSON Response</strong></td>
+                        </tr>
+                        <tr>
+                            <td>api/draw/1/element/value/{id}</td>
+                            <td>DELETE</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                        </tr>
+                    </table>
+
+                    <p>Where the parameters are as follows:</p>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Value Element you wish to delete. This will not delete the element in previous versions - it will only delete the Value Element from builds of your Flow done from this point forward.</td>
+                        </tr>
+                    </table>
+
+                    <p>You must also provide the draw API with the following header value:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Name</strong></td>
+                            <td><strong>Value</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Authorization</td>
+                            <td>The authorization String returned from logging into the api/draw/1/authentication API.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="bs-docs-example">
+                        <strong>DELETE https://flow.manywho.com/api/draw/1/element/value/365c14c4-78d4-4c01-b84d-19024b3ea1ce</strong>
+                    </div>
+
+                    <hr class="bs-docs-separator">
+
+                </section>
+
+                <section id="json">
+
+                    <h1>JSON Objects
+    <small>Object structures</small>
+                    </h1>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="typeelementrequestobject">Value Element Request Object</h2>
+
+                    <p>The type element request object properties are as follows:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Type Element. The id should be null for "insert" requests and a valid identifier for "update" requests. This property is created by the
+            service.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>elementType</td>
+                            <td>String: <a href="#elementtypeenum">ElementType</a></td>
+                            <td>The type of element this metadata represents. For Service Elements, the only valid value currently is: TYPE</td>
+                        </tr>
+                        <tr>
+                            <td>developerName</td>
+                            <td>String</td>
+                            <td>The developer name for the Type Element. This is useful for keeping track of the Type Element in the modeling tool and API.</td>
+                        </tr>
+                        <tr>
+                            <td>developerSummary</td>
+                            <td>String</td>
+                            <td>(Optional) The developer summary the author provided to give more information about the Type Element.</td>
+                        </tr>
+                        <tr>
+                            <td>serviceElementId</td>
+                            <td>String: Guid</td>
+                            <td>The unique identifier for the service that installed this Type Element. This is not currently attached to any functionality, but will be part of the "uninstall" capabilities of Service Elements.</td>
+                        </tr>
+                        <tr>
+                            <td>properties</td>
+                            <td>Array: <a href="#typeelementpropertyobject">Type Element Property Objects</a></td>
+                            <td>The list of Properties for this Type Element.  A Property is very similar to a field in a table - it represents the structure of the data that will be stored in Values that use this Type.</td>
+                        </tr>
+                        <tr>
+                            <td>bindings</td>
+                            <td>Array: <a href="#typeelementbindingobject">Type Element Binding Objects</a></td>
+                            <td>The list of Bindings for the Type Element. A Binding holds the mapping of properties to tables and fields in an underlying Service Element. A binding is not required for a Type Element if there is no plan to save the data in an external data store. When creating a binding, you will need to have saved the initial Type Element first so you have the identifiers for the various Properties in the Type that need to be bound.</td>
+                        </tr>
+                        <tr>
+                            <td>updateByName</td>
+                            <td>Boolean</td>
+                            <td>Indicates if the the platform should attempt to find a Type Element with the same developer name as the one provided and match them up by name as opposed to 'id'. This is useful when creating scripts to create Flows - as you can use the developerName property as the reference as opposed to needing to know the ids of all created Elements.</td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="typeelementresponseobject">Type Element Response Object</h2>
+
+                    <p>The Type Element has all of the same properties as the request object, but additionally the properties listed below:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>dateCreated</td>
+                            <td>String: Date/Time in JavaScript 1.8.5/ECMAScript 5th Edition format</td>
+                            <td>The date the Type Element was first created.</td>
+                        </tr>
+                        <tr>
+                            <td>dateModified</td>
+                            <td>String: Date/Time in JavaScript 1.8.5/ECMAScript 5th Edition format</td>
+                            <td>The date the last modificiation was made to the Type Element.</td>
+                        </tr>
+                        <tr>
+                            <td>userCreated</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the user who created the Type Element.</td>
+                        </tr>
+                        <tr>
+                            <td>userModified</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the user who last modified the Type Element.</td>
+                        </tr>
+                        <tr>
+                            <td>userOwner</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the user who owns this Type Element.</td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="typeelementpropertyobject">Type Element Property Object</h2>
+
+                    <p>The type element property object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the type element property value. This property is created by the service.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>developerName</td>
+                            <td>String</td>
+                            <td>The developer name for the type element property. This will be used to identify the property in API calls that use values of this Type.</td>
+                        </tr>
+                        <tr>
+                            <td>contentType</td>
+                            <td>String: <a href="#contenttypeenum">ContentType</a></td>
+                            <td>They type of content the type element property holds.</td>
+                        </tr>
+                        <tr>
+                            <td>typeElementId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Type Element held in this type element property. This property should only be assigned if this type element property is a contentType of ContentObject or ContentList. The unique identifer should be for the object or list of objects that will be stored.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>typeElementDeveloperName</td>
+                            <td>String</td>
+                            <td>This property is used to specify the developer name rather than the identifier of the associated Type Element (see typeElementId). This property is only used as part of the Service Element install. Do not use this property if you are creating a Type Element through the API manually - you must use the typeElementId.</td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="typeelementbindingobject">Type Element Binding Object</h2>
+
+                    <p>The type element binding object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the type element binding. This property is created by the service.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>developerName</td>
+                            <td>String</td>
+                            <td>The developer name for the type element binding.</td>
+                        </tr>
+                        <tr>
+                            <td>developerSummary</td>
+                            <td>String</td>
+                            <td>(Optional) The developer summary the author provided to give more information about the type element binding.</td>
+                        </tr>
+                        <tr>
+                            <td>databaseTableName</td>
+                            <td>String</td>
+                            <td>The name of the database table that this binding should be applied. If no underlying table is used or the binding involves multiple backend tables, this should represent a unique name that will allow the Service Element implementation to identify how to store the object.</td>
+                        </tr>
+                        <tr>
+                            <td>serviceElementId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Service that implements the mapping code to save objects and lists of this Type back to the data store.</td>
+                        </tr>
+                        <tr>
+                            <td>propertyBindings</td>
+                            <td>Array: <a href="#typeelementpropertybindingobject">Type Element Property Binding Objects</a></td>
+                            <td>The list of type element property bindings. These are the individual mappings of type element properties to fields in the underlying data store implemented by the Service.</td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="typeelementpropertybindingobject">Type Element Property Binding Object</h2>
+
+                    <p>The type element property binding object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the type element property binding. This property is created by the service.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>databaseFieldName</td>
+                            <td>String</td>
+                            <td>The name of the database field in the table that this binding should be applied. If no underlying table is used, this should represent a unique name that will allow the Service Element implementation to identify how to store the object property.</td>
+                        </tr>
+                        <tr>
+                            <td>typeElementPropertyId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the type element property that this binding relates to.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>typeElementPropertyDeveloperName</td>
+                            <td>String: GUID</td>
+                            <td>The developer name for the type element property that this binding relates to. This property is only used in the Service Element installation and is not supported as part of a manual Type creation.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>databaseContentType</td>
+                            <td>String: GUID</td>
+                            <td>The content type of the database field in the table that this binding should be applied. For example, the content type in ManyWho may be ContentNumber, but in the underlying database, the actual field type is Decimal. This is an optional property that depends on the Service implementation.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                </section>
+
+                <section id="enums">
+
+                    <h1>API Enumerations
+    <small>Helpful values</small>
+                    </h1>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="contenttypeenum">ContentType Enumeration</h2>
+
+                    <p>The ContentType enum contains the following values:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Value</strong></td>
+                            <td><strong>Typed</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>ContentString</td>
+                            <td>No</td>
+                            <td>A Java java.lang.String or C# System.String value.</td>
+                        </tr>
+                        <tr>
+                            <td>ContentNumber</td>
+                            <td>No</td>
+                            <td>A Java java.lang.Double or C# System.Double value.</td>
+                        </tr>
+                        <tr>
+                            <td>ContentBoolean</td>
+                            <td>No</td>
+                            <td>A Java java.lang.Boolean or C# System.Boolean value.</td>
+                        </tr>
+                        <tr>
+                            <td>ContentPassword</td>
+                            <td>No</td>
+                            <td>A Java java.lang.String or C# System.String value. If you indicate a value is a password, we use additional
+            value encryption on storage.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ContentDateTime</td>
+                            <td>No</td>
+                            <td>A Java java.lang.DataTime or C# System.DateTime. Using the REST API, the value should be provided in
+            JavaScript 1.8.5/ECMAScript 5th Edition format.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ContentContent</td>
+                            <td>No</td>
+                            <td>A Java java.lang.String or C# System.String value. If you indicate a value is "Content", we typically expect
+            that the content holds HTML formatted String content. The engine will also parse the contents of this String
+            with any value references.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ContentObject</td>
+                            <td>Yes</td>
+                            <td>The value is Object Data based on the ManyWho format. This allows you to pass complex data into ManyWho for
+            processing, including child objects and lists. Any Object Data being passed into the system also needs to
+            have a Type as defined by your Type Elements.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ContentList</td>
+                            <td>Yes</td>
+                            <td>The value is a list of Object Data based on the ManyWho format. This allows you to pass lists of complex
+            data into ManyWho for processing (of the same Type), including child objects and lists. Any Object Data
+            being passed into the system also needs to have a Type as defined by your Type Elements.
+                            </td>
+                        </tr>
+                    </table>
+
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Google Code for Remarketing tag -->
+    <!-- Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. For instructions on adding this tag and more information on the above requirements, read the setup guide: google.com/ads/remarketingsetup -->
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        var google_conversion_id = 997422716;
+        var google_conversion_label = "7aw_CPyY7gQQ_OzN2wM";
+        var google_custom_params = window.google_tag_params;
+        var google_remarketing_only = true;
+        /* ]]> */
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+    <noscript>
+        <div style="display: inline;">
+            <img height="1" width="1" style="border-style: none;" alt=""
+                src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/997422716/?value=0&amp;label=7aw_CPyY7gQQ_OzN2wM&amp;guid=ON&amp;script=0" />
+        </div>
+    </noscript>
+
+</body>
+</html>

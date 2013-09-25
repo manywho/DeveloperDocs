@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ManyWho Documentation</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+
+    <style type="text/css">
+        pre.prettyprint {
+            border: 1px solid #ddd !important;
+        }
+    </style>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#docsSidebar').scrollspy();
+
+            // Navigate to the first section
+            window.location.hash = 'intro';
+        });
+
+    </script>
+</head>
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="brand" href="./index.html">Bootstrap</a>
+
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li class="">
+                            <a href="http://manywho.com">Website Home</a>
+                        </li>
+                        <li class="">
+                            <a href="./index.html">Doc Home</a>
+                        </li>
+                        <li class="">
+                            <a href="./gettingstarted.html">Getting Started</a>
+                        </li>
+                        <li class="">
+                            <a href="./draw.html">Draw</a>
+                        </li>
+                        <li class="">
+                            <a href="./run.html">Run</a>
+                        </li>
+                        <li class="">
+                            <a href="./monitor.html">Monitor</a>
+                        </li>
+                        <li class="">
+                            <a href="./twilioivr.html">Twilio</a>
+                        </li>
+                        <li class="">
+                            <a href="./salesforcecanvas.html">Salesforce</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="span3 bs-docs-sidebar">
+                <ul id="docsSidebar" class="nav nav-list bs-docs-sidenav affix">
+                    <li><a href="#intro"><i class="icon-chevron-right"></i>Intro</a></li>
+                    <li><a href="#save"><i class="icon-chevron-right"></i>Save</a></li>
+                    <li><a href="#add"><i class="icon-chevron-right"></i>Add To Flow</a></li>
+                    <li><a href="#load"><i class="icon-chevron-right"></i>Load</a></li>
+                    <li><a href="#query"><i class="icon-chevron-right"></i>Query</a></li>
+                    <li><a href="#delete"><i class="icon-chevron-right"></i>Delete</a></li>
+                    <li><a href="#json"><i class="icon-chevron-right"></i>JSON Objects</a></li>
+                    <li><a href="#enums"><i class="icon-chevron-right"></i>API Enumerations</a></li>
+                </ul>
+            </div>
+            <div class="span9">
+
+                <section id="intro">
+                    <div class="marketing">
+                        <h1>Service Elements</h1>
+
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <a href="serviceelement.html">
+                                    <img class="marketing-img" alt="Service Element"
+                                        src="http://cdn.manywho.com/extensions/glyphicons/service_element.png" height="85" width="75"></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h1>Intro</h1>
+
+                    <p>Something about the draw API.</p>
+
+                    <hr class="bs-docs-separator">
+
+                </section>
+
+                <section id="save">
+
+                    <h2>Save</h2>
+
+                    <p>To save (create or update) a Service Element object, you can use the following API:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="success">
+                            <td><strong>URL</strong></td>
+                            <td><strong>HTTP Verb</strong></td>
+                            <td><strong>JSON Request</strong></td>
+                            <td><strong>JSON Response</strong></td>
+                        </tr>
+                        <tr>
+                            <td>api/draw/1/element/service</td>
+                            <td>POST</td>
+                            <td>Object: <a href="#serviceelementrequestobject">Service Element Request Object</a></td>
+                            <td>Object: <a href="#serviceelementresponseobject">Service Element Response Object</a></td>
+                        </tr>
+                    </table>
+
+                    <p>You must also provide the draw API with the following header value:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Name</strong></td>
+                            <td><strong>Value</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Authorization</td>
+                            <td>The authorization String returned from logging into the api/draw/1/authentication API.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="bs-docs-example">
+                        <strong>POST https://flow.manywho.com/api/draw/1/element/service</strong>
+                    </div>
+<pre class="prettyprint">// Service Element Request example
+{
+    "id": null,
+    "elementType": "SERVICE",
+    "developerName": "My Installed Service",
+    "developerSummary": "The service to connect to my service",
+    "uri": "https://salesforce.manywho.com/plugins/api/salesforce/1",
+    "format": "json",
+    "configurationValues":[
+        {
+            "id": null,
+            "developerName": "SalesforceAuthenticationUrl",
+            "valueElementToReferenceId":{
+                "id": "4cdd19ee-eeff-4f42-bd74-3ce85c2a60dd",
+                "typeElementPropertyId": null,
+                "command": null
+            },
+            "contentValue": null,
+            "contentType": "ContentString"
+        },
+        {
+            "id": null,
+            "developerName": "SalesforceChatterBaseUrl",
+            "valueElementToReferenceId":{
+                "id": "a1648b9a-ec75-4ae1-ab24-c76879e8d551",
+                "typeElementPropertyId": null,
+                "command": null
+            },
+            "contentValue": null,
+            "contentType": "ContentString"
+        }
+    ],
+    "providesLogic":true,
+    "providesViews":true,
+    "providesContent":true,
+    "providesDatabase":true,
+    "providesIdentity":true,
+    "providesSocial":true,
+    "providesLocation":true,
+    "actions":[
+        {
+            "id": null,
+            "uriPart": "task",
+            "developerName": "Create Task",
+            "developerSummary": "Action to create tasks in salesforce",
+            "isViewMessageAction": false,
+            "serviceActionOutcomes": null,
+            "serviceInputs":[
+                "id": null,
+                "developerName": "ActivityDate",
+                "contentType": "ContentString",
+            ],
+            "serviceOutputs":[
+                "id": null,
+                "developerName": "ActivityDate",
+                "contentType": "ContentString",
+            ]
+        }
+    ],
+    "install":{
+        "id": null,
+        "typeElements":[
+            // Array of type element request objects the service would like to install
+        ]
+    },
+    "updateByName":true
+}</pre>
+<pre class="prettyprint">// Service Element Response example
+{
+    "dateCreated":"2013-06-19T16:44:06.847",
+    "dateModified":"2013-06-19T16:53:23.767",
+    "userCreated":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+    "userModified":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+    "userOwner":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+    "id": "73dc14c4-78d4-4c01-b84d-19024b3ea1ce"
+    // Properties the same as the Service Element Request - but with ids all non-null ...
+}</pre>
+
+                    <hr class="bs-docs-separator">
+
+                </section>
+
+                <section id="add">
+
+                    <h2>Add To Flow</h2>
+
+                    <p>In order to use a Service Element in your Flow, you must 'add' or 'import' the element to the Flow so our engine can keep track of it as a dependency. To add a reference to a specific Service Element object to your Flow, you can use the following API:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="success">
+                            <td><strong>URL</strong></td>
+                            <td><strong>HTTP Verb</strong></td>
+                            <td><strong>JSON Request</strong></td>
+                            <td><strong>JSON Response</strong></td>
+                        </tr>
+                        <tr>
+                            <td>api/draw/1/element/flow/{flowId}/service/{id}</td>
+                            <td>POST</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                        </tr>
+                    </table>
+
+                    <p>Where the parameters are as follows:</p>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>flowId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Flow you wish to add the Service Element to.</td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Service Element to be added to the Flow.</td>
+                        </tr>
+                    </table>
+
+                    <p>You must also provide the draw API with the following header value:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Name</strong></td>
+                            <td><strong>Value</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Authorization</td>
+                            <td>The authorization String returned from logging into the api/draw/1/authentication API.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="bs-docs-example">
+                        <strong>POST https://flow.manywho.com/api/draw/1/element/flow/7ba7a6a1-d6ba-4806-8cc0-77be8504e86d/service/31f7b173-4089-41e0-9d78-e55ed8a079c0</strong>
+                    </div>
+
+                    <hr class="bs-docs-separator">
+
+                </section>
+
+                <section id="load">
+
+                    <h2>Load</h2>
+
+                    <p>To load a specific Service Element object, you can use the following API:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="success">
+                            <td><strong>URL</strong></td>
+                            <td><strong>HTTP Verb</strong></td>
+                            <td><strong>JSON Request</strong></td>
+                            <td><strong>JSON Response</strong></td>
+                        </tr>
+                        <tr>
+                            <td>api/draw/1/element/service/{id}</td>
+                            <td>GET</td>
+                            <td>N/A</td>
+                            <td>Object: <a href="#serviceelementresponseobject">Service Element Response Object</a></td>
+                        </tr>
+                    </table>
+
+                    <p>Where the parameters are as follows:</p>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Service Element you wish to load.</td>
+                        </tr>
+                    </table>
+
+                    <p>You must also provide the draw API with the following header value:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Name</strong></td>
+                            <td><strong>Value</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Authorization</td>
+                            <td>The authorization String returned from logging into the api/draw/1/authentication API.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="bs-docs-example">
+                        <strong>GET https://flow.manywho.com/api/draw/1/element/service/31f7b173-4089-41e0-9d78-e55ed8a079c0</strong>
+                    </div>
+<pre class="prettyprint">{
+    "dateCreated":"2013-06-19T16:44:06.847",
+    "dateModified":"2013-06-19T16:53:23.767",
+    "userCreated":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+    "userModified":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+    "userOwner":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+    "id": "73dc14c4-78d4-4c01-b84d-19024b3ea1ce"
+    // Properties the same as the Service Element Request - but with ids all non-null ...
+}</pre>
+
+                    <hr class="bs-docs-separator">
+
+                </section>
+
+                <section id="query">
+
+                    <h2>Query</h2>
+
+                    <p>To query for Service Element objects, you can use the following API:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="success">
+                            <td><strong>URL</strong></td>
+                            <td><strong>HTTP Verb</strong></td>
+                            <td><strong>JSON Request</strong></td>
+                            <td><strong>JSON Response</strong></td>
+                        </tr>
+                        <tr>
+                            <td>api/draw/1/element/service?filter={filter}</td>
+                            <td>GET</td>
+                            <td>N/A</td>
+                            <td>Array: <a href="#serviceelementresponseobject">Service Element Response Objects</a></td>
+                        </tr>
+                    </table>
+
+                    <p>Where the parameters are as follows:</p>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>filter</td>
+                            <td>String</td>
+                            <td>The filter can currently supports two possible options - search by exact developer name or search by partial developer name. To search for an exact developer name use: filter=developerName eq 'name of your element' To search for by partial developer name use: filter=substringof(developerName,'partial name of your element')  This follows the conventions established in the OData standard, though we do not currently support the $ prefix.</td>
+                        </tr>
+                    </table>
+
+                    <p>You must also provide the draw API with the following header value:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Name</strong></td>
+                            <td><strong>Value</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Authorization</td>
+                            <td>The authorization String returned from logging into the api/draw/1/authentication API.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="bs-docs-example">
+                        <strong>GET https://flow.manywho.com/api/draw/1/element/service?filter=substringof(developerName,'Salesforce')</strong>
+                    </div>
+<pre class="prettyprint">[
+    {
+        "dateCreated":"2013-06-19T16:44:06.847",
+        "dateModified":"2013-06-19T16:53:23.767",
+        "userCreated":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+        "userModified":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+        "userOwner":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+        "id": "73dc14c4-78d4-4c01-b84d-19024b3ea1ce"
+        // Properties the same as the Service Element Request - but with ids all non-null ...
+    }
+]</pre>
+
+                    <hr class="bs-docs-separator">
+
+                </section>
+
+                <section id="delete">
+
+                    <h2>Delete</h2>
+
+                    <p>To delete a specific Service Element object, you can use the following API:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="success">
+                            <td><strong>URL</strong></td>
+                            <td><strong>HTTP Verb</strong></td>
+                            <td><strong>JSON Request</strong></td>
+                            <td><strong>JSON Response</strong></td>
+                        </tr>
+                        <tr>
+                            <td>api/draw/1/element/service/{id}</td>
+                            <td>DELETE</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                        </tr>
+                    </table>
+
+                    <p>Where the parameters are as follows:</p>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Service Element you wish to delete. This will not delete the element in previous versions - it will only delete the Service Element from builds of your Flow done from this point forward.</td>
+                        </tr>
+                    </table>
+
+                    <p>You must also provide the draw API with the following header value:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Name</strong></td>
+                            <td><strong>Value</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Authorization</td>
+                            <td>The authorization String returned from logging into the api/draw/1/authentication API.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="bs-docs-example">
+                        <strong>DELETE https://flow.manywho.com/api/draw/1/element/service/31f7b173-4089-41e0-9d78-e55ed8a079c0</strong>
+                    </div>
+
+                    <hr class="bs-docs-separator">
+
+                </section>
+
+                <section id="json">
+
+                    <h1>JSON Objects
+    <small>Object structures</small>
+                    </h1>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="serviceelementrequestobject">Service Element Request Object</h2>
+
+                    <p>The Service Element request object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Service Element. The id should be null for "insert" requests and a valid identifier for "update" requests. This property is created by the
+            service.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>elementType</td>
+                            <td>String: <a href="#elementtypeenum">ElementType</a></td>
+                            <td>The type of element this metadata represents. For Service Elements, the only valid value currently is: SERVICE</td>
+                        </tr>
+                        <tr>
+                            <td>developerName</td>
+                            <td>String</td>
+                            <td>The developer name for the Service Element. This is useful for keeping track of the Service Element in the modeling tool and API.</td>
+                        </tr>
+                        <tr>
+                            <td>developerSummary</td>
+                            <td>String</td>
+                            <td>(Optional) The developer summary the author provided to give more information about the Service Element.</td>
+                        </tr>
+                        <tr>
+                            <td>uri</td>
+                            <td>String: Uri</td>
+                            <td>The location of the service implementation for the platform to callout against.</td>
+                        </tr>
+                        <tr>
+                            <td>format</td>
+                            <td>String</td>
+                            <td>The REST messaging format to use to communicate with this service.  Currently the only valid value for this property is: json</td>
+                        </tr>
+                        <tr>
+                            <td>configurationValues</td>
+                            <td>Array: <a href="#servicevaluerequestobject">Service Value Request Objects</a></td>
+                            <td>The list of configuration value mappings the service needs to function. Each entry provides a reference to a Value in the Flow that contains the configuration value needed by the service plugin.</td>
+                        </tr>
+                        <tr>
+                            <td>providesLogic</td>
+                            <td>Boolean</td>
+                            <td>Indicates if the service provides functionality for 'logic'. Logic allows authors to make API calls as part of elements that support messaging: 'Message', 'Page', and 'Remote Page' currently. Messaging is used for asynchronous and synchronous use-cases.</td>
+                        </tr>
+                        <tr>
+                            <td>providesViews</td>
+                            <td>Boolean</td>
+                            <td>Indicates if the service provides functionality for 'views'. A View allows authors to build Flows that include 'Remote Page' elements - e.g. the UI of the page is not actually hosted on the ManyWho platform, but rather the UI is provided by the external service.</td>
+                        </tr>
+                        <tr>
+                            <td>providesContent</td>
+                            <td>Boolean</td>
+                            <td>Indicates if the service provides functionality for 'content'. Content allows the author to reference files and content from the service as dynamic references - meaning that the files and content can be managed outside of ManyWho, but embedded in your Flows.</td>
+                        </tr>
+                        <tr>
+                            <td>providesDatabase</td>
+                            <td>Boolean</td>
+                            <td>Indicates if the service provides functionality for 'database'. Database functionality allows the author to map their Typed Objects and Lists back to this service for storage. The service then acts as the persistence implementation to store and retrieve the data as neede by the Flow.</td>
+                        </tr>
+                        <tr>
+                            <td>providesIdentity</td>
+                            <td>Boolean</td>
+                            <td>Indicates if the service provides functionality for 'identity'. Identity functionality allows the author to manage permissions to their Flows and sections of their Flows (via Swimlanes) using this service as the directory. This also allows users to login to the Flows using the information stored in this service directory.</td>
+                        </tr>
+                        <tr>
+                            <td>providesSocial</td>
+                            <td>Boolean</td>
+                            <td>Indicates if the service provides functionality for 'social'. Social allows the author to add features for feed, file and user collaboration to their Flows using this service as the underlying social network.</td>
+                        </tr>
+                        <tr>
+                            <td>providesLocation</td>
+                            <td>Boolean</td>
+                            <td>Indicates if the service provides functionality for 'location'. ManyWho optionally collects location information about the user when running a Flow. This information can be used to make decisions about permissions and also data filtering - though it is up to the service to implement this functionality.</td>
+                        </tr>
+                        <tr>
+                            <td>actions</td>
+                            <td>Array: <a href="#serviceactionrequestobject">Service Action Request Objects</a></td>
+                            <td>The list of 'logic' operations that are available for the service. If the underlying service 'providesLogic', this is where the 'interface' for those logic operations should be stored. This allows the author to know what inputs and outputs are provided by the actions provided by this service.</td>
+                        </tr>
+                        <tr>
+                            <td>install</td>
+                            <td>Object: <a href="#serviceinstallrequestobject">Service Install Request Objects</a></td>
+                            <td>As part of the service creation, you can provide additional installation metadata that will be created as part of the service. This object defines the metadata that this service wants to create as part of the creation of the service.</td>
+                        </tr>
+                        <tr>
+                            <td>updateByName</td>
+                            <td>Boolean</td>
+                            <td>Indicates if the the platform should attempt to find a service with the same developer name as the one provided and match them up by name as opposed to 'id'. This is useful when creating scripts to create Flows - as you can use the developerName property as the reference as opposed to needing to know the ids of all created elements.</td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+
+                    <h2 id="serviceelementresponseobject">Service Element Response Object</h2>
+
+                    <p>The Service Element has all of the same properties as the request object, but additionally the properties listed below:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>dateCreated</td>
+                            <td>String: Date/Time in JavaScript 1.8.5/ECMAScript 5th Edition format</td>
+                            <td>The date the Service Element was first created.</td>
+                        </tr>
+                        <tr>
+                            <td>dateModified</td>
+                            <td>String: Date/Time in JavaScript 1.8.5/ECMAScript 5th Edition format</td>
+                            <td>The date the last modificiation was made to the Service Element.</td>
+                        </tr>
+                        <tr>
+                            <td>userCreated</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the user who created the Service Element.</td>
+                        </tr>
+                        <tr>
+                            <td>userModified</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the user who last modified the Service Element.</td>
+                        </tr>
+                        <tr>
+                            <td>userOwner</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the user who owns this Service Element.</td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="servicevaluerequestobject">Service Value Request Object</h2>
+
+                    <p>The service value request object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the service value. This property is created by the service.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>developerName</td>
+                            <td>String</td>
+                            <td>The developer name for the service value. This needs to match up with the developerName of the configuration value sent back from the service description.</td>
+                        </tr>
+                        <tr>
+                            <td>valueElementToReferenceId</td>
+                            <td>Object: <a href="#valueelementidobject">Value Element Id Object</a></td>
+                            <td>The compound identifier and command for the reference Value to be used to provide the actual value for the configuration value. The Value must be the same
+            ContentType and TypeElement definition (if an Object or List) as that provided by the service description.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>contentValue</td>
+                            <td>String</td>
+                            <td>The hard-coded value for the configuration value. This property is not yet supported and may be part of future versions of the ManyWho platform.</td>
+                        </tr>
+                        <tr>
+                            <td>contentType</td>
+                            <td>String: <a href="#contenttypeenum">ContentType</a></td>
+                            <td>They type of content the component holds.</td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="serviceactionrequestobject">Service Action Request Object</h2>
+
+                    <p>The service action request object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the service action. This property is created by the service.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>uriPart</td>
+                            <td>String</td>
+                            <td>The uri part that will be used in addition to the base uri provided for the service. This needs to match up with the uriPart of the actions sent back from the service description.</td>
+                        </tr>
+                        <tr>
+                            <td>developerName</td>
+                            <td>String</td>
+                            <td>The developer name for the service action. This does not need to match with the service description as the matching to action is done based on uri part above.</td>
+                        </tr>
+                        <tr>
+                            <td>developerName</td>
+                            <td>String</td>
+                            <td>The developer name for the service action. This does not need to match with the service description as the matching to action is done based on uri part above.</td>
+                        </tr>
+                        <tr>
+                            <td>developerSummary</td>
+                            <td>String</td>
+                            <td>(Optional) The developer summary the author provided to give more information about the service action.</td>
+                        </tr>
+                        <tr>
+                            <td>isViewMessageAction</td>
+                            <td>Boolean</td>
+                            <td>This property is not yet supported. Indicates if this particular service action will return a View as opposed to being a system-to-system API reference. If this is a View message action, then it can be used in 'Remote Page' map elements.</td>
+                        </tr>
+                        <tr>
+                            <td>serviceActionOutcomes</td>
+                            <td>Array: Service Action Outcome</td>
+                            <td>This property is not yet supported. Provides the outcomes that the View exposes for the Author to use as outcomes in their Flow.</td>
+                        </tr>
+                        <tr>
+                            <td>serviceInputs</td>
+                            <td>Array: <a href="#servicevaluerequestobject">Service Value Request Objects</a></td>
+                            <td>The list of input values that are available for this particular action. The only supported properties on the service value request object are: id, developerName and contentType as the Value references are defined by the actions in each 'Message' map element.</td>
+                        </tr>
+                        <tr>
+                            <td>serviceOutputs</td>
+                            <td>Array: <a href="#servicevaluerequestobject">Service Value Request Objects</a></td>
+                            <td>The list of output values that are available for this particular action. The only supported properties on the service value request object are: id, developerName and contentType as the Value references are defined by the actions in each 'Message' map element.</td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="serviceinstallrequestobject">Service Install Request Object</h2>
+
+                    <p>The service install request object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the service action. This property is created by the service.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>typeElements</td>
+                            <td>Array: <a href="typeelement.html">Type Element Request Object</a></td>
+                            <td>The list of types can will be installed as part of this service creation. Once the Service Element saves, the install object is no longer used as it will create all the Type elements as part of the single save operation.</td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="valueelementidobject">Value Element Id Object</h2>
+
+                    <p>The value element id object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Value to be referenced with this identifier.</td>
+                        </tr>
+                        <tr>
+                            <td>typeElementPropertyId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for a Property in the Value to be referenced with this identifier. This only applies for Values of type ContentObject.</td>
+                        </tr>
+                        <tr>
+                            <td>command</td>
+                            <td>String</td>
+                            <td>The command to execute as part of the Value reference. For certain objects, the command exposes additional properties that can be referenced.</td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                </section>
+
+                <section id="enums">
+
+                    <h1>API Enumerations
+    <small>Helpful values</small>
+                    </h1>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="contenttypeenum">ContentType Enumeration</h2>
+
+                    <p>The ContentType enum contains the following values:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Value</strong></td>
+                            <td><strong>Typed</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>ContentString</td>
+                            <td>No</td>
+                            <td>A Java java.lang.String or C# System.String value.</td>
+                        </tr>
+                        <tr>
+                            <td>ContentNumber</td>
+                            <td>No</td>
+                            <td>A Java java.lang.Double or C# System.Double value.</td>
+                        </tr>
+                        <tr>
+                            <td>ContentBoolean</td>
+                            <td>No</td>
+                            <td>A Java java.lang.Boolean or C# System.Boolean value.</td>
+                        </tr>
+                        <tr>
+                            <td>ContentPassword</td>
+                            <td>No</td>
+                            <td>A Java java.lang.String or C# System.String value. If you indicate a value is a password, we use additional
+            value encryption on storage.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ContentDateTime</td>
+                            <td>No</td>
+                            <td>A Java java.lang.DataTime or C# System.DateTime. Using the REST API, the value should be provided in
+            JavaScript 1.8.5/ECMAScript 5th Edition format.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ContentContent</td>
+                            <td>No</td>
+                            <td>A Java java.lang.String or C# System.String value. If you indicate a value is "Content", we typically expect
+            that the content holds HTML formatted String content. The engine will also parse the contents of this String
+            with any value references.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ContentObject</td>
+                            <td>Yes</td>
+                            <td>The value is Object Data based on the ManyWho format. This allows you to pass complex data into ManyWho for
+            processing, including child objects and lists. Any Object Data being passed into the system also needs to
+            have a Type as defined by your Type Elements.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ContentList</td>
+                            <td>Yes</td>
+                            <td>The value is a list of Object Data based on the ManyWho format. This allows you to pass lists of complex
+            data into ManyWho for processing (of the same Type), including child objects and lists. Any Object Data
+            being passed into the system also needs to have a Type as defined by your Type Elements.
+                            </td>
+                        </tr>
+                    </table>
+
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Google Code for Remarketing tag -->
+    <!-- Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. For instructions on adding this tag and more information on the above requirements, read the setup guide: google.com/ads/remarketingsetup -->
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        var google_conversion_id = 997422716;
+        var google_conversion_label = "7aw_CPyY7gQQ_OzN2wM";
+        var google_custom_params = window.google_tag_params;
+        var google_remarketing_only = true;
+        /* ]]> */
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+    <noscript>
+        <div style="display: inline;">
+            <img height="1" width="1" style="border-style: none;" alt=""
+                src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/997422716/?value=0&amp;label=7aw_CPyY7gQQ_OzN2wM&amp;guid=ON&amp;script=0" />
+        </div>
+    </noscript>
+
+</body>
+</html>
