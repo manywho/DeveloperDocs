@@ -92,13 +92,13 @@
 
                 <section id="intro">
                     <div class="marketing">
-                        <h1>Value Elements</h1>
+                        <h1>Tag Elements</h1>
 
                         <div class="row-fluid">
                             <div class="span12">
-                                <a href="valueelement.html">
-                                    <img class="marketing-img" alt="Value Element"
-                                        src="http://cdn.manywho.com/extensions/glyphicons/value_element.png" height="85" width="75"></a>
+                                <a href="tagelement.html">
+                                    <img class="marketing-img" alt="Tag Element"
+                                        src="http://cdn.manywho.com/extensions/glyphicons/tag_element.png" height="85" width="75"></a>
                             </div>
                         </div>
                     </div>
@@ -115,7 +115,7 @@
 
                     <h2>Save</h2>
 
-                    <p>To save (create or update) a Value Element object, you can use the following API:</p>
+                    <p>To save (create or update) a Tag Element object, you can use the following API:</p>
 
                     <table class="table table-bordered">
                         <tr class="success">
@@ -125,10 +125,10 @@
                             <td><strong>JSON Response</strong></td>
                         </tr>
                         <tr>
-                            <td>api/draw/1/element/value</td>
+                            <td>api/draw/1/element/tag</td>
                             <td>POST</td>
-                            <td>Object: <a href="#valueelementrequestobject">Value Element Request Object</a></td>
-                            <td>Object: <a href="#valueelementresponseobject">Value Element Response Object</a></td>
+                            <td>Object: <a href="#tagelementrequestobject">Tag Element Request Object</a></td>
+                            <td>Object: <a href="#tagelementresponseobject">Tag Element Response Object</a></td>
                         </tr>
                     </table>
 
@@ -146,46 +146,27 @@
                     </table>
 
                     <div class="bs-docs-example">
-                        <strong>POST https://flow.manywho.com/api/draw/1/element/value</strong>
+                        <strong>POST https://flow.manywho.com/api/draw/1/element/tag</strong>
                     </div>
-<pre class="prettyprint">// Value Element Request example
+<pre class="prettyprint">// Tag Element Request example
 {
     "id": null,
-    "elementType": "VALUE",
-    "developerName": "My Customer",
-    "developerSummary": "The value to store the information about my customer",
-    "isFixed": false,
-    "access": "INPUT_OUTPUT",
+    "elementType": "TAG",
+    "developerName": "My 3d Car Widget",
+    "developerSummary": "This tag should be used if you want to include a 3d car widget in the Flow.",
     "contentType": "ContentObject",
-    "defaultContentValue": null,
-    "initializationOperations":[
-        {
-            "id": null,
-            "valueElementToApplyId": {
-                "id": null,
-                "typeElementPropertyId": "a1648b9a-ec75-4ae1-ab24-c76879e8d551",
-                "command": null
-            },
-            "valueElementToReferenceId":{
-                "id": "b8948b9a-ec75-l281-ab24-c76879e8d996",
-                "typeElementPropertyId": null,
-                "command": null
-            },
-            "order": 0
-        }
-    ],
     "typeElementId": "365c14c4-78d4-4c01-b84d-19024b3ea1ce",
     "updateByName":true
 }</pre>
-<pre class="prettyprint">// Value Element Response example
+<pre class="prettyprint">// Tag Element Response example
 {
     "dateCreated":"2013-06-19T16:44:06.847",
     "dateModified":"2013-06-19T16:53:23.767",
     "userCreated":"0c100d10-cc8c-43d7-abd6-669565a33c19",
     "userModified":"0c100d10-cc8c-43d7-abd6-669565a33c19",
     "userOwner":"0c100d10-cc8c-43d7-abd6-669565a33c19",
-    "id": "hg7c14c4-2894-4c01-b84d-34724b3elp8q"
-    // Properties the same as the Value Element Request - but with ids all non-null ...
+    "id": "d5fses4c4-9894-3c01-l84d-34724b0sk3msl"
+    // Properties the same as the Tag Element Request - but with ids all non-null ...
 }</pre>
 
                     <hr class="bs-docs-separator">
@@ -196,7 +177,7 @@
 
                     <h2>Add To Flow</h2>
 
-                    <p>In order to use a Value Element in your Flow, you must 'add' or 'import' the element to the Flow so our engine can keep track of it as a dependency. If the Value is associated with a Service Element configuration value, it will automatically be imported into your Flow when the Service Element is added. To add a reference to a specific Value Element object to your Flow, you can use the following API:</p>
+                    <p>In order to use a Tag Element in your Flow, you must 'add' or 'import' the element to the Flow so our engine can keep track of it as a dependency. To add a reference to a specific Tag Element object to your Flow, you can use the following API:</p>
 
                     <table class="table table-bordered">
                         <tr class="success">
@@ -206,7 +187,7 @@
                             <td><strong>JSON Response</strong></td>
                         </tr>
                         <tr>
-                            <td>api/draw/1/element/flow/{flowId}/value/{id}</td>
+                            <td>api/draw/1/element/flow/{flowId}/tag/{id}</td>
                             <td>POST</td>
                             <td>N/A</td>
                             <td>N/A</td>
@@ -223,12 +204,12 @@
                         <tr>
                             <td>flowId</td>
                             <td>String: GUID</td>
-                            <td>The unique identifier for the Flow you wish to add the Value Element to.</td>
+                            <td>The unique identifier for the Flow you wish to add the Tag Element to.</td>
                         </tr>
                         <tr>
                             <td>id</td>
                             <td>String: GUID</td>
-                            <td>The unique identifier for the Value Element to be added to the Flow.</td>
+                            <td>The unique identifier for the Tag Element to be added to the Flow.</td>
                         </tr>
                     </table>
 
@@ -246,7 +227,7 @@
                     </table>
 
                     <div class="bs-docs-example">
-                        <strong>POST https://flow.manywho.com/api/draw/1/element/flow/7ba7a6a1-d6ba-4806-8cc0-77be8504e86d/value/hg7c14c4-2894-4c01-b84d-34724b3elp8q</strong>
+                        <strong>POST https://flow.manywho.com/api/draw/1/element/flow/7ba7a6a1-d6ba-4806-8cc0-77be8504e86d/tag/d5fses4c4-9894-3c01-l84d-34724b0sk3msl</strong>
                     </div>
 
                     <hr class="bs-docs-separator">
@@ -257,7 +238,7 @@
 
                     <h2>Load</h2>
 
-                    <p>To load a specific Value Element object, you can use the following API:</p>
+                    <p>To load a specific Tag Element object, you can use the following API:</p>
 
                     <table class="table table-bordered">
                         <tr class="success">
@@ -267,10 +248,10 @@
                             <td><strong>JSON Response</strong></td>
                         </tr>
                         <tr>
-                            <td>api/draw/1/element/value/{id}</td>
+                            <td>api/draw/1/element/tag/{id}</td>
                             <td>GET</td>
                             <td>N/A</td>
-                            <td>Object: <a href="#valueelementresponseobject">Value Element Response Object</a></td>
+                            <td>Object: <a href="#tagelementresponseobject">Tag Element Response Object</a></td>
                         </tr>
                     </table>
 
@@ -284,7 +265,7 @@
                         <tr>
                             <td>id</td>
                             <td>String: GUID</td>
-                            <td>The unique identifier for the Value Element you wish to load.</td>
+                            <td>The unique identifier for the Tag Element you wish to load.</td>
                         </tr>
                     </table>
 
@@ -302,7 +283,7 @@
                     </table>
 
                     <div class="bs-docs-example">
-                        <strong>GET https://flow.manywho.com/api/draw/1/element/value/hg7c14c4-2894-4c01-b84d-34724b3elp8q</strong>
+                        <strong>GET https://flow.manywho.com/api/draw/1/element/tag/d5fses4c4-9894-3c01-l84d-34724b0sk3msl</strong>
                     </div>
 <pre class="prettyprint">{
     "dateCreated":"2013-06-19T16:44:06.847",
@@ -310,8 +291,8 @@
     "userCreated":"0c100d10-cc8c-43d7-abd6-669565a33c19",
     "userModified":"0c100d10-cc8c-43d7-abd6-669565a33c19",
     "userOwner":"0c100d10-cc8c-43d7-abd6-669565a33c19",
-    "id": "hg7c14c4-2894-4c01-b84d-34724b3elp8q"
-    // Properties the same as the Value Element Request - but with ids all non-null ...
+    "id": "d5fses4c4-9894-3c01-l84d-34724b0sk3msl"
+    // Properties the same as the Tag Element Request - but with ids all non-null ...
 }</pre>
 
                     <hr class="bs-docs-separator">
@@ -322,7 +303,7 @@
 
                     <h2>Query</h2>
 
-                    <p>To query for Value Element objects, you can use the following API:</p>
+                    <p>To query for Tag Element objects, you can use the following API:</p>
 
                     <table class="table table-bordered">
                         <tr class="success">
@@ -332,10 +313,10 @@
                             <td><strong>JSON Response</strong></td>
                         </tr>
                         <tr>
-                            <td>api/draw/1/element/value?filter={filter}</td>
+                            <td>api/draw/1/element/tag?filter={filter}</td>
                             <td>GET</td>
                             <td>N/A</td>
-                            <td>Array: <a href="#valueelementresponseobject">Value Element Response Objects</a></td>
+                            <td>Array: <a href="#tagelementresponseobject">Tag Element Response Objects</a></td>
                         </tr>
                     </table>
 
@@ -367,7 +348,7 @@
                     </table>
 
                     <div class="bs-docs-example">
-                        <strong>GET https://flow.manywho.com/api/draw/1/element/value?filter=substringof(developerName,'My Customer')</strong>
+                        <strong>GET https://flow.manywho.com/api/draw/1/element/tag?filter=substringof(developerName,'My Widget')</strong>
                     </div>
 <pre class="prettyprint">[
     {
@@ -376,8 +357,8 @@
         "userCreated":"0c100d10-cc8c-43d7-abd6-669565a33c19",
         "userModified":"0c100d10-cc8c-43d7-abd6-669565a33c19",
         "userOwner":"0c100d10-cc8c-43d7-abd6-669565a33c19",
-        "id": "365c14c4-78d4-4c01-b84d-19024b3ea1ce"
-        // Properties the same as the Value Element Request - but with ids all non-null ...
+        "id": "d5fses4c4-9894-3c01-l84d-34724b0sk3msl"
+        // Properties the same as the Tag Element Request - but with ids all non-null ...
     }
 ]</pre>
 
@@ -389,7 +370,7 @@
 
                     <h2>Delete</h2>
 
-                    <p>To delete a specific Type Element object, you can use the following API:</p>
+                    <p>To delete a specific Tag Element object, you can use the following API:</p>
 
                     <table class="table table-bordered">
                         <tr class="success">
@@ -399,7 +380,7 @@
                             <td><strong>JSON Response</strong></td>
                         </tr>
                         <tr>
-                            <td>api/draw/1/element/value/{id}</td>
+                            <td>api/draw/1/element/tag/{id}</td>
                             <td>DELETE</td>
                             <td>N/A</td>
                             <td>N/A</td>
@@ -416,7 +397,7 @@
                         <tr>
                             <td>id</td>
                             <td>String: GUID</td>
-                            <td>The unique identifier for the Value Element you wish to delete. This will not delete the element in previous versions - it will only delete the Value Element from builds of your Flow done from this point forward.</td>
+                            <td>The unique identifier for the Tag Element you wish to delete. This will not delete the element in previous versions - it will only delete the Tag Element from builds of your Flow done from this point forward.</td>
                         </tr>
                     </table>
 
@@ -434,7 +415,7 @@
                     </table>
 
                     <div class="bs-docs-example">
-                        <strong>DELETE https://flow.manywho.com/api/draw/1/element/value/365c14c4-78d4-4c01-b84d-19024b3ea1ce</strong>
+                        <strong>DELETE https://flow.manywho.com/api/draw/1/element/tag/d5fses4c4-9894-3c01-l84d-34724b0sk3msl</strong>
                     </div>
 
                     <hr class="bs-docs-separator">
@@ -449,9 +430,9 @@
 
                     <hr class="bs-docs-separator">
 
-                    <h2 id="typeelementrequestobject">Value Element Request Object</h2>
+                    <h2 id="tagelementrequestobject">Tag Element Request Object</h2>
 
-                    <p>The type element request object properties are as follows:</p>
+                    <p>The tag element request object properties are as follows:</p>
 
                     <table class="table table-bordered">
                         <tr class="info">
@@ -462,67 +443,47 @@
                         <tr>
                             <td>id</td>
                             <td>String: GUID</td>
-                            <td>The unique identifier for the Value Element. The id should be null for "insert" requests and a valid identifier for "update" requests. This property is created by the
+                            <td>The unique identifier for the Tag Element. The id should be null for "insert" requests and a valid identifier for "update" requests. This property is created by the
             service.
                             </td>
                         </tr>
                         <tr>
                             <td>elementType</td>
                             <td>String: <a href="#elementtypeenum">ElementType</a></td>
-                            <td>The type of element this metadata represents. For Type Elements, the only valid value currently is: VALUE</td>
+                            <td>The type of element this metadata represents. For Tag Elements, the only valid value currently is: TAG</td>
                         </tr>
                         <tr>
                             <td>developerName</td>
                             <td>String</td>
-                            <td>The developer name for the Type Element. This is useful for keeping track of the Value Element in the modeling tool and API.</td>
+                            <td>The developer name for the Tag Element. This is useful for keeping track of the Tag Element in the modeling tool and API.</td>
                         </tr>
                         <tr>
                             <td>developerSummary</td>
                             <td>String</td>
-                            <td>(Optional) The developer summary the author provided to give more information about the Value Element.</td>
-                        </tr>
-                        <tr>
-                            <td>isFixed</td>
-                            <td>Boolean</td>
-                            <td>Indicates if the value of the Value Element can be changed by operations in the Flow or from outside systems. If this property is set to 'true', the Value will act like a 'constant' - i.e. it can't be changed by anyone except the Flow author at design time.</td>
-                        </tr>
-                        <tr>
-                            <td>access</td>
-                            <td>String: <a href="#accesstypeenum">AccessType</a></td>
-                            <td>Sets the level of access this Value Element has to change. In many situations, Value Elements can only be changed by the operations defined in your Flow and the value is not exposed outside of the Flow. Alternatively, you may wish to allow the value of the Value Element to be assigned at initialization.</td>
+                            <td>(Optional) The developer summary the author provided to give more information about the Tag Element.</td>
                         </tr>
                         <tr>
                             <td>contentType</td>
                             <td>String: <a href="#contenttypeenum">ContentType</a></td>
-                            <td>The type of content the Value Element holds.</td>
-                        </tr>
-                        <tr>
-                            <td>defaultContentValue</td>
-                            <td>String</td>
-                            <td>The default value for the Value Element before any operations have been performed.</td>
-                        </tr>
-                        <tr>
-                            <td>initializationOperations</td>
-                            <td>Array: <a href="operationobject">Operation Objects</a></td>
-                            <td>The operations that should be performed when the object is initialized. Initialization operations are only appropriate for Value Elements of content type ContentObject.</td>
+                            <td>The type of Value the Tag Element holds. As part of the Page layout creation, the Tag Element will be associated with a Value Element. The Value Element bound to this Tag Element must be of the same content type.</td>
                         </tr>
                         <tr>
                             <td>typeElementId</td>
                             <td>String: Guid</td>
-                            <td>The unique identifier for the Type Element and object or list data must adhere to in structure (the Type Element basically defines the  'interface' that all objects and lists stored in this Value must implement). This property is only applicable for ContentObject and ContentList content types.</td>
+                            <td>The unique identifier for the Type Element and object or list data must adhere to in structure (the Type Element basically defines the  'interface' that all objects and lists stored in this Value must implement). This property is only applicable for ContentObject and ContentList content types.  As part of the Page layout creation, the Tag Element will be associated with a Value Element. The Value Element bound to this Tag Element must be of the same Type.</td>
                         </tr>
                         <tr>
                             <td>updateByName</td>
                             <td>Boolean</td>
-                            <td>Indicates if the platform should attempt to find a Type Element with the same developer name as the one provided and match them up by name as opposed to 'id'. This is useful when creating scripts to create Flows - as you can use the developerName property as the reference as opposed to needing to know the ids of all created Elements.</td>
+                            <td>Indicates if the platform should attempt to find a Tag Element with the same developer name as the one provided and match them up by name as opposed to 'id'. This is useful when creating scripts to create Flows - as you can use the developerName property as the reference as opposed to needing to know the ids of all created Elements.</td>
                         </tr>
                     </table>
 
                     <hr class="bs-docs-separator">
 
-                    <h2 id="valueelementresponseobject">Type Element Response Object</h2>
+                    <h2 id="tagelementresponseobject">Tag Element Response Object</h2>
 
-                    <p>The Value Element has all of the same properties as the request object, but additionally the properties listed below:</p>
+                    <p>The Tag Element has all of the same properties as the request object, but additionally the properties listed below:</p>
 
                     <table class="table table-bordered">
                         <tr class="info">
@@ -533,91 +494,27 @@
                         <tr>
                             <td>dateCreated</td>
                             <td>String: Date/Time in JavaScript 1.8.5/ECMAScript 5th Edition format</td>
-                            <td>The date the Value Element was first created.</td>
+                            <td>The date the Tag Element was first created.</td>
                         </tr>
                         <tr>
                             <td>dateModified</td>
                             <td>String: Date/Time in JavaScript 1.8.5/ECMAScript 5th Edition format</td>
-                            <td>The date the last modificiation was made to the Value Element.</td>
+                            <td>The date the last modificiation was made to the Tag Element.</td>
                         </tr>
                         <tr>
                             <td>userCreated</td>
                             <td>String: GUID</td>
-                            <td>The unique identifier for the user who created the Value Element.</td>
+                            <td>The unique identifier for the user who created the Tag Element.</td>
                         </tr>
                         <tr>
                             <td>userModified</td>
                             <td>String: GUID</td>
-                            <td>The unique identifier for the user who last modified the Value Element.</td>
+                            <td>The unique identifier for the user who last modified the Tag Element.</td>
                         </tr>
                         <tr>
                             <td>userOwner</td>
                             <td>String: GUID</td>
-                            <td>The unique identifier for the user who owns this Value Element.</td>
-                        </tr>
-                    </table>
-
-                    <hr class="bs-docs-separator">
-
-                    <h2 id="operationobject">Operation Object</h2>
-
-                    <p>The operation object properties are as follows:</p>
-
-                    <table class="table table-bordered">
-                        <tr class="info">
-                            <td><strong>Property</strong></td>
-                            <td><strong>Type</strong></td>
-                            <td><strong>Description</strong></td>
-                        </tr>
-                        <tr>
-                            <td>id</td>
-                            <td>String: GUID</td>
-                            <td>The unique identifier for the operation. This property is created by the service.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>valueElementToApplyId</td>
-                            <td>Object: <a href="#valueelementidobject">Value Element Id Object</a></td>
-                            <td>The property in the object that should be assigned as part of this operation. For operations that are used for initialization, the 'id' property must be either null or the same as the Value Element as initialization operations can only be applied to the same Value Element.</td>
-                        </tr>
-                        <tr>
-                            <td>valueElementToReferenceId</td>
-                            <td>Object: <a href="#valueelementidobject">Value Element Id Object</a></td>
-                            <td>The value that should be used to source the value that will be assigned to this Value Element.</td>
-                        </tr>
-                        <tr>
-                            <td>order</td>
-                            <td>Integer</td>
-                            <td>The order in which the operations should be executed. The lowest number is executed first.</td>
-                        </tr>
-                    </table>
-
-                    <hr class="bs-docs-separator">
-
-                    <h2 id="valueelementidobject">Value Element Id Object</h2>
-
-                    <p>The value element id object properties are as follows:</p>
-
-                    <table class="table table-bordered">
-                        <tr class="info">
-                            <td><strong>Property</strong></td>
-                            <td><strong>Type</strong></td>
-                            <td><strong>Description</strong></td>
-                        </tr>
-                        <tr>
-                            <td>id</td>
-                            <td>String: GUID</td>
-                            <td>The unique identifier for the Value to be referenced with this identifier.</td>
-                        </tr>
-                        <tr>
-                            <td>typeElementPropertyId</td>
-                            <td>String: GUID</td>
-                            <td>The unique identifier for a Property in the Value to be referenced with this identifier. This only applies for Values of type ContentObject.</td>
-                        </tr>
-                        <tr>
-                            <td>command</td>
-                            <td>String</td>
-                            <td>The command to execute as part of the Value reference. For certain objects, the command exposes additional properties that can be referenced.</td>
+                            <td>The unique identifier for the user who owns this Tag Element.</td>
                         </tr>
                     </table>
 
