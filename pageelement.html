@@ -26,7 +26,7 @@
             $('#docsSidebar').scrollspy();
 
             // Navigate to the first section
-            window.location.hash = 'intro';
+            //window.location.hash = 'intro';
         });
 
     </script>
@@ -78,6 +78,7 @@
         <div class="row">
             <div class="span3 bs-docs-sidebar">
                 <ul id="docsSidebar" class="nav nav-list bs-docs-sidenav affix">
+                    <li><a href="draw.html"><i class="icon-chevron-left"></i>Back to Draw</a></li>
                     <li><a href="#intro"><i class="icon-chevron-right"></i>Intro</a></li>
                     <li><a href="#save"><i class="icon-chevron-right"></i>Save</a></li>
                     <li><a href="#add"><i class="icon-chevron-right"></i>Add To Flow</a></li>
@@ -89,8 +90,27 @@
                 </ul>
             </div>
             <div class="span9">
-
+                
                 <section id="intro">
+
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <div class="container">
+                                <a class="brand" href="#">Elements</a>
+                                <ul class="nav">
+                                    <li><a href="flowelement.html"><img src="http://cdn.manywho.com/extensions/glyphicons/glyphicons_001_leaf.png" height="16" width="16" /> Flow</a></li>
+                                    <li><a href="mapelement.html"><img src="http://cdn.manywho.com/extensions/glyphicons/glyphicons_060_compass.png" height="16" width="16" /> Map</a></li>
+                                    <li><a href="groupelement.html"><img src="http://cdn.manywho.com/extensions/glyphicons/glyphicons_003_user.png" height="16" width="16" /> Group</a></li>
+                                    <li class="active"><a href="pageelement.html"><img src="http://cdn.manywho.com/extensions/glyphicons/glyphicons_119_table.png" height="16" width="16" /> Page</a></li>
+                                    <li><a href="tagelement.html"><img src="http://cdn.manywho.com/extensions/glyphicons/glyphicons_066_tags.png" height="16" width="16" /> Tag</a></li>
+                                    <li><a href="valueelement.html"><img src="http://cdn.manywho.com/extensions/glyphicons/glyphicons_130_inbox.png" height="16" width="16" /> Value</a></li>
+                                    <li><a href="typeelement.html"><img src="http://cdn.manywho.com/extensions/glyphicons/glyphicons_248_asterisk.png" height="16" width="16" /> Type</a></li>
+                                    <li><a href="serviceelement.html"><img src="http://cdn.manywho.com/extensions/glyphicons/glyphicons_069_gift.png" height="16" width="16" /> Service</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="marketing">
                         <h1>Page Elements</h1>
 
@@ -357,7 +377,6 @@
                         "valueElementToReferenceId": null,
                         "metaData": "METADATA.VISIBLE"
                     },
-                    "assignmentType": "SET",
                     "assignor": {
                         "pageObjectReferenceId": null,
                         "typeElementPropertyId": null,
@@ -744,7 +763,7 @@
                         <tr>
                             <td>userCreated</td>
                             <td>String: GUID</td>
-                            <td>The unique identifier for the user who created the Tag Element.</td>
+                            <td>The unique identifier for the user who created the Page Element.</td>
                         </tr>
                         <tr>
                             <td>userModified</td>
@@ -799,7 +818,7 @@
                         <tr>
                             <td>order</td>
                             <td>Integer</td>
-                            <td>The order in which the page container should be rendered relative to its peers. The lowest number is executed first.</td>
+                            <td>The order in which the page container should be rendered relative to its peers. The lowest number is rendered first.</td>
                         </tr>
                         <tr>
                             <td>tags</td>
@@ -931,7 +950,7 @@
                         <tr>
                             <td>order</td>
                             <td>Integer</td>
-                            <td>The order in which the page component should be rendered relative to its peers. The lowest number is executed first.</td>
+                            <td>The order in which the page component should be rendered relative to its peers. The lowest number is rendered first.</td>
                         </tr>
                         <tr>
                             <td>tags</td>
@@ -940,133 +959,450 @@
                         </tr>
                     </table>
 
+                    <h2 id="pagecomponentcolumnobject">Page Component Column Object</h2>
 
+                    <p>The page component column object properties are as follows:</p>
 
-            "objectDataRequest": { // The async data request configuration
-                "typeElementBindingId": "b5848b9a-ec75-4ae1-ab24-c76879e8dllc",
-                "typeElementId": "l1812b9a-ec75-5ae1-c254-c76879e8ddh5",
-                "listFilter": {
-                    "filterId": null,
-                    "comparisonType": "AND",
-                    "where":[
-                        "columnTypeElementPropertyId": "sf765b9a-ec75-7ae1-k254-g76879e8ddg8", // The type element property to filter by
-                        "criteriaType": "EQUAL",
-                        "valueElementToReferenceId": { // The value to filter that property by
-                            "id": "to761b9a-uq75-2ag1-o224-k76i79e8ddw2",
-                            "typeElementPropertyId": null,
-                            "command": null
-                        }
-                    ],
-                    "orderByTypeElementPropertyId": null,
-                    "orderByDirection", null,
-                    "limit": 0,
-                    "filterByProvidedObjects": false
-                },
-                "command": null
-            },
-            "columns":[ // The columns that should be displayed in the table UI
-                {
-                    "id", null,
-                    "typeElementPropertyId": "cd925b9a-ec91-4ae1-w9d4-c76879e8ffsw", // The property of the service history objec that should be displayed
-                    "isBound": false,
-                    "boundTypeElementPropertyId": null,
-                    "label": "Date",
-                    "isDisplayValue": true,
-                    "isEditable": false,
-                    "order": 0
-                },
-                {
-                    "id", null,
-                    "typeElementPropertyId": "b5848b9a-gq75-4jf1-ab24-c76879e8903f",
-                    "isBound": false,
-                    "boundTypeElementPropertyId": null,
-                    "label": "Work Completed",
-                    "isDisplayValue": true,
-                    "isEditable": false,
-                    "order": 0
-                }
-            ],
-            "tags":[
-                {
-                    "valueElementToReferenceId": "cfgses425-5394-lc01-gg4d-85dh4b0sk3lqp", // The value that holds the developer flag for: 3d car widget
-                    "tagElementId": "d5fses4c4-9894-3c01-l84d-34724b0sk3msl" // The tag reference for this value
-                }
-            ]
-        }
-    ],
-    "pageConditions":[
-        "pageRules":[
-            { // A single rule that basically reads...
-                "id": null,
-                "leftPageObjectReference":{
-                    "pageObjectReferenceId": null,
-                    "typeElementPropertyId": null,
-                    "pageObjectReferenceDeveloperName": "firstname", // If the user types something into the firstname INPUT ...
-                    "valueElementToReferenceId": null,
-                    "metaData": "VALUE"
-                },
-                "criteriaType": "CONTAINS", // ... that 'contains' ...
-                "rightPageObjectReference":{
-                    "pageObjectReferenceId": null,
-                    "typeElementPropertyId": null,
-                    "pageObjectReferenceDeveloperName": null,
-                    "valueElementToReferenceId":{
-                        "id": "l9xses4c4-7u94-gf01-l84d-19734b0skt637", // ... the value stored in this referenced Value Element ...
-                        "typeElementPropertyId": null,
-                        "command": null
-                    },
-                    "metaData": "VALUE"
-                }
-            }
-        ],
-        "comparisonType": "AND",
-        "pageOperations":[
-            {
-                "id": null,
-                "assignment":{
-                    "assignee":{
-                        "pageObjectReferenceId": null,
-                        "typeElementPropertyId": null,
-                        "pageObjectReferenceDeveloperName": "servicehistory", // ... then set the visibility of the searchhistory TABLE component ...
-                        "valueElementToReferenceId": null,
-                        "metaData": "METADATA.VISIBLE"
-                    },
-                    "assignmentType": "SET",
-                    "assignor": {
-                        "pageObjectReferenceId": null,
-                        "typeElementPropertyId": null,
-                        "pageObjectReferenceDeveloperName": null,
-                        "valueElementToReferenceId":{
-                            "id": "hg9874dc4-9g94-2301-p94d-20034b0skt812", // ... to the value stored in this referenced Value Element (which needs to be either true or false)
-                            "typeElementPropertyId": null,
-                            "command": null
-                        },
-                        "metaData": "VALUE"
-                    }
-                },
-                "filter": null
-            }
-        ]
-    ],
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the page component column. This property is created by the service.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>typeElementPropertyId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the property in that should be displayed in this column. This pertains to the Type for the bound data or the object data request - not the underlying value binding.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>isBound</td>
+                            <td>Boolean</td>
+                            <td>Indicates that this specific column is bound to the underlying value binding. This can only be true if the content type of this property is the same as the content type of the bound value. It is also
+                                not valid for this to be true for multiselect data components.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>boundTypeElementPropertyId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the property in the value binding that should be used to store the selected value. This pertains to the Type for the value binding, not the Type for the bound data or the object data request.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>label</td>
+                            <td>String</td>
+                            <td>The label that should be used for this column. Often the label is displayed as the column header, but for mobile applications, this may be used inline with the object entry data.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>isDisplayValue</td>
+                            <td>Boolean</td>
+                            <td>Indicates that this value should be shown in the UI to the end user.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>isEditable</td>
+                            <td>Boolean</td>
+                            <td>Indicates that this value is editable inline in this component.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>order</td>
+                            <td>Integer</td>
+                            <td>The order in which the page component column should be rendered relative to its peers. The lowest number is rendered first.</td>
+                        </tr>
+                    </table>
 
+                    <h2 id="pageconditionobject">Page Condition Object</h2>
 
+                    <p>The page condition object properties are as follows:</p>
 
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>pageRules</td>
+                            <td>Array: <a href="#pageruleobject">Page Rule Objects</a></td>
+                            <td>The list of page rules that should be evaluated for this condition. If the page rules evaluate to 'true', the condition will execute the associated page operations.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>comparisonType</td>
+                            <td>String: <a href="#comparisontypeenum">ComparisonType</a></td>
+                            <td>The comparison to use when evaluating the page rules associated with this page condition.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>pageOperations</td>
+                            <td>Array: <a href="#pageoperationobject">Page Operation Objects</a></td>
+                            <td>The list of page operations that should be executed if the page rules evaluate to 'true'.
+                            </td>
+                        </tr>
+                    </table>
 
+                    <h2 id="pageruleobject">Page Rule Object</h2>
 
+                    <p>The page rule object properties are as follows:</p>
 
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the page rule. This property is created by the service.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>left</td>
+                            <td>Object: <a href="#pageobjectreferenceobject">Page Object Reference Object</a></td>
+                            <td>The reference to the value that should be used for the "left" side of the rule evaluation: e.g. if {left} is greater than {right} then ...
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>criteriaType</td>
+                            <td>String: <a href="#criteriatypeenum">CriteriaType</a></td>
+                            <td>The criteria that should be used when evaluating this rule: e.g. EQUAL
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>right</td>
+                            <td>Object: <a href="#pageobjectreferenceobject">Page Object Reference Object</a></td>
+                            <td>The reference to the value that should be used for the "right" side of the rule evaluation: e.g. if {left} is greater than {right} then ...
+                            </td>
+                        </tr>
+                    </table>
 
+                    <h2 id="pageoperationobject">Page Operation Object</h2>
 
+                    <p>The page operation object properties are as follows:</p>
 
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the page operation. This property is created by the service.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>assignment</td>
+                            <td>Object: <a href="#pageassignmentobject">Page Assignment Object</a></td>
+                            <td>The assignment operation that should be performed.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>filter</td>
+                            <td>Object: <a href="#pagefilterobject">Page Filter Object</a></td>
+                            <td>The filter that should be applied.
+                            </td>
+                        </tr>
+                    </table>
 
+                    <h2 id="pageassignmentobject">Page Assignment Object</h2>
 
+                    <p>The page assignment object properties are as follows:</p>
 
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>assignee</td>
+                            <td>Object: <a href="#pageobjectreferenceobject">Page Object Reference Object</a></td>
+                            <td>The reference to the object that should have its metadata altered by this assignment.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>assignor</td>
+                            <td>Object: <a href="#pageobjectreferenceobject">Page Object Reference Object</a></td>
+                            <td>The reference to the object that should supply the metadata to assign.
+                            </td>
+                        </tr>
+                    </table>
 
+                    <h2 id="pagefilterobject">Page Filter Object</h2>
 
+                    <p>The page filter object properties are as follows:</p>
 
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>pageComponentId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the page component to have the filter applied. During the development of your page layouts, use the pageComponentDeveloperName property rather than the identifier - the modeling engine will match the developer names to identifiers for you.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>pageComponentDeveloperName</td>
+                            <td>String</td>
+                            <td>The developer name of the page component to have the filter applied.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>columnTypeElementPropertyId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the column in the bound component data to filter by. This property should only be used when filtering components that are bound to lists stored in the engine state. For filtering asynchronous data, use the objectDataRequest property.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>criteriaType</td>
+                            <td>String: <a href="#criteriatypeenum">CriteriaType</a></td>
+                            <td>The criteria to filter the list data by.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>filterValue</td>
+                            <td>Object: <a href="#pageobjectreferenceobject">Page Object Reference Object</a></td>
+                            <td>The reference to the object that contains the value to filter the list data by.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>objectDataRequest</td>
+                            <td>Object: <a href="#objectdatarequestobject">Object Data Request Object</a></td>
+                            <td>The object data request object to apply to the page component. This will be provided back to the player to execute asynchronously.
+                            </td>
+                        </tr>
+                    </table>
 
+                    <h2 id="pageobjectreferenceobject">Page Object Reference Object</h2>
 
+                    <p>The page object reference object properties are as follows:</p>
 
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>pageObjectReferenceId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the page object. This can be either a container or a component. During the development of your page layouts, use the pageObjectReferenceDeveloperName property rather than the identifier - the modeling engine will match the developer names to identifiers for you.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>pageObjectReferenceDeveloperName</td>
+                            <td>String: GUID</td>
+                            <td>The developer name of the page object being referenced.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>typeElementPropertyId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifer for the property in the bound value Type. This only applies to components that are bound to values that have a Type.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>valueElementToReferenceId</td>
+                            <td>Object: <a href="#valueelementidobject">Page Object Reference Object</a></td>
+                            <td>The identifier for the Value Element that should be referenced. This is useful when the page rules involve Values that are not actually rendered on the page.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>metadataType</td>
+                            <td>String: <a href="#metadatatypeenum">MetadataType</a></td>
+                            <td>The particular metadata that should be referenced.
+                            </td>
+                        </tr>
+                    </table>
 
+                    <h2 id="pagetagobject">Page Tag Object</h2>
+
+                    <p>The page tag object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>valueElementToReferenceId</td>
+                            <td>Object: <a href="#valueelementidobject">Value Element Id Object</a></td>
+                            <td>The reference to the Value Element that holds the data to be provided in the tag. This may be a specific css reference or a full object containing configuration data needed to the UI.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>tagElementId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Tag Element that this tag is associated. This Tag will be used to provide the Tag name at runtime and also ensure Tag content and object type references are maintained.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <h2 id="objectdatarequestobject">Object Data Request Object</h2>
+
+                    <p>The object data request object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>typeElementId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Type Element that will define the structure of the data returned by this request.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>typeElementBindingId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the binding that should be used on the provided Type Element.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>typeElementPropertyId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the property in that should be displayed in this column. This pertains to the Type for the bound data or the object data request - not the underlying value binding.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>listFilter</td>
+                            <td>Object <a href="#listfilterobject">List Filter Object</a></td>
+                            <td>The filter that should be applied to the data at runtime. The list filter can be altered by events on the page. The list filter object can also be used by the player to support additional component filtering and logic such as paging. The properties of the filter can therefore be altered at runtime to optimize the user experience.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>command</td>
+                            <td>Object: Command</td>
+                            <td>This property is not yet supported but will allow additional runtime options such as inline search.</td>
+                        </tr>
+                    </table>
+
+                    <h2 id="listfilterobject">List Filter Object</h2>
+
+                    <p>The list filter object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>filterId</td>
+                            <td>Object: <a href="#valueelementidobject">Value Element Id Object</a></td>
+                            <td>The reference to the Value Element that holds a very specific identifier to filter the objects by. This property should be used when loading specific objects as opposed to lists of object results.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>comparisonType</td>
+                            <td>String: <a href="#comparisontypeenum">ComparisonType</a></td>
+                            <td>The comparison to use when evaluating the where objects associated with this filter.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>where</td>
+                            <td>Array: <a href="#listfilterwhereobject">List Filter Where Object</a></td>
+                            <td>The filter criteria that should be applied during the lookup.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>orderByTypeElementPropertyId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the property in the Type Element (associated with this filter) that should be used for ordering the results.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>orderByDirection</td>
+                            <td>String: <a href="#orderbydirectiontypeenum">orderByDirectionType</a></td>
+                            <td>The direction in which to order the results.</td>
+                        </tr>
+                        <tr>
+                            <td>limit</td>
+                            <td>Integer</td>
+                            <td>The maximum number of results to return from the request.</td>
+                        </tr>
+                        <tr>
+                            <td>filterByProvidedObjects</td>
+                            <td>Boolean</td>
+                            <td>This property is not yet supported for UI based lookups. This will allow the UI to pass objects back to the Service to be 'hydrated'.</td>
+                        </tr>
+                    </table>
+
+                    <h2 id="listfilterwhereobject">List Filter Where Object</h2>
+
+                    <p>The list filter where object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>columnTypeElementPropertyId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the column in the bound component data to filter by.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>criteriaType</td>
+                            <td>String: <a href="#criteriatypeenum">CriteriaType</a></td>
+                            <td>The criteria to filter the list data by.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>valueElementToReferenceId</td>
+                            <td>Object: <a href="#valueelementidobject">Value Element Id Object</a></td>
+                            <td>The reference to the Value Element that contains the value to filter the list data by.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="valueelementidobject">Value Element Id Object</h2>
+
+                    <p>The value element id object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Value to be referenced with this identifier.</td>
+                        </tr>
+                        <tr>
+                            <td>typeElementPropertyId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for a Property in the Value to be referenced with this identifier. This only applies for Values of type ContentObject.</td>
+                        </tr>
+                        <tr>
+                            <td>command</td>
+                            <td>String</td>
+                            <td>The command to execute as part of the Value reference. For certain objects, the command exposes additional properties that can be referenced.</td>
+                        </tr>
+                    </table>
 
                     <hr class="bs-docs-separator">
 
@@ -1077,6 +1413,210 @@
                     <h1>API Enumerations
     <small>Helpful values</small>
                     </h1>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="criteriatypeenum">CriteriaType Enumeration</h2>
+
+                    <p>The CriteriaType enum contains the following values:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Value</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>EQUAL</td>
+                            <td>{left} is equal to {right}</td>
+                        </tr>
+                        <tr>
+                            <td>NOT_EQUAL</td>
+                            <td>{left} is not equal to {right}</td>
+                        </tr>
+                        <tr>
+                            <td>GREATER_THAN</td>
+                            <td>{left} is greater than {right}. For ContentString types, this is done alphabetically.</td>
+                        </tr>
+                        <tr>
+                            <td>GREATER_THAN_OR_EQUAL</td>
+                            <td>{left} is greater than or equal to {right}. For ContentString types, this is done alphabetically.</td>
+                        </tr>
+                        <tr>
+                            <td>LESS_THAN</td>
+                            <td>{left} is less than {right}. For ContentString types, this is done alphabetically.</td>
+                        </tr>
+                        <tr>
+                            <td>LESS_THAN_OR_EQUAL</td>
+                            <td>{left} is less than or equal to {right}. For ContentString types, this is done alphabetically.</td>
+                        </tr>
+                        <tr>
+                            <td>CONTAINS</td>
+                            <td>{left} contains the characters in {right}. This is only valid for ContentString types and is case insensitive.</td>
+                        </tr>
+                        <tr>
+                            <td>STARTS_WITH</td>
+                            <td>{left} starts with the characters in {right}. This is only valid for ContentString types and is case insensitive.</td>
+                        </tr>
+                        <tr>
+                            <td>ENDS_WITH</td>
+                            <td>{left} ends with the characters in {right}. This is only valid for ContentString types and is case insensitive.</td>
+                        </tr>
+                        <tr>
+                            <td>IS_EMPTY</td>
+                            <td>{left} is empty or null. When this criteria type is used, it must be compared with a {right} that is a ContentBoolean.</td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="containertypeenum">ContainerType Enumeration</h2>
+
+                    <p>The ContainerType enum contains the following values:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Value</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>VERTICAL_FLOW</td>
+                            <td>The containers or components that are children of this container should be oriented vertically with respect to each other.</td>
+                        </tr>
+                        <tr>
+                            <td>HORIZONTAL_FLOW</td>
+                            <td>The containers or components that are children of this container should be oriented horizontally and evenly with respect to each other.</td>
+                        </tr>
+                        <tr>
+                            <td>INLINE_FLOW</td>
+                            <td>The containers or components that are children of this container should be oriented horizontally and as close as possible to each other inline.</td>
+                        </tr>
+                        <tr>
+                            <td>GROUP</td>
+                            <td>The containers (components not allowed in the default player) that are children of this container should be treated as sections of the group. This is analagous to UI tabs - where this GROUP container is the tab container and each of the child page containers becomes at tab for the user to switch views.</td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="componenttypeenum">ComponentType Enumeration</h2>
+
+                    <p>The ComponentType enum contains the following values:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Value</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>CONTENT</td>
+                            <td>The component accepts rich content. For the standard players, this is in the format of html5, however, it can be any rich content. Use this if you expect the user to be producing a formatted document.</td>
+                        </tr>
+                        <tr>
+                            <td>INPUT</td>
+                            <td>The component accepts basic inputs. This is analagous to standard input fields for things like: First Name, Last Name, etc.</td>
+                        </tr>
+                        <tr>
+                            <td>TEXTAREA</td>
+                            <td>The component accepts multi-line, unformatted content. This is analagous to fields for things like: Comments, Description, etc.</td>
+                        </tr>
+                        <tr>
+                            <td>SELECT</td>
+                            <td>The component allows the user to select from a set of object data entries. This is analagous to simple combo boxes or multiselection boxes.</td>
+                        </tr>
+                        <tr>
+                            <td>CHECKBOX</td>
+                            <td>The component allows the user to tick a box (usually indicating a Yes/No response).</td>
+                        </tr>
+                        <tr>
+                            <td>TABLE</td>
+                            <td>The component allows the user to view/select from a set of object data entries. This is normally presented as multicolumn tables, though for mobile use-cases may be shown as a multiproperty list of selections.</td>
+                        </tr>
+                        <tr>
+                            <td>PRESENTATION</td>
+                            <td>The component is simply used to present information to the end consumer. This can be formatted content - commonly in html5.</td>
+                        </tr>
+                        <tr>
+                            <td>TAG</td>
+                            <td>The component is non-standard and the player should look for a matching widget based on the provided developer name and/or tag metadata.</td>
+                        </tr>
+                        <tr>
+                            <td>IMAGE</td>
+                            <td>The component is simply used to present an image to the end consumer. This is normally a URI to the image file.</td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="metadatatype">MetadataType Enumeration</h2>
+
+                    <p>The MetadataType enum contains the following values:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Value</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>VALUE</td>
+                            <td>The value of the component or value element id object reference.</td>
+                        </tr>
+                        <tr>
+                            <td>METADATA.VISIBLE</td>
+                            <td>The visibility status of the component.</td>
+                        </tr>
+                        <tr>
+                            <td>METADATA.REQUIRED</td>
+                            <td>The required status of the component.</td>
+                        </tr>
+                        <tr>
+                            <td>METADATA.ENABLED</td>
+                            <td>The enabled status of the component.</td>
+                        </tr>
+                        <tr>
+                            <td>METADATA.FILTER</td>
+                            <td>The filter that should be applied to the component.</td>
+                        </tr>
+                        <tr>
+                            <td>METADATA.VALIDATION</td>
+                            <td>The validation that should be applied to the component. This is not yet supported.</td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="orderbydirectiontypeenum">OrderByDirectionType Enumeration</h2>
+
+                    <p>The OrderByDirectionType enum contains the following values:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Value</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>ASC</td>
+                            <td>Order the values with the 'lowest' value appearing first.</td>
+                        </tr>
+                        <tr>
+                            <td>DESC</td>
+                            <td>Order the values with the 'highest' value appearing first.</td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="comparisontypeenum">ComparisonType Enumeration</h2>
+
+                    <p>The ComparisonType enum contains the following values:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Value</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>AND</td>
+                            <td>Compare the values using 'and'. E.g. this AND that must be true.</td>
+                        </tr>
+                        <tr>
+                            <td>OR</td>
+                            <td>Compare the values using 'or'. E.g. this or that must be true.</td>
+                        </tr>
+                    </table>
 
                     <hr class="bs-docs-separator">
 

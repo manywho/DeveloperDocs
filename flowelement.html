@@ -81,7 +81,6 @@
                     <li><a href="draw.html"><i class="icon-chevron-left"></i>Back to Draw</a></li>
                     <li><a href="#intro"><i class="icon-chevron-right"></i>Intro</a></li>
                     <li><a href="#save"><i class="icon-chevron-right"></i>Save</a></li>
-                    <li><a href="#add"><i class="icon-chevron-right"></i>Add To Flow</a></li>
                     <li><a href="#load"><i class="icon-chevron-right"></i>Load</a></li>
                     <li><a href="#query"><i class="icon-chevron-right"></i>Query</a></li>
                     <li><a href="#delete"><i class="icon-chevron-right"></i>Delete</a></li>
@@ -90,7 +89,7 @@
                 </ul>
             </div>
             <div class="span9">
-
+                
                 <section id="intro">
 
                     <div class="navbar">
@@ -98,11 +97,11 @@
                             <div class="container">
                                 <a class="brand" href="#">Elements</a>
                                 <ul class="nav">
-                                    <li><a href="flowelement.html"><img src="http://cdn.manywho.com/extensions/glyphicons/glyphicons_001_leaf.png" height="16" width="16" /> Flow</a></li>
+                                    <li class="active"><a href="flowelement.html"><img src="http://cdn.manywho.com/extensions/glyphicons/glyphicons_001_leaf.png" height="16" width="16" /> Flow</a></li>
                                     <li><a href="mapelement.html"><img src="http://cdn.manywho.com/extensions/glyphicons/glyphicons_060_compass.png" height="16" width="16" /> Map</a></li>
                                     <li><a href="groupelement.html"><img src="http://cdn.manywho.com/extensions/glyphicons/glyphicons_003_user.png" height="16" width="16" /> Group</a></li>
                                     <li><a href="pageelement.html"><img src="http://cdn.manywho.com/extensions/glyphicons/glyphicons_119_table.png" height="16" width="16" /> Page</a></li>
-                                    <li class="active"><a href="tagelement.html"><img src="http://cdn.manywho.com/extensions/glyphicons/glyphicons_066_tags.png" height="16" width="16" /> Tag</a></li>
+                                    <li><a href="tagelement.html"><img src="http://cdn.manywho.com/extensions/glyphicons/glyphicons_066_tags.png" height="16" width="16" /> Tag</a></li>
                                     <li><a href="valueelement.html"><img src="http://cdn.manywho.com/extensions/glyphicons/glyphicons_130_inbox.png" height="16" width="16" /> Value</a></li>
                                     <li><a href="typeelement.html"><img src="http://cdn.manywho.com/extensions/glyphicons/glyphicons_248_asterisk.png" height="16" width="16" /> Type</a></li>
                                     <li><a href="serviceelement.html"><img src="http://cdn.manywho.com/extensions/glyphicons/glyphicons_069_gift.png" height="16" width="16" /> Service</a></li>
@@ -112,13 +111,13 @@
                     </div>
 
                     <div class="marketing">
-                        <h1>Tag Elements</h1>
+                        <h1>Flows</h1>
 
                         <div class="row-fluid">
                             <div class="span12">
-                                <a href="tagelement.html">
-                                    <img class="marketing-img" alt="Tag Element"
-                                        src="http://cdn.manywho.com/extensions/glyphicons/tag_element.png" height="85" width="75"></a>
+                                <a href="flowelement.html">
+                                    <img class="marketing-img" alt="Flow"
+                                        src="http://cdn.manywho.com/extensions/glyphicons/flow.png" height="85" width="75"></a>
                             </div>
                         </div>
                     </div>
@@ -135,7 +134,7 @@
 
                     <h2>Save</h2>
 
-                    <p>To save (create or update) a Tag Element object, you can use the following API:</p>
+                    <p>To save (create or update) a Flow object, you can use the following API:</p>
 
                     <table class="table table-bordered">
                         <tr class="success">
@@ -145,10 +144,10 @@
                             <td><strong>JSON Response</strong></td>
                         </tr>
                         <tr>
-                            <td>api/draw/1/element/tag</td>
+                            <td>api/draw/1/flow</td>
                             <td>POST</td>
-                            <td>Object: <a href="#tagelementrequestobject">Tag Element Request Object</a></td>
-                            <td>Object: <a href="#tagelementresponseobject">Tag Element Response Object</a></td>
+                            <td>Object: <a href="#flowrequestobject">Flow Request Object</a></td>
+                            <td>Object: <a href="#flowresponseobject">Flow Response Object</a></td>
                         </tr>
                     </table>
 
@@ -166,89 +165,50 @@
                     </table>
 
                     <div class="bs-docs-example">
-                        <strong>POST https://flow.manywho.com/api/draw/1/element/tag</strong>
+                        <strong>POST https://flow.manywho.com/api/draw/1/flow</strong>
                     </div>
-<pre class="prettyprint">// Tag Element Request example
+<pre class="prettyprint">// Flow Request example
 {
     "id": null,
-    "elementType": "TAG",
-    "developerName": "My 3d Car Widget",
-    "developerSummary": "This tag should be used if you want to include a 3d car widget in the Flow.",
-    "contentType": "ContentObject",
-    "typeElementId": "365c14c4-78d4-4c01-b84d-19024b3ea1ce",
-    "updateByName":true
+    "editingToken": null,
+    "developerName": "ManyWhoRegistration",
+    "developerSummary": "This is the registration flow for new accounts.",
+    "startMapElementId": "a1648b9a-ec75-4ae1-ab24-c76879e8d551",
+    "authorization":{
+        "serviceElementId": null,
+        "globalAuthenticationType": "PUBLIC",
+        "streamBehaviour": "NONE",
+        "groups": null,
+        "users": null,
+        "locations": null
+    }
 }</pre>
-<pre class="prettyprint">// Tag Element Response example
+<pre class="prettyprint">// Flow Response example
 {
-    "dateCreated":"2013-06-19T16:44:06.847",
-    "dateModified":"2013-06-19T16:53:23.767",
-    "userCreated":"0c100d10-cc8c-43d7-abd6-669565a33c19",
-    "userModified":"0c100d10-cc8c-43d7-abd6-669565a33c19",
-    "userOwner":"0c100d10-cc8c-43d7-abd6-669565a33c19",
-    "id": "d5fses4c4-9894-3c01-l84d-34724b0sk3msl"
-    // Properties the same as the Tag Element Request - but with ids all non-null ...
+    "dateCreated": "2013-06-19T16:44:06.847",
+    "dateModified": "2013-06-19T16:53:23.767",
+    "userCreated": "0c100d10-cc8c-43d7-abd6-669565a33c19",
+    "userModified": "0c100d10-cc8c-43d7-abd6-669565a33c19",
+    "userOwner": "0c100d10-cc8c-43d7-abd6-669565a33c19",
+    "editingToken": "2d300d10-dd8c-43d7-abd6-889565a33c50",
+    "id":{
+        "id": "104acb42-c01f-419f-b4bf-fccf867d166c",
+        "versionId": "4cdd19ee-eeff-4f42-bd74-3ce85c2a60dd"
+    },
+    "developerName": "ManyWhoRegistration",
+    "developerSummary": "This is the registration flow for new accounts.",
+    "isActive": true,
+    "isDefault": true,
+    "startMapElementId": "a1648b9a-ec75-4ae1-ab24-c76879e8d551",
+    "authorization":{
+        "serviceElementId": null,
+        "globalAuthenticationType": "PUBLIC",
+        "streamBehaviour": "NONE",
+        "groups": null,
+        "users": null,
+        "locations": null
+    }
 }</pre>
-
-                    <hr class="bs-docs-separator">
-
-                </section>
-
-                <section id="add">
-
-                    <h2>Add To Flow</h2>
-
-                    <p>In order to use a Tag Element in your Flow, you must 'add' or 'import' the element to the Flow so our engine can keep track of it as a dependency. To add a reference to a specific Tag Element object to your Flow, you can use the following API:</p>
-
-                    <table class="table table-bordered">
-                        <tr class="success">
-                            <td><strong>URL</strong></td>
-                            <td><strong>HTTP Verb</strong></td>
-                            <td><strong>JSON Request</strong></td>
-                            <td><strong>JSON Response</strong></td>
-                        </tr>
-                        <tr>
-                            <td>api/draw/1/element/flow/{flowId}/tag/{id}</td>
-                            <td>POST</td>
-                            <td>N/A</td>
-                            <td>N/A</td>
-                        </tr>
-                    </table>
-
-                    <p>Where the parameters are as follows:</p>
-                    <table class="table table-bordered">
-                        <tr>
-                            <td><strong>Property</strong></td>
-                            <td><strong>Type</strong></td>
-                            <td><strong>Description</strong></td>
-                        </tr>
-                        <tr>
-                            <td>flowId</td>
-                            <td>String: GUID</td>
-                            <td>The unique identifier for the Flow you wish to add the Tag Element to.</td>
-                        </tr>
-                        <tr>
-                            <td>id</td>
-                            <td>String: GUID</td>
-                            <td>The unique identifier for the Tag Element to be added to the Flow.</td>
-                        </tr>
-                    </table>
-
-                    <p>You must also provide the draw API with the following header value:</p>
-                    <table class="table table-bordered">
-                        <tr class="info">
-                            <td><strong>Name</strong></td>
-                            <td><strong>Value</strong></td>
-                        </tr>
-                        <tr>
-                            <td>Authorization</td>
-                            <td>The authorization String returned from logging into the api/draw/1/authentication API.
-                            </td>
-                        </tr>
-                    </table>
-
-                    <div class="bs-docs-example">
-                        <strong>POST https://flow.manywho.com/api/draw/1/element/flow/7ba7a6a1-d6ba-4806-8cc0-77be8504e86d/tag/d5fses4c4-9894-3c01-l84d-34724b0sk3msl</strong>
-                    </div>
 
                     <hr class="bs-docs-separator">
 
@@ -256,9 +216,9 @@
 
                 <section id="load">
 
-                    <h2>Load</h2>
+                    <h2>Load Latest</h2>
 
-                    <p>To load a specific Tag Element object, you can use the following API:</p>
+                    <p>To load the latest version of a specific Flow object, you can use the following API:</p>
 
                     <table class="table table-bordered">
                         <tr class="success">
@@ -268,10 +228,10 @@
                             <td><strong>JSON Response</strong></td>
                         </tr>
                         <tr>
-                            <td>api/draw/1/element/tag/{id}</td>
+                            <td>api/draw/1/flow/{id}</td>
                             <td>GET</td>
                             <td>N/A</td>
-                            <td>Object: <a href="#tagelementresponseobject">Tag Element Response Object</a></td>
+                            <td>Object: <a href="#flowresponseobject">Flow Response Object</a></td>
                         </tr>
                     </table>
 
@@ -285,7 +245,7 @@
                         <tr>
                             <td>id</td>
                             <td>String: GUID</td>
-                            <td>The unique identifier for the Tag Element you wish to load.</td>
+                            <td>The unique identifier for the Flow you wish to load.</td>
                         </tr>
                     </table>
 
@@ -303,16 +263,32 @@
                     </table>
 
                     <div class="bs-docs-example">
-                        <strong>GET https://flow.manywho.com/api/draw/1/element/tag/d5fses4c4-9894-3c01-l84d-34724b0sk3msl</strong>
+                        <strong>GET https://flow.manywho.com/api/draw/1/flow/104acb42-c01f-419f-b4bf-fccf867d166c</strong>
                     </div>
 <pre class="prettyprint">{
-    "dateCreated":"2013-06-19T16:44:06.847",
-    "dateModified":"2013-06-19T16:53:23.767",
-    "userCreated":"0c100d10-cc8c-43d7-abd6-669565a33c19",
-    "userModified":"0c100d10-cc8c-43d7-abd6-669565a33c19",
-    "userOwner":"0c100d10-cc8c-43d7-abd6-669565a33c19",
-    "id": "d5fses4c4-9894-3c01-l84d-34724b0sk3msl"
-    // Properties the same as the Tag Element Request - but with ids all non-null ...
+    "dateCreated": "2013-06-19T16:44:06.847",
+    "dateModified": "2013-06-19T16:53:23.767",
+    "userCreated": "0c100d10-cc8c-43d7-abd6-669565a33c19",
+    "userModified": "0c100d10-cc8c-43d7-abd6-669565a33c19",
+    "userOwner": "0c100d10-cc8c-43d7-abd6-669565a33c19",
+    "editingToken": "2d300d10-dd8c-43d7-abd6-889565a33c50",
+    "id":{
+        "id": "104acb42-c01f-419f-b4bf-fccf867d166c",
+        "versionId": "4cdd19ee-eeff-4f42-bd74-3ce85c2a60dd"
+    },
+    "developerName": "ManyWhoRegistration",
+    "developerSummary": "This is the registration flow for new accounts.",
+    "isActive": true,
+    "isDefault": true,
+    "startMapElementId": "a1648b9a-ec75-4ae1-ab24-c76879e8d551",
+    "authorization":{
+        "serviceElementId": null,
+        "globalAuthenticationType": "PUBLIC",
+        "streamBehaviour": "NONE",
+        "groups": null,
+        "users": null,
+        "locations": null
+    }
 }</pre>
 
                     <hr class="bs-docs-separator">
@@ -323,7 +299,7 @@
 
                     <h2>Query</h2>
 
-                    <p>To query for Tag Element objects, you can use the following API:</p>
+                    <p>To query for Flow objects, you can use the following API:</p>
 
                     <table class="table table-bordered">
                         <tr class="success">
@@ -333,10 +309,10 @@
                             <td><strong>JSON Response</strong></td>
                         </tr>
                         <tr>
-                            <td>api/draw/1/element/tag?filter={filter}</td>
+                            <td>api/draw/1/flow?filter={filter}</td>
                             <td>GET</td>
                             <td>N/A</td>
-                            <td>Array: <a href="#tagelementresponseobject">Tag Element Response Objects</a></td>
+                            <td>Array: <a href="#flowresponseobject">Flow Response Objects</a></td>
                         </tr>
                     </table>
 
@@ -368,17 +344,33 @@
                     </table>
 
                     <div class="bs-docs-example">
-                        <strong>GET https://flow.manywho.com/api/draw/1/element/tag?filter=substringof(developerName,'My Widget')</strong>
+                        <strong>GET https://flow.manywho.com/api/draw/1/flow?filter=substringof(developerName,'ManyWhoRegistration')</strong>
                     </div>
 <pre class="prettyprint">[
     {
-        "dateCreated":"2013-06-19T16:44:06.847",
-        "dateModified":"2013-06-19T16:53:23.767",
-        "userCreated":"0c100d10-cc8c-43d7-abd6-669565a33c19",
-        "userModified":"0c100d10-cc8c-43d7-abd6-669565a33c19",
-        "userOwner":"0c100d10-cc8c-43d7-abd6-669565a33c19",
-        "id": "d5fses4c4-9894-3c01-l84d-34724b0sk3msl"
-        // Properties the same as the Tag Element Request - but with ids all non-null ...
+        "dateCreated": "2013-06-19T16:44:06.847",
+        "dateModified": "2013-06-19T16:53:23.767",
+        "userCreated": "0c100d10-cc8c-43d7-abd6-669565a33c19",
+        "userModified": "0c100d10-cc8c-43d7-abd6-669565a33c19",
+        "userOwner": "0c100d10-cc8c-43d7-abd6-669565a33c19",
+        "editingToken": "2d300d10-dd8c-43d7-abd6-889565a33c50",
+        "id":{
+            "id": "104acb42-c01f-419f-b4bf-fccf867d166c",
+            "versionId": "4cdd19ee-eeff-4f42-bd74-3ce85c2a60dd"
+        },
+        "developerName": "ManyWhoRegistration",
+        "developerSummary": "This is the registration flow for new accounts.",
+        "isActive": true,
+        "isDefault": true,
+        "startMapElementId": "a1648b9a-ec75-4ae1-ab24-c76879e8d551",
+        "authorization":{
+            "serviceElementId": null,
+            "globalAuthenticationType": "PUBLIC",
+            "streamBehaviour": "NONE",
+            "groups": null,
+            "users": null,
+            "locations": null
+        }
     }
 ]</pre>
 
@@ -390,7 +382,7 @@
 
                     <h2>Delete</h2>
 
-                    <p>To delete a specific Tag Element object, you can use the following API:</p>
+                    <p>To delete a specific Flow object, you can use the following API:</p>
 
                     <table class="table table-bordered">
                         <tr class="success">
@@ -400,7 +392,7 @@
                             <td><strong>JSON Response</strong></td>
                         </tr>
                         <tr>
-                            <td>api/draw/1/element/tag/{id}</td>
+                            <td>api/draw/1/flow/{id}</td>
                             <td>DELETE</td>
                             <td>N/A</td>
                             <td>N/A</td>
@@ -417,7 +409,7 @@
                         <tr>
                             <td>id</td>
                             <td>String: GUID</td>
-                            <td>The unique identifier for the Tag Element you wish to delete. This will not delete the element in previous versions - it will only delete the Tag Element from builds of your Flow done from this point forward.</td>
+                            <td>The unique identifier for the Flow you wish to delete. This will also delete the previous versions from access - we can often recover your flow if you make a mistake deleting your flow.</td>
                         </tr>
                     </table>
 
@@ -435,7 +427,7 @@
                     </table>
 
                     <div class="bs-docs-example">
-                        <strong>DELETE https://flow.manywho.com/api/draw/1/element/tag/d5fses4c4-9894-3c01-l84d-34724b0sk3msl</strong>
+                        <strong>DELETE https://flow.manywho.com/api/draw/1/flow/104acb42-c01f-419f-b4bf-fccf867d166c</strong>
                     </div>
 
                     <hr class="bs-docs-separator">
@@ -450,9 +442,9 @@
 
                     <hr class="bs-docs-separator">
 
-                    <h2 id="tagelementrequestobject">Tag Element Request Object</h2>
+                    <h2 id="flowrequestobject">Flow Request Object</h2>
 
-                    <p>The tag element request object properties are as follows:</p>
+                    <p>The flow request object properties are as follows:</p>
 
                     <table class="table table-bordered">
                         <tr class="info">
@@ -462,48 +454,43 @@
                         </tr>
                         <tr>
                             <td>id</td>
-                            <td>String: GUID</td>
-                            <td>The unique identifier for the Tag Element. The id should be null for "insert" requests and a valid identifier for "update" requests. This property is created by the
-            service.
-                            </td>
+                            <td>Object: <a href="#flowidobject">Flow Identifier Object</a></td>
+                            <td>The complete unique identifier for the currently edited version of the flow.</td>
                         </tr>
                         <tr>
-                            <td>elementType</td>
-                            <td>String: <a href="#elementtypeenum">ElementType</a></td>
-                            <td>The type of element this metadata represents. For Tag Elements, the only valid value currently is: TAG</td>
+                            <td>editingToken</td>
+                            <td>String: GUID</td>
+                            <td>The editing token for this particular editing session. An editing token is required so the modeling engine can track multiple user changes.</td>
                         </tr>
                         <tr>
                             <td>developerName</td>
                             <td>String</td>
-                            <td>The developer name for the Tag Element. This is useful for keeping track of the Tag Element in the modeling tool and API.</td>
+                            <td>The developer name for the flow. When referencing flows by name, this is the name you should use in
+                                your referencing.
+                            </td>
                         </tr>
                         <tr>
                             <td>developerSummary</td>
                             <td>String</td>
-                            <td>(Optional) The developer summary the author provided to give more information about the Tag Element.</td>
+                            <td>The developer summary the author provided to give more information about the flow.</td>
                         </tr>
                         <tr>
-                            <td>contentType</td>
-                            <td>String: <a href="#contenttypeenum">ContentType</a></td>
-                            <td>The type of Value the Tag Element holds. As part of the Page layout creation, the Tag Element will be associated with a Value Element. The Value Element bound to this Tag Element must be of the same content type.</td>
+                            <td>startMapElementId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the first element in the flow.</td>
                         </tr>
                         <tr>
-                            <td>typeElementId</td>
-                            <td>String: Guid</td>
-                            <td>The unique identifier for the Type Element and object or list data must adhere to in structure (the Type Element basically defines the  'interface' that all objects and lists stored in this Value must implement). This property is only applicable for ContentObject and ContentList content types.  As part of the Page layout creation, the Tag Element will be associated with a Value Element. The Value Element bound to this Tag Element must be of the same Type.</td>
-                        </tr>
-                        <tr>
-                            <td>updateByName</td>
-                            <td>Boolean</td>
-                            <td>Indicates if the platform should attempt to find a Tag Element with the same developer name as the one provided and match them up by name as opposed to 'id'. This is useful when creating scripts to create Flows - as you can use the developerName property as the reference as opposed to needing to know the ids of all created Elements.</td>
+                            <td>authorization</td>
+                            <td>Object: <a href="#groupauthorizationobject">Group Authorization</a></td>
+                            <td>The Authorization object for this flow.</td>
                         </tr>
                     </table>
 
                     <hr class="bs-docs-separator">
 
-                    <h2 id="tagelementresponseobject">Tag Element Response Object</h2>
+                    <h2 id="flowresponseobject">Flow Response Object</h2>
 
-                    <p>The Tag Element has all of the same properties as the request object, but additionally the properties listed below:</p>
+                    <p>The flow response object has all of the same properties as the request object, but additionally the properties listed below:</p>
 
                     <table class="table table-bordered">
                         <tr class="info">
@@ -514,27 +501,155 @@
                         <tr>
                             <td>dateCreated</td>
                             <td>String: Date/Time in JavaScript 1.8.5/ECMAScript 5th Edition format</td>
-                            <td>The date the Tag Element was first created.</td>
+                            <td>The date the Flow was first created.</td>
                         </tr>
                         <tr>
                             <td>dateModified</td>
                             <td>String: Date/Time in JavaScript 1.8.5/ECMAScript 5th Edition format</td>
-                            <td>The date the last modificiation was made to the Tag Element.</td>
+                            <td>The date the last modificiation was made to the Flow.</td>
                         </tr>
                         <tr>
                             <td>userCreated</td>
                             <td>String: GUID</td>
-                            <td>The unique identifier for the user who created the Tag Element.</td>
+                            <td>The unique identifier for the user who created the Flow.</td>
                         </tr>
                         <tr>
                             <td>userModified</td>
                             <td>String: GUID</td>
-                            <td>The unique identifier for the user who last modified the Tag Element.</td>
+                            <td>The unique identifier for the user who last modified the Flow.</td>
                         </tr>
                         <tr>
                             <td>userOwner</td>
                             <td>String: GUID</td>
-                            <td>The unique identifier for the user who owns this Tag Element.</td>
+                            <td>The unique identifier for the user who owns this Flow.</td>
+                        </tr>
+                        <tr>
+                            <td>isActive</td>
+                            <td>Boolean</td>
+                            <td>Indicates if this Flow version is the active version. In the case of run operations, this will always be
+                                true.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>isDefault</td>
+                            <td>Boolean</td>
+                            <td>Indicates if this Flow version is the default version. In the case of run operations, this will always be
+                                true.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <h2 id="groupauthorizationobject">Group Authorization Object</h2>
+
+                    <p>The group authorization object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>serviceElementId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Service Element that this authorization configuration is associated. The Service Element must support identity.</td>
+                        </tr>
+                        <tr>
+                            <td>globalAuthenticationType</td>
+                            <td>String: <a href="#globalauthenticationtypeenum">GlobalAuthenticationType</a></td>
+                            <td>The global authentication type for this Flow.</td>
+                        </tr>
+                        <tr>
+                            <td>streamBehaviourType</td>
+                            <td>String: <a href="#streambehaviourtypeenum">StreamBehaviourType</a></td>
+                            <td>The stream behaviour type for this Flow.</td>
+                        </tr>
+                        <tr>
+                            <td>groups</td>
+                            <td>Array: <a href="#groupauthorizationgroupobject">Group Authorization Group Objects</a></td>
+                            <td>The list of groups that are associated with this authorization configuration.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>groups</td>
+                            <td>Array: <a href="#groupauthorizationuserobject">Group Authorization User Objects</a></td>
+                            <td>The list of users that are associated with this authorization configuration.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>locations</td>
+                            <td>Array: Group Authorization Location Objects</td>
+                            <td>The list of locations that are associated with this authorization configuration. This is not yet supported by the service.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <h2 id="groupauthorizationgroupobject">Group Authorization Group Object</h2>
+
+                    <p>The group authorization group object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>authenticationId</td>
+                            <td>String</td>
+                            <td>The unique identifier to match the correct group. This is an external unique identifier based on the directory implementation of the Service.</td>
+                        </tr>
+                        <tr>
+                            <td>attribute</td>
+                            <td>String: ENUM</td>
+                            <td>The unique attribute to match the correct group attribute. This enumeration is based on the directory implementation of the Service.</td>
+                        </tr>
+                    </table>
+
+                    <h2 id="groupauthorizationuserobject">Group Authorization User Object</h2>
+
+                    <p>The group authorization user object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>authenticationId</td>
+                            <td>String</td>
+                            <td>The unique identifier to match the correct user. This is an external unique identifier based on the directory implementation of the Service.</td>
+                        </tr>
+                        <tr>
+                            <td>attribute</td>
+                            <td>String: ENUM</td>
+                            <td>The unique attribute to match the correct user attribute. This enumeration is based on the directory implementation of the Service.</td>
+                        </tr>
+                    </table>
+
+                    <h2 id="flowidobject">Flow Identifier Object</h2>
+
+                    <p>The flow identifier object properties are as follows:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the flow. This identifier does not change for the lifetime of the flow and is
+                                generated when the flow is first created.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>versionId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the specific version of a flow. This identifier changes any time a change is made
+                                to the flow - in structure or content.
+                            </td>
                         </tr>
                     </table>
 
@@ -550,70 +665,54 @@
 
                     <hr class="bs-docs-separator">
 
-                    <h2 id="contenttypeenum">ContentType Enumeration</h2>
+                    <h2 id="globalauthenticationtypeenum">GlobalAuthenticationType Enumeration</h2>
 
-                    <p>The ContentType enum contains the following values:</p>
+                    <p>The GlobalAuthenticationType enum contains the following values:</p>
                     <table class="table table-bordered">
                         <tr class="info">
                             <td><strong>Value</strong></td>
-                            <td><strong>Typed</strong></td>
                             <td><strong>Description</strong></td>
                         </tr>
                         <tr>
-                            <td>ContentString</td>
-                            <td>No</td>
-                            <td>A Java java.lang.String or C# System.String value.</td>
-                        </tr>
-                        <tr>
-                            <td>ContentNumber</td>
-                            <td>No</td>
-                            <td>A Java java.lang.Double or C# System.Double value.</td>
-                        </tr>
-                        <tr>
-                            <td>ContentBoolean</td>
-                            <td>No</td>
-                            <td>A Java java.lang.Boolean or C# System.Boolean value.</td>
-                        </tr>
-                        <tr>
-                            <td>ContentPassword</td>
-                            <td>No</td>
-                            <td>A Java java.lang.String or C# System.String value. If you indicate a value is a password, we use additional
-            value encryption on storage.
+                            <td>PUBLIC</td>
+                            <td>Indicates that the Flow is public and therefore does not need to have a Service assigned to manage the authorization of users. However, if one is provided, it will be used and
+                                any identifying user information will be passed forward (e.g. location).
                             </td>
                         </tr>
                         <tr>
-                            <td>ContentDateTime</td>
-                            <td>No</td>
-                            <td>A Java java.lang.DataTime or C# System.DateTime. Using the REST API, the value should be provided in
-            JavaScript 1.8.5/ECMAScript 5th Edition format.
-                            </td>
+                            <td>ALL_USERS</td>
+                            <td>Indicates that the Flow is accessible to all users of a particular directory provided through the Service.</td>
                         </tr>
                         <tr>
-                            <td>ContentContent</td>
-                            <td>No</td>
-                            <td>A Java java.lang.String or C# System.String value. If you indicate a value is "Content", we typically expect
-            that the content holds HTML formatted String content. The engine will also parse the contents of this String
-            with any value references.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>ContentObject</td>
-                            <td>Yes</td>
-                            <td>The value is Object Data based on the ManyWho format. This allows you to pass complex data into ManyWho for
-            processing, including child objects and lists. Any Object Data being passed into the system also needs to
-            have a Type as defined by your Type Elements.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>ContentList</td>
-                            <td>Yes</td>
-                            <td>The value is a list of Object Data based on the ManyWho format. This allows you to pass lists of complex
-            data into ManyWho for processing (of the same Type), including child objects and lists. Any Object Data
-            being passed into the system also needs to have a Type as defined by your Type Elements.
-                            </td>
+                            <td>SPECIFIED</td>
+                            <td>Indicates that the Flow has specific authorization rights that are defined in the groups, users or locations.</td>
                         </tr>
                     </table>
 
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="streambehaviourtypeenum">StreamBehaviourType Enumeration</h2>
+
+                    <p>The StreamBehaviourType enum contains the following values:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Value</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>USE_EXISTING</td>
+                            <td>Use an existing collaboration stream when the user enters this flow, or create a new one if one does not yet exist.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>CREATE_NEW</td>
+                            <td>Create a new collaboration stream every time the user enters this flow.</td>
+                        </tr>
+                        <tr>
+                            <td>NONE</td>
+                            <td>Do not provide a collaboration stream for this Flow.</td>
+                        </tr>
+                    </table>
                 </section>
 
             </div>

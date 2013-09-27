@@ -893,6 +893,10 @@ form.bs-docs-example {
     top: 40px;
 }
 
+.bs-docs-sidenav.affix.lower {
+    top: 300px;
+}
+
 .bs-docs-sidenav.affix-bottom {
     position: absolute;
     top: auto;

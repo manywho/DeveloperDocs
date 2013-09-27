@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ManyWho Documentation</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+
+    <link href="bootstrap/css/docs.css" rel="stylesheet">
+
+    <style type="text/css">
+        pre.prettyprint {
+            border: 1px solid #ddd !important;
+        }
+    </style>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#docsSidebar').scrollspy();
+
+            // Navigate to the first section
+            //window.location.hash = 'intro';
+        });
+
+    </script>
+</head>
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="brand" href="./index.html">Bootstrap</a>
+
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li class="">
+                            <a href="http://manywho.com">Website Home</a>
+                        </li>
+                        <li class="">
+                            <a href="./index.html">Doc Home</a>
+                        </li>
+                        <li class="">
+                            <a href="./gettingstarted.html">Getting Started</a>
+                        </li>
+                        <li class="">
+                            <a href="./draw.html">Draw</a>
+                        </li>
+                        <li class="">
+                            <a href="./run.html">Run</a>
+                        </li>
+                        <li class="">
+                            <a href="./monitor.html">Monitor</a>
+                        </li>
+                        <li class="">
+                            <a href="./twilioivr.html">Twilio</a>
+                        </li>
+                        <li class="">
+                            <a href="./salesforcecanvas.html">Salesforce</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="span3 bs-docs-sidebar">
+                <ul id="docsSidebar" class="nav nav-list bs-docs-sidenav affix">
+                    <li><a href="draw.html"><i class="icon-chevron-left"></i>Back to Draw</a></li>
+                    <li><a href="#intro"><i class="icon-chevron-right"></i>Intro</a></li>
+                    <li><a href="#save"><i class="icon-chevron-right"></i>Save</a></li>
+                    <li><a href="#load"><i class="icon-chevron-right"></i>Load</a></li>
+                    <li><a href="#query"><i class="icon-chevron-right"></i>Query</a></li>
+                    <li><a href="#delete"><i class="icon-chevron-right"></i>Delete</a></li>
+                    <li><a href="#json"><i class="icon-chevron-right"></i>JSON Objects</a></li>
+                    <li><a href="#enums"><i class="icon-chevron-right"></i>API Enumerations</a></li>
+                </ul>
+            </div>
+            <div class="span9">
+
+                <section id="intro">
+
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <div class="container">
+                                <a class="brand" href="#">Elements</a>
+                                <ul class="nav">
+                                    <li><a href="flowelement.html"><img src="http://cdn.manywho.com/extensions/glyphicons/glyphicons_001_leaf.png" height="16" width="16" /> Flow</a></li>
+                                    <li class="active"><a href="mapelement.html"><img src="http://cdn.manywho.com/extensions/glyphicons/glyphicons_060_compass.png" height="16" width="16" /> Map</a></li>
+                                    <li><a href="groupelement.html"><img src="http://cdn.manywho.com/extensions/glyphicons/glyphicons_003_user.png" height="16" width="16" /> Group</a></li>
+                                    <li><a href="pageelement.html"><img src="http://cdn.manywho.com/extensions/glyphicons/glyphicons_119_table.png" height="16" width="16" /> Page</a></li>
+                                    <li><a href="tagelement.html"><img src="http://cdn.manywho.com/extensions/glyphicons/glyphicons_066_tags.png" height="16" width="16" /> Tag</a></li>
+                                    <li><a href="valueelement.html"><img src="http://cdn.manywho.com/extensions/glyphicons/glyphicons_130_inbox.png" height="16" width="16" /> Value</a></li>
+                                    <li><a href="typeelement.html"><img src="http://cdn.manywho.com/extensions/glyphicons/glyphicons_248_asterisk.png" height="16" width="16" /> Type</a></li>
+                                    <li><a href="serviceelement.html"><img src="http://cdn.manywho.com/extensions/glyphicons/glyphicons_069_gift.png" height="16" width="16" /> Service</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="marketing">
+                        <h1>Map Elements</h1>
+
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <a href="mapelement.html">
+                                    <img class="marketing-img" alt="Map Element"
+                                        src="http://cdn.manywho.com/extensions/glyphicons/decision_element.png" height="85" width="75"></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h1>Intro</h1>
+
+                    <p>Something about the draw API.</p>
+
+                    <hr class="bs-docs-separator">
+
+                </section>
+
+                <section id="save">
+
+                    <h2>Save</h2>
+
+                    <p>To save (create or update) a Map Element object, you can use the following API:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="success">
+                            <td><strong>URL</strong></td>
+                            <td><strong>HTTP Verb</strong></td>
+                            <td><strong>JSON Request</strong></td>
+                            <td><strong>JSON Response</strong></td>
+                        </tr>
+                        <tr>
+                            <td>api/draw/1/flow/{flowId}/{editingToken}/element/map</td>
+                            <td>POST</td>
+                            <td>Object: <a href="#mapelementrequestobject">Map Element Request Object</a></td>
+                            <td>Object: <a href="#mapelementresponseobject">Map Element Response Object</a></td>
+                        </tr>
+                    </table>
+
+                    <p>Where the parameters are as follows:</p>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>flowId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Flow you wish to add the Map Element to.</td>
+                        </tr>
+                        <tr>
+                            <td>editingToken</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the editing session of the Flow.</td>
+                        </tr>
+                    </table>
+
+                    <p>You must also provide the draw API with the following header value:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Name</strong></td>
+                            <td><strong>Value</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Authorization</td>
+                            <td>The authorization String returned from logging into the api/draw/1/authentication API.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="bs-docs-example">
+                        <strong>POST https://flow.manywho.com/api/draw/1/flow/104acb42-c01f-419f-b4bf-fccf867d166c/2d300d10-dd8c-43d7-abd6-889565a33c50/element/map</strong>
+                    </div>
+<pre class="prettyprint">// Map Element Request example
+{
+    "id": null,
+    "elementType": "STEP",
+    "developerName": "My Step",
+    "developerSummary": "A simple step the user needs to view and take action on.",
+    "groupElementId": "9c199d19-dd8c-54d7-cdd6-770565a44c20", // Optionally put this map element inside a group that has specific permissions
+    "x": 250,
+    "y": 250,
+    "outcomes":[
+        {
+            "id": null,
+            "developerName": "taskcompleted",
+            "developerSummary": null,
+            "label": "Task Completed",
+            "nextMapElementId": "0s8accj2-g81f-919f-l8bf-nggf8671664g",
+            "pageActionType": "SUBMIT",
+            "isBulkAction": false,
+            "pageActionBindingType": "SAVE",
+            "pageObjectBindingId": null,
+            "comparison": null,
+            "order": 0
+        },
+        {
+            "id": null,
+            "developerName": "taskescalated",
+            "developerSummary": null,
+            "label": "Task Escalated",
+            "nextMapElementId": "ll7d44j2-gdkf-1j9f-kdbf-nd9686f1643p",
+            "pageActionType": "ESCALATE",
+            "isBulkAction": false,
+            "pageActionBindingType": "SAVE",
+            "pageObjectBindingId": null,
+            "comparison": null,
+            "order": 0
+        }
+    ],
+    "pageElementId": null,
+    "operations": null,
+    "viewMessageAction": null,
+    "messageActions": null,
+    "dataActions": null,
+    "postUpdateToStream": true,
+    "postUpdateMessage": "The flow is currently at step: My Step",
+    "postUpdateWhenType": "BEFORE",
+    "userContent": "&gt;p&lt;At this step you need to do a bunch of things...&gt;/p&lt;",
+    "statusMessage": null,
+    "notAuthorizedMessage": "Waiting on authorized users to get My Step completed!",
+    "updateByName":true
+}</pre>
+<pre class="prettyprint">// Map Element Response example
+{
+    "dateCreated":"2013-06-19T16:44:06.847",
+    "dateModified":"2013-06-19T16:53:23.767",
+    "userCreated":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+    "userModified":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+    "userOwner":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+    "id": "jf9s14c4-3344-f9s1-2kdd-fis94b3e9djw"
+    // Properties the same as the Map Element Request - but with ids all non-null ...
+}</pre>
+
+                    <hr class="bs-docs-separator">
+
+                </section>
+
+                <section id="load">
+
+                    <h2>Load</h2>
+
+                    <p>To load a specific Map Element object, you can use the following API:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="success">
+                            <td><strong>URL</strong></td>
+                            <td><strong>HTTP Verb</strong></td>
+                            <td><strong>JSON Request</strong></td>
+                            <td><strong>JSON Response</strong></td>
+                        </tr>
+                        <tr>
+                            <td>api/draw/1/flow/{flowId}/{editingToken}/element/map/{id}</td>
+                            <td>GET</td>
+                            <td>N/A</td>
+                            <td>Object: <a href="#mapelementresponseobject">Map Element Response Object</a></td>
+                        </tr>
+                    </table>
+
+                    <p>Where the parameters are as follows:</p>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>flowId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Flow holding the Map Element.</td>
+                        </tr>
+                        <tr>
+                            <td>editingToken</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the editing session of the Flow.</td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Map Element you wish to load.</td>
+                        </tr>
+                    </table>
+
+                    <p>You must also provide the draw API with the following header value:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Name</strong></td>
+                            <td><strong>Value</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Authorization</td>
+                            <td>The authorization String returned from logging into the api/draw/1/authentication API.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="bs-docs-example">
+                        <strong>GET https://flow.manywho.com/api/draw/1/flow/104acb42-c01f-419f-b4bf-fccf867d166c/2d300d10-dd8c-43d7-abd6-889565a33c50/element/map/jf9s14c4-3344-f9s1-2kdd-fis94b3e9djw</strong>
+                    </div>
+<pre class="prettyprint">{
+    "dateCreated":"2013-06-19T16:44:06.847",
+    "dateModified":"2013-06-19T16:53:23.767",
+    "userCreated":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+    "userModified":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+    "userOwner":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+    "id": "jf9s14c4-3344-f9s1-2kdd-fis94b3e9djw"
+    // Properties the same as the Map Element Request - but with ids all non-null ...
+}</pre>
+
+                    <hr class="bs-docs-separator">
+
+                </section>
+
+                <section id="query">
+
+                    <h2>Query</h2>
+
+                    <p>To query for Map Element objects, you can use the following API:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="success">
+                            <td><strong>URL</strong></td>
+                            <td><strong>HTTP Verb</strong></td>
+                            <td><strong>JSON Request</strong></td>
+                            <td><strong>JSON Response</strong></td>
+                        </tr>
+                        <tr>
+                            <td>api/draw/1/flow/{flowId}/{editingToken}/element/map?filter={filter}</td>
+                            <td>GET</td>
+                            <td>N/A</td>
+                            <td>Array: <a href="#mapelementresponseobject">Map Element Response Objects</a></td>
+                        </tr>
+                    </table>
+
+                    <p>Where the parameters are as follows:</p>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>flowId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Flow holding the Map Elements.</td>
+                        </tr>
+                        <tr>
+                            <td>editingToken</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the editing session of the Flow.</td>
+                        </tr>
+                        <tr>
+                            <td>filter</td>
+                            <td>String</td>
+                            <td>The filter can currently supports two possible options - search by exact developer name or search by partial developer name. To search for an exact developer name use: filter=developerName eq 'name of your element' To search for by partial developer name use: filter=substringof(developerName,'partial name of your element')  This follows the conventions established in the OData standard, though we do not currently support the $ prefix.</td>
+                        </tr>
+                    </table>
+
+                    <p>You must also provide the draw API with the following header value:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Name</strong></td>
+                            <td><strong>Value</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Authorization</td>
+                            <td>The authorization String returned from logging into the api/draw/1/authentication API.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="bs-docs-example">
+                        <strong>GET https://flow.manywho.com/api/draw/1/flow/104acb42-c01f-419f-b4bf-fccf867d166c/2d300d10-dd8c-43d7-abd6-889565a33c50/element/map?filter=substringof(developerName,'My Step')</strong>
+                    </div>
+<pre class="prettyprint">[
+    {
+        "dateCreated":"2013-06-19T16:44:06.847",
+        "dateModified":"2013-06-19T16:53:23.767",
+        "userCreated":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+        "userModified":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+        "userOwner":"0c100d10-cc8c-43d7-abd6-669565a33c19",
+        "id": "jf9s14c4-3344-f9s1-2kdd-fis94b3e9djw"
+        // Properties the same as the Map Element Request - but with ids all non-null ...
+    }
+]</pre>
+
+                    <hr class="bs-docs-separator">
+
+                </section>
+
+                <section id="delete">
+
+                    <h2>Delete</h2>
+
+                    <p>To delete a specific Map Element object, you can use the following API:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="success">
+                            <td><strong>URL</strong></td>
+                            <td><strong>HTTP Verb</strong></td>
+                            <td><strong>JSON Request</strong></td>
+                            <td><strong>JSON Response</strong></td>
+                        </tr>
+                        <tr>
+                            <td>api/draw/1/flow/{flowId}/{editingToken}/element/map/{id}</td>
+                            <td>DELETE</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                        </tr>
+                    </table>
+
+                    <p>Where the parameters are as follows:</p>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>flowId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Flow holding the Map Element.</td>
+                        </tr>
+                        <tr>
+                            <td>editingToken</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the editing session of the Flow.</td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Map Element you wish to delete. This will not delete the element in previous versions - it will only delete the Map Element from builds of your Flow done from this point forward.</td>
+                        </tr>
+                    </table>
+
+                    <p>You must also provide the draw API with the following header value:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Name</strong></td>
+                            <td><strong>Value</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Authorization</td>
+                            <td>The authorization String returned from logging into the api/draw/1/authentication API.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="bs-docs-example">
+                        <strong>DELETE https://flow.manywho.com/api/draw/1/flow/104acb42-c01f-419f-b4bf-fccf867d166c/2d300d10-dd8c-43d7-abd6-889565a33c50/element/map/jf9s14c4-3344-f9s1-2kdd-fis94b3e9djw</strong>
+                    </div>
+
+                    <hr class="bs-docs-separator">
+
+                </section>
+
+                <section id="json">
+
+                    <h1>JSON Objects
+    <small>Object structures</small>
+                    </h1>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="mapelementrequestobject">Map Element Request Object</h2>
+
+                    <p>The map element request object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Map Element. The id should be null for "insert" requests and a valid identifier for "update" requests. This property is created by the
+            service.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>elementType</td>
+                            <td>String: <a href="#elementtypeenum">ElementType</a></td>
+                            <td>The type of element this metadata represents.</td>
+                        </tr>
+                        <tr>
+                            <td>developerName</td>
+                            <td>String</td>
+                            <td>The developer name for the Map Element. This is useful for keeping track of the Map Element in the modeling tool and API.</td>
+                        </tr>
+                        <tr>
+                            <td>developerSummary</td>
+                            <td>String</td>
+                            <td>(Optional) The developer summary the author provided to give more information about the Map Element.</td>
+                        </tr>
+                        <tr>
+                            <td>groupElementId</td>
+                            <td>String: GUID</td>
+                            <td>(Optional) The unique identifier for the Group Element that contains this Map Element. If a Map Element is inside a Group, it inherits certain behaviours of the parent Group. For example, a SWIMLANE Group wraps all child Map Elements in a security context.</td>
+                        </tr>
+                        <tr>
+                            <td>x</td>
+                            <td>Integer</td>
+                            <td>The x location of the Map Element on the Flow diagram.</td>
+                        </tr>
+                        <tr>
+                            <td>y</td>
+                            <td>Integer</td>
+                            <td>The y location of the Map Element on the Flow diagram.</td>
+                        </tr>
+                        <tr>
+                            <td>outcomes</td>
+                            <td>Array: <a href="#outcomeobject">Outcome Objects</a></td>
+                            <td>The list of outcomes that are available for this Map Element. An Outcome is used to connect the flow of execution from one Map Element in the Flow to another. An Outcome can take the form of a Page button, but also define system steps such as rules.</td>
+                        </tr>
+                        <tr>
+                            <td>pageElementId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Page Element that should be rendered when this Map Element executes. For simple steps, use the userContent property.</td>
+                        </tr>
+                        <tr>
+                            <td>operations</td>
+                            <td>Array: <a href="#operationobject">Operation Objects</a></td>
+                            <td>The list of operations that should be performed when this Map Element executes. Operations are used to change the value of Value Elements in the executing Flow (State).</td>
+                        </tr>
+                        <tr>
+                            <td>viewMessageAction</td>
+                            <td>Object: <a href="#viewmessageactionobject">View Message Action Object</a></td>
+                            <td>The view message action object defines the interface inputs/outputs for calling against a REMOTE_PAGE Map Element. For the REMOTE_PAGE, the page view is delivered by an external system - allowing developers to hand-code very complex UI scenarios. This is not yet supported by the engine.</td>
+                        </tr>
+                        <tr>
+                            <td>messageActions</td>
+                            <td>Array: <a href="#messageactionobject">Message Action Objects</a></td>
+                            <td>The list of message actions that should be executed when this Map Element executes. The message action objects define the interface of inputs/outputs for calling against each Service message.</td>
+                        </tr>
+                        <tr>
+                            <td>dataActions</td>
+                            <td>Array: <a href="#dataactionobject">Data Action Objects</a></td>
+                            <td>The list of data actions that should be executed when this Map Element executes. The data action objects define the Values and bindings that should be used to perform CRUD operations against each Service and Value.</td>
+                        </tr>
+                        <tr>
+                            <td>postUpdateToStream</td>
+                            <td>Boolean</td>
+                            <td>Indicates if this Map Element should post an update to the collaboration stream.</td>
+                        </tr>
+                        <tr>
+                            <td>postUpdateMessage</td>
+                            <td>String</td>
+                            <td>The content of the message that should be posted to the collaboration stream.</td>
+                        </tr>
+                        <tr>
+                            <td>postUpdateWhenType</td>
+                            <td>String: <a href="#postupdatewhentypeenum">PostUpdateWhenType</a></td>
+                            <td>The point at which the post should be made to the collaboration stream.</td>
+                        </tr>
+                        <tr>
+                            <td>userContent</td>
+                            <td>String</td>
+                            <td>The content that should be shown to the user at this step in the Flow. This property should only be used for very simple Flows and informational UI. For anything more than simple messaging, use the Page Element and associate it with this Map Element using the pageElementId property.</td>
+                        </tr>
+                        <tr>
+                            <td>statusMessage</td>
+                            <td>String</td>
+                            <td>The content that should be shown to the user while waiting for a system step to complete.</td>
+                        </tr>
+                        <tr>
+                            <td>notAuthorizedMessage</td>
+                            <td>String</td>
+                            <td>The content that should be shown to the user if they are not authorized to take action on this Map Element.</td>
+                        </tr>
+                        <tr>
+                            <td>updateByName</td>
+                            <td>Boolean</td>
+                            <td>Indicates if the platform should attempt to find a Type Element with the same developer name as the one provided and match them up by name as opposed to 'id'. This is useful when creating scripts to create Flows - as you can use the developerName property as the reference as opposed to needing to know the ids of all created Elements.</td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="mapelementresponseobject">Map Element Response Object</h2>
+
+                    <p>The Map Element has all of the same properties as the request object, but additionally the properties listed below:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>dateCreated</td>
+                            <td>String: Date/Time in JavaScript 1.8.5/ECMAScript 5th Edition format</td>
+                            <td>The date the Map Element was first created.</td>
+                        </tr>
+                        <tr>
+                            <td>dateModified</td>
+                            <td>String: Date/Time in JavaScript 1.8.5/ECMAScript 5th Edition format</td>
+                            <td>The date the last modificiation was made to the Map Element.</td>
+                        </tr>
+                        <tr>
+                            <td>userCreated</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the user who created the Map Element.</td>
+                        </tr>
+                        <tr>
+                            <td>userModified</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the user who last modified the Map Element.</td>
+                        </tr>
+                        <tr>
+                            <td>userOwner</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the user who owns this Map Element.</td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="outcomeobject">Outcome Object</h2>
+
+                    <p>The outcome object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the outcome. This property is created by the service.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>developerName</td>
+                            <td>String</td>
+                            <td>The developer name to help identify this outcome in tooling and APIs.</td>
+                        </tr>
+                        <tr>
+                            <td>developerSummary</td>
+                            <td>String</td>
+                            <td>(Optional) The developer summary the author provided to give more information about the Map Element.</td>
+                        </tr>
+                        <tr>
+                            <td>label</td>
+                            <td>String</td>
+                            <td>(Optional) The label that should appear with the outcome. For UI situations, this is typically the text that will appear on the button.</td>
+                        </tr>
+                        <tr>
+                            <td>nextMapElementId</td>
+                            <td>String: GUID</td>
+                            <td>(Optional) The unique identifier for the next Map Element in the Flow that should be executed if this outcome is selected.</td>
+                        </tr>
+                        <tr>
+                            <td>pageActionType</td>
+                            <td>String: <a href="#pageactiontypeenum">PageActionType</a></td>
+                            <td>(Optional) The page action type can be used to provide additional metadata to help player developers provide standard styling and positions for outcomes. The enumeration provided is partly implemented by the existing players, though the values can be extended as needed.</td>
+                        </tr>
+                        <tr>
+                            <td>isBulkAction</td>
+                            <td>Boolean</td>
+                            <td>Indicates if this is bulk action. This is commonly used when presenting lists of object data to tell the player if the outcome should be displayed inline with each object entry or if it should be displayed at the top of the component as a "bulk" action.</td>
+                        </tr>
+                        <tr>
+                            <td>pageActionBindingType</td>
+                            <td>String: <a href="#pageactionbindingtypeenum">PageActionBindingType</a></td>
+                            <td>(Optional) The page action binding type is bound to functionality in the flow and instructs the engine what to do with any data provided in the page components.</td>
+                        </tr>
+                        <tr>
+                            <td>pageObjectBindingId</td>
+                            <td>String: GUID</td>
+                            <td>(Optional) The unique identifier for the page container or component this outcome should be bound to. If you bind an outcome to a container or component, it can also indicate additional functionality: e.g. isBulkAction, etc.  It also helps player designers lay out the page.</td>
+                        </tr>
+                        <tr>
+                            <td>comparison</td>
+                            <td>String: <a href="#comparisonobject">Comparison Object</a></td>
+                            <td>(Optional) The comparison object defines the rules that should be evaluated for this outcome to be selected by the system. As a result, the comparison object should only be used for system level outcomes.</td>
+                        </tr>
+                        <tr>
+                            <td>order</td>
+                            <td>Integer</td>
+                            <td>The order in which the outcomes should be rendered relative to its peers. The lowest number is rendered first.</td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="comparisonobject">Comparison Object</h2>
+
+                    <p>The comparison object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the operation. This property is created by the service.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>comparisonType</td>
+                            <td>String: <a href="#comparisontypeenum">ComparisonType</a></td>
+                            <td>The comparison to use when evaluating the immediate child rules associated with this comparison object.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>rules</td>
+                            <td>Array: <a href="#ruleobject">Rule Objects</a></td>
+                            <td>The list of rules that need to be evaluated for this outcome to be selected.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>comparison</td>
+                            <td>Array: <a href="#comparisonobject">Comparison Objects</a></td>
+                            <td>The list of child comparisons that need to be evaluated for this outcome to be selected. The comparison object is recursive allowing rules to be nested: e.g. ({a} > {b} OR {c} <= {d}) AND {b} == {f}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>order</td>
+                            <td>Integer</td>
+                            <td>The order in which the comparison should be evaluated with respect to its peers. The lowest number is evaluated first.</td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="ruleobject">Rule Object</h2>
+
+                    <p>The rule object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the rule. This property is created by the service.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>leftValueElementToReferenceId</td>
+                            <td>Object: <a href="#valueelementidobject">Value Element Id Object</a></td>
+                            <td>The reference to the Value Element that should be used for the "left" side of the rule evaluation: e.g. if {left} is greater than {right} then ...
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>criteriaType</td>
+                            <td>String: <a href="#criteriatypeenum">CriteriaType</a></td>
+                            <td>The criteria that should be used when evaluating this rule: e.g. EQUAL
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>rightValueElementToReferenceId</td>
+                            <td>Object: <a href="#valueelementidobject">Value Element Id Object</a></td>
+                            <td>The reference to the Value Element that should be used for the "right" side of the rule evaluation: e.g. if {left} is greater than {right} then ...
+                            </td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="operationobject">Operation Object</h2>
+
+                    <p>The operation object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the operation. This property is created by the service.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>valueElementToApplyId</td>
+                            <td>Object: <a href="#valueelementidobject">Value Element Id Object</a></td>
+                            <td>The Value Element that should be assigned as part of this operation.</td>
+                        </tr>
+                        <tr>
+                            <td>valueElementToReferenceId</td>
+                            <td>Object: <a href="#valueelementidobject">Value Element Id Object</a></td>
+                            <td>The Value Element that should be used to source the value that will be applied to this Value Element.</td>
+                        </tr>
+                        <tr>
+                            <td>order</td>
+                            <td>Integer</td>
+                            <td>The order in which the operations should be executed. The lowest number is executed first.</td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="messageactionobject">Message Action Object</h2>
+
+                    <p>The message action object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the message action. This property is created by the service.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>developerName</td>
+                            <td>String</td>
+                            <td>The developer name to help identify this message action in tooling and APIs.</td>
+                        </tr>
+                        <tr>
+                            <td>serviceElementId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Service Element that this message action will be executed against. The Service Element also defines the list inputs/outputs that need to be configured for this message action.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>uriPart</td>
+                            <td>String</td>
+                            <td>The unique Uri part that should be used when invoking the Service Element. The Uri part will inform the Service implementation which message action you are executing against.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>inputs</td>
+                            <td>Array: <a href="#messageinputobject">Message Input Object</a></td>
+                            <td>The list of message inputs that should be sent to the Service when this action is invoked. The list of inputs is defined by the Service Element.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>outputs</td>
+                            <td>Array: <a href="#messageoutputobject">Message Output Object</a></td>
+                            <td>The list of message outputs that should be sent back from the Service and applied to Value Elements in the executing Flow (State). The list of outputs is defined by the Service Element.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="messageinputobject">Message Input Object</h2>
+
+                    <p>The message input object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the message input. This property is created by the service.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>developerName</td>
+                            <td>String</td>
+                            <td>The developer name for the input defined by the Service Element definition of this message action. This name will be used by the Service Implementation to match which value is being assigned.</td>
+                        </tr>
+                        <tr>
+                            <td>valueElementToReferenceId</td>
+                            <td>Object: <a href="#valueelementidobject">Value Element Id Object</a></td>
+                            <td>The reference to the Value Element that should be used to provide the value for this input.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="messageoutputobject">Message Output Object</h2>
+
+                    <p>The message output object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the message output. This property is created by the service.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>developerName</td>
+                            <td>String</td>
+                            <td>The developer name for the output defined by the Service Element definition of this message action. This name will be used by the Service Implementation to match which value is being sent back.</td>
+                        </tr>
+                        <tr>
+                            <td>valueElementToApplyId</td>
+                            <td>Object: <a href="#valueelementidobject">Value Element Id Object</a></td>
+                            <td>The reference to the Value Element that should assigned by the mapped output value.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="dataactionobject">Data Action Object</h2>
+
+                    <p>The data action object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the data action. This property is created by the service.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>developerName</td>
+                            <td>String</td>
+                            <td>The developer name to help identify this data action in tooling and APIs.</td>
+                        </tr>
+                        <tr>
+                            <td>serviceElementId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Service Element that this data action will be executed against.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>crudOperationType</td>
+                            <td>String: <a href="#crudoperationtypeenum">CrudOperationType</a></td>
+                            <td>The CRUD (create, read, update, delete - or in ManyWho - SAVE, LOAD, DELETE) operation that should be performed on the objects provided in this data action.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>valueElementToReferenceId</td>
+                            <td>Object: <a href="#valueelementidobject">Value Element Id Object</a></td>
+                            <td>The reference to the Value Element that should be used to send data to the Service. The Value Element must be a ContentObject or ContentList and must have a valid binding in the selected Service Element.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>valueElementToApplyId</td>
+                            <td>Object: <a href="#valueelementidobject">Value Element Id Object</a></td>
+                            <td>The reference to the Value Element that should be used to apply any data back from the Service. The Value Element must be a ContentObject or ContentList and must have a valid binding in the selected Service Element.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>objectDataRequestProperties</td>
+                            <td>Object: <a href="#valueelementidobject">Object Data Request Properties Object</a></td>
+                            <td>The object data request properties object holds the specific configuration information that the Service can use to optimize requests from ManyWho.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="objectdatarequestobject">Object Data Request Object</h2>
+
+                    <p>The object data request object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>typeElementId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Type Element that will define the structure of the data returned by this request.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>typeElementBindingId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the binding that should be used on the provided Type Element.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>typeElementPropertyId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the property in that should be displayed in this column. This pertains to the Type for the bound data or the object data request - not the underlying value binding.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>listFilter</td>
+                            <td>Object <a href="#listfilterobject">List Filter Object</a></td>
+                            <td>The filter that should be applied to the data at runtime. The list filter can be altered by events on the page. The list filter object can also be used by the player to support additional component filtering and logic such as paging. The properties of the filter can therefore be altered at runtime to optimize the user experience.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>command</td>
+                            <td>Object: Command</td>
+                            <td>This property is not yet supported but will allow additional runtime options such as inline search.</td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="listfilterobject">List Filter Object</h2>
+
+                    <p>The list filter object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>filterId</td>
+                            <td>Object: <a href="#valueelementidobject">Value Element Id Object</a></td>
+                            <td>The reference to the Value Element that holds a very specific identifier to filter the objects by. This property should be used when loading specific objects as opposed to lists of object results.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>comparisonType</td>
+                            <td>String: <a href="#comparisontypeenum">ComparisonType</a></td>
+                            <td>The comparison to use when evaluating the where objects associated with this filter.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>where</td>
+                            <td>Array: <a href="#listfilterwhereobject">List Filter Where Object</a></td>
+                            <td>The filter criteria that should be applied during the lookup.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>orderByTypeElementPropertyId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the property in the Type Element (associated with this filter) that should be used for ordering the results.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>orderByDirection</td>
+                            <td>String: <a href="#orderbydirectiontypeenum">orderByDirectionType</a></td>
+                            <td>The direction in which to order the results.</td>
+                        </tr>
+                        <tr>
+                            <td>limit</td>
+                            <td>Integer</td>
+                            <td>The maximum number of results to return from the request.</td>
+                        </tr>
+                        <tr>
+                            <td>filterByProvidedObjects</td>
+                            <td>Boolean</td>
+                            <td>If objects are provided from the Value Element specified in the valueElementToReferenceId these values can form the 'filter' that the remote Service should use. This can be used in situations where the objects need to be 'hydrated'.</td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="listfilterwhereobject">List Filter Where Object</h2>
+
+                    <p>The list filter where object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>columnTypeElementPropertyId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the column in the bound component data to filter by.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>criteriaType</td>
+                            <td>String: <a href="#criteriatypeenum">CriteriaType</a></td>
+                            <td>The criteria to filter the list data by.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>valueElementToReferenceId</td>
+                            <td>Object: <a href="#valueelementidobject">Value Element Id Object</a></td>
+                            <td>The reference to the Value Element that contains the value to filter the list data by.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="valueelementidobject">Value Element Id Object</h2>
+
+                    <p>The value element id object properties are as follows:</p>
+
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Property</strong></td>
+                            <td><strong>Type</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for the Value to be referenced with this identifier.</td>
+                        </tr>
+                        <tr>
+                            <td>typeElementPropertyId</td>
+                            <td>String: GUID</td>
+                            <td>The unique identifier for a Property in the Value to be referenced with this identifier. This only applies for Values of type ContentObject.</td>
+                        </tr>
+                        <tr>
+                            <td>command</td>
+                            <td>String</td>
+                            <td>The command to execute as part of the Value reference. For certain objects, the command exposes additional properties that can be referenced.</td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                </section>
+
+                <section id="enums">
+
+                    <h1>API Enumerations
+    <small>Helpful values</small>
+                    </h1>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="criteriatypeenum">CriteriaType Enumeration</h2>
+
+                    <p>The CriteriaType enum contains the following values:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Value</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>EQUAL</td>
+                            <td>{left} is equal to {right}</td>
+                        </tr>
+                        <tr>
+                            <td>NOT_EQUAL</td>
+                            <td>{left} is not equal to {right}</td>
+                        </tr>
+                        <tr>
+                            <td>GREATER_THAN</td>
+                            <td>{left} is greater than {right}. For ContentString types, this is done alphabetically.</td>
+                        </tr>
+                        <tr>
+                            <td>GREATER_THAN_OR_EQUAL</td>
+                            <td>{left} is greater than or equal to {right}. For ContentString types, this is done alphabetically.</td>
+                        </tr>
+                        <tr>
+                            <td>LESS_THAN</td>
+                            <td>{left} is less than {right}. For ContentString types, this is done alphabetically.</td>
+                        </tr>
+                        <tr>
+                            <td>LESS_THAN_OR_EQUAL</td>
+                            <td>{left} is less than or equal to {right}. For ContentString types, this is done alphabetically.</td>
+                        </tr>
+                        <tr>
+                            <td>CONTAINS</td>
+                            <td>{left} contains the characters in {right}. This is only valid for ContentString types and is case insensitive.</td>
+                        </tr>
+                        <tr>
+                            <td>STARTS_WITH</td>
+                            <td>{left} starts with the characters in {right}. This is only valid for ContentString types and is case insensitive.</td>
+                        </tr>
+                        <tr>
+                            <td>ENDS_WITH</td>
+                            <td>{left} ends with the characters in {right}. This is only valid for ContentString types and is case insensitive.</td>
+                        </tr>
+                        <tr>
+                            <td>IS_EMPTY</td>
+                            <td>{left} is empty or null. When this criteria type is used, it must be compared with a {right} that is a ContentBoolean.</td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="pageactiontypeenum">PageActionType Enumeration</h2>
+
+                    <p>The PageActionType values are purely used to help player UI designers understand the intent of the outcome object. This is by no means an exhaustive list and customers can extend the list to include their own concepts. The PageActionType enum contains the following values:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Value</strong></td>
+                        </tr>
+                        <tr>
+                            <td>NEW</td>
+                        </tr>
+                        <tr>
+                            <td>QUERY</td>
+                        </tr>
+                        <tr>
+                            <td>INSERT</td>
+                        </tr>
+                        <tr>
+                            <td>UPDATE</td>
+                        </tr>
+                        <tr>
+                            <td>UPSERT</td>
+                        </tr>
+                        <tr>
+                            <td>UPDATE</td>
+                        </tr>
+                        <tr>
+                            <td>DELETE</td>
+                        </tr>
+                        <tr>
+                            <td>REMOVE</td>
+                        </tr>
+                        <tr>
+                            <td>ADD</td>
+                        </tr>
+                        <tr>
+                            <td>EDIT</td>
+                        </tr>
+                        <tr>
+                            <td>NEXT</td>
+                        </tr>
+                        <tr>
+                            <td>BACK</td>
+                        </tr>
+                        <tr>
+                            <td>SAVE</td>
+                        </tr>
+                        <tr>
+                            <td>CANCEL</td>
+                        </tr>
+                        <tr>
+                            <td>APPLY</td>
+                        </tr>
+                        <tr>
+                            <td>IMPORT</td>
+                        </tr>
+                        <tr>
+                            <td>CLOSE</td>
+                        </tr>
+                        <tr>
+                            <td>OPEN</td>
+                        </tr>
+                        <tr>
+                            <td>SUBMIT</td>
+                        </tr>
+                        <tr>
+                            <td>ESCALATE</td>
+                        </tr>
+                        <tr>
+                            <td>REJECT</td>
+                        </tr>
+                        <tr>
+                            <td>DELEGATE</td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="pageactionbindingtypeenum">PageActionBindingType Enumeration</h2>
+
+                    <p>The PageActionBindingType enum contains the following values:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Value</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>SAVE</td>
+                            <td>The engine should apply all values collected to the state.</td>
+                        </tr>
+                        <tr>
+                            <td>NO_SAVE</td>
+                            <td>The engine should ignore all values collected and not apply anything to the state except the outcome
+                                action.
+                            </td>
+                        </tr>
+                    </table>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2 id="contenttypeenum">ContentType Enumeration</h2>
+
+                    <p>The ContentType enum contains the following values:</p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Value</strong></td>
+                            <td><strong>Typed</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>ContentString</td>
+                            <td>No</td>
+                            <td>A Java java.lang.String or C# System.String value.</td>
+                        </tr>
+                        <tr>
+                            <td>ContentNumber</td>
+                            <td>No</td>
+                            <td>A Java java.lang.Double or C# System.Double value.</td>
+                        </tr>
+                        <tr>
+                            <td>ContentBoolean</td>
+                            <td>No</td>
+                            <td>A Java java.lang.Boolean or C# System.Boolean value.</td>
+                        </tr>
+                        <tr>
+                            <td>ContentPassword</td>
+                            <td>No</td>
+                            <td>A Java java.lang.String or C# System.String value. If you indicate a value is a password, we use additional
+            value encryption on storage.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ContentDateTime</td>
+                            <td>No</td>
+                            <td>A Java java.lang.DataTime or C# System.DateTime. Using the REST API, the value should be provided in
+            JavaScript 1.8.5/ECMAScript 5th Edition format.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ContentContent</td>
+                            <td>No</td>
+                            <td>A Java java.lang.String or C# System.String value. If you indicate a value is "Content", we typically expect
+            that the content holds HTML formatted String content. The engine will also parse the contents of this String
+            with any value references.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ContentObject</td>
+                            <td>Yes</td>
+                            <td>The value is Object Data based on the ManyWho format. This allows you to pass complex data into ManyWho for
+            processing, including child objects and lists. Any Object Data being passed into the system also needs to
+            have a Type as defined by your Type Elements.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ContentList</td>
+                            <td>Yes</td>
+                            <td>The value is a list of Object Data based on the ManyWho format. This allows you to pass lists of complex
+            data into ManyWho for processing (of the same Type), including child objects and lists. Any Object Data
+            being passed into the system also needs to have a Type as defined by your Type Elements.
+                            </td>
+                        </tr>
+                    </table>
+
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Google Code for Remarketing tag -->
+    <!-- Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. For instructions on adding this tag and more information on the above requirements, read the setup guide: google.com/ads/remarketingsetup -->
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        var google_conversion_id = 997422716;
+        var google_conversion_label = "7aw_CPyY7gQQ_OzN2wM";
+        var google_custom_params = window.google_tag_params;
+        var google_remarketing_only = true;
+        /* ]]> */
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+    <noscript>
+        <div style="display: inline;">
+            <img height="1" width="1" style="border-style: none;" alt=""
+                src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/997422716/?value=0&amp;label=7aw_CPyY7gQQ_OzN2wM&amp;guid=ON&amp;script=0" />
+        </div>
+    </noscript>
+
+</body>
+</html>
