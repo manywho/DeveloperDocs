@@ -768,6 +768,94 @@
                         </tr>
                     </table>
 
+                    <h2 id="elementtypeenum">ElementType Enumeration</h2>
+
+                    <p>The ElementType enum is broken into two parts. The Elements that are global to all Flows and the Elements that are part of a specific Flow. The global Elements are all
+                        currently single implementation, whereas the Flow specific Elements can take on different forms depending on the type.
+                    </p>
+                    <table class="table table-bordered">
+                        <tr class="info">
+                            <td><strong>Value</strong></td>
+                            <td><strong>Scope</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>SERVICE</td>
+                            <td>Global</td>
+                            <td>The Element is a Service Element specifically. The Service Element only comes in one type currently.</td>
+                        </tr>
+                        <tr>
+                            <td>TYPE</td>
+                            <td>Global</td>
+                            <td>The Element is a Type Element specifically. The Type Element only comes in one type currently.</td>
+                        </tr>
+                        <tr>
+                            <td>VARIABLE</td>
+                            <td>Global</td>
+                            <td>The Element is a Value Element specifically. The Value Element only comes in one type currently.</td>
+                        </tr>
+                        <tr>
+                            <td>TAG</td>
+                            <td>Global</td>
+                            <td>The Element is a Tag Element specifically. The Tag Element only comes in one type currently.</td>
+                        </tr>
+                        <tr>
+                            <td>PAGE_LAYOUT</td>
+                            <td>Global</td>
+                            <td>The Element is a Page Element specifically. The Page Element only comes in one type currently.</td>
+                        </tr>
+                        <tr>
+                            <td>START</td>
+                            <td>Flow/Map Element</td>
+                            <td>The Map Element is a Start implementation that can only be used at the beginning of a Flow. The Start implementation has specific Map Element features that can be used - check out the <a href="mapelement.html">Map Element</a> documentation.</td>
+                        </tr>
+                        <tr>
+                            <td>STEP</td>
+                            <td>Flow/Map Element</td>
+                            <td>The Map Element is a Step implementation that can be used for simple steps in your Flow. The Step implementation has specific Map Element features that can be used - check out the <a href="mapelement.html">Map Element</a> documentation.</td>
+                        </tr>
+                        <tr>
+                            <td>INPUT</td>
+                            <td>Flow/Map Element</td>
+                            <td>The Map Element is a Input implementation that can be used to show the user your Page Elements and also execute messages. The Input implementation has specific Map Element features that can be used - check out the <a href="mapelement.html">Map Element</a> documentation.</td>
+                        </tr>
+                        <tr>
+                            <td>DECISION</td>
+                            <td>Flow/Map Element</td>
+                            <td>The Map Element is a Decision implementation that can be used to execute logic within your Flow. The Decision implementation has specific Map Element features that can be used - check out the <a href="mapelement.html">Map Element</a> documentation.</td>
+                        </tr>
+                        <tr>
+                            <td>OPERATOR</td>
+                            <td>Flow/Map Element</td>
+                            <td>The Map Element is a Operator implementation that can be used to make changes to Values in your Flow. The Operator implementation has specific Map Element features that can be used - check out the <a href="mapelement.html">Map Element</a> documentation.</td>
+                        </tr>
+                        <tr>
+                            <td>MESSAGE</td>
+                            <td>Flow/Map Element</td>
+                            <td>The Map Element is a Message implementation that can be used to call APIs on a Service to perform synchronous and asynchronous jobs. The Message implementation has specific Map Element features that can be used - check out the <a href="mapelement.html">Map Element</a> documentation.</td>
+                        </tr>
+                        <tr>
+                            <td>DATABASE_LOAD</td>
+                            <td>Flow/Map Element</td>
+                            <td>The Map Element is a Database Load implementation that can be used to load data into Values in your Flow from a Service. The Database Load implementation has specific Map Element features that can be used - check out the <a href="mapelement.html">Map Element</a> documentation.</td>
+                        </tr>
+                        <tr>
+                            <td>DATABASE_SAVE</td>
+                            <td>Flow/Map Element</td>
+                            <td>The Map Element is a Database Save implementation that can be used to save data from Values in your Flow to a Service. The Database Save implementation has specific Map Element features that can be used - check out the <a href="mapelement.html">Map Element</a> documentation.</td>
+                        </tr>
+                        <tr>
+                            <td>DATABASE_DELETE</td>
+                            <td>Flow/Map Element</td>
+                            <td>The Map Element is a Database Delete implementation that can be used to delete data using Values in your Flow in a Service. The Database Delete implementation has specific Map Element features that can be used - check out the <a href="mapelement.html">Map Element</a> documentation.</td>
+                        </tr>
+                        <tr>
+                            <td>SWIMLANE</td>
+                            <td>Flow/Group Element</td>
+                            <td>The Group Element is a Swimlane implementation that can be used to configure specific authorization rights in parts of your Flow. The Swimlane implementation has specific Group Element features that can be used - check out the <a href="groupelement.html">Group Element</a> documentation.</td>
+                        </tr>
+                    </table>
+
                 </section>
 
             </div>

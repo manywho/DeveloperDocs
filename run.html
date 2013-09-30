@@ -655,6 +655,7 @@
     "mapElementInvokeResponses":[
         {
             "mapElementId":"d16367c1-93cd-4ad2-9b42-d9fd9265f3d0",
+            "developerName":"My Step",
             "pageResponse":{
                 "label":"Do Stuff",
                 "pageContainerResponses":[
@@ -714,18 +715,18 @@
                     }
                 ],
                 "order"0
-                "outcomeResponses":[
-                    {
-                        "id":"56da02c1-b67f-49d0-80ed-19ffd4d3a282",
-                        "developerName":null,
-                        "label":"Stuff",
-                        "formActionBinding":"SAVE",
-                        "formElementBindingId":null,
-                        "order":0
-                    }
-                ],
-                "rootFaults"null
-            }
+            },
+            "outcomeResponses":[
+                {
+                    "id":"56da02c1-b67f-49d0-80ed-19ffd4d3a282",
+                    "developerName":null,
+                    "label":"Stuff",
+                    "formActionBinding":"SAVE",
+                    "formElementBindingId":null,
+                    "order":0
+                }
+            ],
+            "rootFaults"null
         }
     ],
     "stateLog":null,
@@ -1419,11 +1420,34 @@
         <td>The unique identifier for the map element this response pertains to.</td>
     </tr>
     <tr>
+        <td>developerName</td>
+        <td>String</td>
+        <td>The developer name for the map element this response pertains to.</td>
+    </tr>
+    <tr>
         <td>pageResponse</td>
         <td>Object: <a href="#pageresponseobject">Page Response Object</a></td>
         <td>The meta data object for the page. This object should be used to generate the UI that will be presented to
             the user. If the map element invoke response contains a pageResponse object, then the engine is expecting
             the user to take action to progress the state of the flow.
+        </td>
+    </tr>
+    <tr>
+        <td>outcomeResponses</td>
+        <td>Array: <a href="#outcomeresponseobject">Outcome Response Object</a></td>
+        <td>(Optional) The outcome response objects are the actions that can be performed by the user to navigate the
+            flow from element to element. Outcome responses can be bound to page components to add additional context to
+            the action (e.g. the button should appear beside a field input, above a table of records, etc)
+        </td>
+    </tr>
+    <tr>
+        <td>rootFaults</td>
+        <td>Map</td>
+        <td>(Optional) Key value pairs taking the form of {"errorCode":"errorMessage"}. The root faults are populated if
+            a fault has occurred that is not attributed to a specific value on the page. A root fault is often due to an
+            element in the flow experiencing a fault and the author of the flow has determined that the user should be
+            navigated to this page to rectify the problem. If an error is attributed to a value in the state, it will be
+            bound to the page component as a validation error message.
         </td>
     </tr>
 </table>
@@ -1485,24 +1509,6 @@
         <td>Integer</td>
         <td>(Optional) The order in which this page element should appear. The order will always be zero for the page
             element as it is the root container.
-        </td>
-    </tr>
-    <tr>
-        <td>outcomeResponses</td>
-        <td>Array: <a href="#outcomeresponseobject">Outcome Response Object</a></td>
-        <td>(Optional) The outcome response objects are the actions that can be performed by the user to navigate the
-            flow from element to element. Outcome responses can be bound to page components to add additional context to
-            the action (e.g. the button should appear beside a field input, above a table of records, etc)
-        </td>
-    </tr>
-    <tr>
-        <td>rootFaults</td>
-        <td>Map</td>
-        <td>(Optional) Key value pairs taking the form of {"errorCode":"errorMessage"}. The root faults are populated if
-            a fault has occurred that is not attributed to a specific value on the page. A root fault is often due to an
-            element in the flow experiencing a fault and the author of the flow has determined that the user should be
-            navigated to this page to rectify the problem. If an error is attributed to a value in the state, it will be
-            bound to the page component as a validation error message.
         </td>
     </tr>
 </table>
