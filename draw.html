@@ -105,9 +105,93 @@
 
                     <h1>Intro</h1>
 
-                    <p>Something about the draw API.</p>
+                    <p>The draw APIs should be used when modeling your Flows directly against the ManyWho APIs. Why would you do that? A few reasons:</p>
+                    <ol>
+                        <li>Our tooling does not currently expose the full functionality of the engine. As a result, there are more things you can build using our APIs than you can in our tooling. That's because we're an 'API first' platform and our tooling always has a slight lag behind our API releases.</li>
+                        <li>Though we want to make building apps as simple as possible, sometimes things get too complicated for our point-and-click tooling users. As a result, developers can use our APIs to fill in extra features and functionality after the point-and-click users have set out the structure and validated the overall principles of the Flow/app.</li>
+                        <li>If, for any reason, you don't like our tooling and would like to build your own - perhaps for specialized use-cases and verticals or to bundle into your existing solutions - you can use these APIs to do everything you need. Make sure you also check our our tooling code in <a href="https://github.com/manywho" target="_blank">GitHub</a> - it's all <a href="http://manywho.com/sharedsource" target="_blank">shared source</a>, so feel free to fork it.</li>
+                        <li>You can use our APIs to port any existing applications or metadata from your existing service provider to ours. We've made sure our APIs are open so you're always in control of your applications and data.</li>
+                    </ol>
+
+                    <p>The documentation is broken into sections by Element. Make sure you check out the details of each Element before doing too much - it's important you get a good sense of our architecture. We hope you love it as much as we do.</p>
 
                     <hr class="bs-docs-separator">
+
+                    <h1>Architecture Overview</h1>
+
+                    <p>Here's a high level overview of the architecture by Element. We'll start at the bottom and move up:</p>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2>Service Elements</h2>
+
+                    <p>The <a href="serviceelement.html">Service Element</a> is used to connect to existing services and databases. These are the connectors that allow your Flows to work with other applications and embed those application services
+                        into your Flows. Currently ManyWho supports the following integration services:
+                    </p>
+                    <ul>
+                        <li><b>Database</b>: The ability to connect to a remote data source and perform save, load and delete operations.</li>
+                        <li><b>Files</b>: The ability to expose files stored in an external repository from within your Flow applications. This also allows users to upload and manage files through your Flow application.</li>
+                        <li><b>Social Graph</b>: The ability to embed a social network feed into your application. This enables much richer collaboration within your Flow applications and helps increase adoption.</li>
+                        <li><b>Identity</b>: For many customers, you will already have a directory of users in place. This allows you to re-use your existing identity system rather than creating yet another user repository.</li>
+                        <li><b>Location</b>: The functionality for location is not yet released, but will soon allow you to tap into location services not provided by our platform. Location is increasingly a key tenant of any modern application.</li>
+                        <li><b>Logic</b>: For many integrations, there are core API calls and pieces of logic that are better left in code. You can use the Service Element to integrate with existing application logic - written in any language.</li>
+                        <li><b>User Interface</b>: Some applications may have user interface elements that would be useful to re-use within your Flow applications. This service allows you to embed existing user interface rather than creating it from scratch on the ManyWho platform.</li>
+                    </ul>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2>Type Elements</h2>
+
+                    <p>The <a href="typeelement.html">Type Element</a> is used to create your own 'business objects' that represent the things that your business deals with most. For example, you'll likely have a Type for: Customer, Order, Invoice
+                        Product, etc. Once you define your Types, you can then easily build applications that all leverage them in a standard way. Types can also be 'bound' to backend systems (using the Service) to be saved, loaded and
+                        deleted.
+                    </p>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2>Value Elements</h2>
+
+                    <p>The <a href="valueelement.html">Value Element</a> is used to create instances of your Type. For example, you may have two policy holders in your application. Each policy holder would be of Type 'Customer' - i.e. they'd
+                        both have the same structure of First Name, Last Name, etc. Values are a place to store data. You can then save this data back through to your backend systems using the Service. The Type
+                        defines the mapping of your Flow data to the backend database.
+                    </p>
+
+                    <p>The <a href="valueelement.html">Value Element</a> can also be used to store simple data such as Strings, Dates, Numbers, etc that you may need to use in your Flow application.
+                    </p>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2>Tag Elements</h2>
+
+                    <p>The <a href="tagelement.html">Tag Element</a> is used to augment the Page Elements by 'tagging' certain aspects of your user interface with additional metadata.
+                    </p>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2>Page Elements</h2>
+
+                    <p>The <a href="pageelement.html">Page Element</a> is used to set out the structure and logic of your Pages. A Page is used to present user interface to the users of your Flow application. The structure is very similar to
+                        how you set out the structure of a standard HTML5 web page. However, you can also include rules and logic in your Pages to make sure the user is having the best possible (and most optimized)
+                        experience when using your Flow application.
+                    </p>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2>Map Elements</h2>
+
+                    <p>The <a href="mapelement.html">Map Element</a> is a standard component for all executable Elements in your Flow applications. As a result, the Map Element serves many purposes. It can be used to presend Pages to the user,
+                        to execute decisions and logical operations, call external APIs as messages to third party applications and manipulate data by saving, loading and deleting. The Map Element therefore forms
+                        the core logic of your Flow applications and it's how you connect the Map Elements together that make the application function.
+                    </p>
+
+                    <hr class="bs-docs-separator">
+
+                    <h2>Group Elements</h2>
+
+                    <p>The <a href="groupelement.html">Group Element</a> is a standard container for all wrapper Elements in your Flow applications. As a result, the Group Element, like the Map Element serves many purposes. Currently, the Group
+                        Element only supports the Swimlane configuration - which allows you to set specific access and control rights to areas of your Flow application. In future, the Group Element will allow further
+                        functionality.
+                    </p>
 
                 </section>
 
